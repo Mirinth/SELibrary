@@ -72,17 +72,47 @@ namespace SELibrary
         }
 
         /// <summary>
+        /// The item's unique ID.
+        /// </summary>
+        public uint MediaID
+        {
+            get; private set;
+        }
+
+        /// <summary>
         /// Gets the date the media is due.
         /// </summary>
         /// <exception cref="InvalidOperationException">
         /// Thrown if the media is not currently checked out.
         /// </exception>
-        public DateTime Due
+        public DateTime DueDate
         {
             get; private set;
         }
 
-        public Media(MediaType mType)
+        /// <summary>
+        /// The author of the work.
+        /// </summary>
+        public string Author
+        {
+            get; private set;
+        }
+
+        /// <summary>
+        /// The title of the work.
+        /// </summary>
+        public string Title
+        {
+            get; private set;
+        }
+
+        /// <summary>
+        /// Initializes a media object.
+        /// </summary>
+        /// <param name="mType">The type of the media.</param>
+        /// <param name="mAuthor">The author of the work.</param>
+        /// <param name="mTitle">The title of the work.</param>
+        public Media(MediaType mType, string mAuthor, string mTitle, string mIsbn)
         {
             throw new NotImplementedException();
         }
