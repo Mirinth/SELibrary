@@ -1,10 +1,12 @@
-[[ Bad file handling. ]]
+[[ Database. ]]
 What if I pick a media database that's...
 - nothing?
 - a file that doesn't exist?
 - a folder?
 - an empty file?
 - a corrupted file?
+Will everything save when the program closes?
+What if I delete the database file while the program is running?
 
 [[ Loan time restrictions. ]]
 Do I get to pick the loan times?
@@ -74,10 +76,12 @@ What if I set the date to...
 - January 1, 1 BC
 - 3.14159
 - Yesterday
+What if I don't change the date at all and use its default?
 
 [[ GUI. ]]
 What if I just click the buttons without entering any input?
 Can I use the keyboard to navigate? (I'm blind.)
+Does the quit button work?
 
 [[ Misc. ]]
 Can the library have two copies of something?
@@ -92,9 +96,21 @@ Can John Doe check out six copies of Ima Teacher's "How to Read"?
 [[ Media addition/removal. ]]
 [[ Optional requirement. ]]
 Can I add new books to the database?
+Can I remove books from the database?
 Can I add new DVDs to the database?
+Can I remove DVDs from the database?
 Can I add new videos to the database?
+Can I remove videos from the database?
 What if I leave the title blank?
 What if I make the title a million characters long?
 What if I leave the author blank?
 What if I make the author's name a million character's long?
+
+[[ Patron addition/removal. ]]
+[[ Optional requirement. ]]
+Can I add new patrons to the database?
+Can I remove patrons from the database?
+What if I leave the patron's name blank?
+What if the patron's name is really short?
+What if the patron's name is really long?
+What if there are two patrons with the same name?
