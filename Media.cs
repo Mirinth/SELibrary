@@ -121,11 +121,13 @@ namespace SELibrary
         /// Checks the media out to a patron.
         /// </summary>
         /// <param name="toPatron">
-        /// The ID of the patron to check the media out to.</param>
+        /// The ID of the patron to check the media out to.
+        /// </param>
+        /// <param name="dueDate">The date the media will be due.</param>
         /// <exception cref="InvalidOperationException">
         /// Thrown if the media is already checked out.
         /// </exception>
-        public void CheckOut(uint toPatron)
+        public void CheckOut(uint toPatron, DateTime dueDate)
         {
             throw new NotImplementedException();
         }
