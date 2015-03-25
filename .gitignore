@@ -69,3 +69,4 @@ packages/
 *.chk
 SELibrary/SELibrary.sln.ide/storage.ide
 SELibrary/SELibrary.sln.ide/storage.ide
+*.ide
