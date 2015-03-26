@@ -5,7 +5,7 @@ namespace SELibrary
     /// <summary>
     /// Enumerates media types in the library's collection.
     /// </summary>
-    enum MediaType
+    public enum MediaType
     {
         Book,
         DVD,
@@ -15,7 +15,7 @@ namespace SELibrary
     /// <summary>
     /// Enumerates media ratings handled by the library
     /// </summary>
-    enum MediaRating
+    public enum MediaRating
     {
         Everyone,
         Adult
@@ -24,7 +24,7 @@ namespace SELibrary
     /// <summary>
     /// Represents a media item in the library.
     /// </summary>
-    class Media
+    public class Media
     {
         /// <summary>
         /// Gets the media's type.
