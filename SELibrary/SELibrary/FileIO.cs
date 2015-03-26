@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 
-namespace CS2450_Library_Software
+namespace SELibrary
 {
     class FileIO
     {
