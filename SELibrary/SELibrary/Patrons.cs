@@ -21,7 +21,7 @@ namespace SELibrary
             pName = name;
             pAge = age;
             pType = type;
-            mediaCheckoutOut = new List<Media>;
+            mediaCheckoutOut = new List<Media>();
         }
 
         //Delete Media To Patron
