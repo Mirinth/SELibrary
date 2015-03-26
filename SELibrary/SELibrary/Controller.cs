@@ -7,7 +7,7 @@ namespace SELibrary
     /// Enumerates the various error conditions the BusinessRules
     /// object can encounter while servicing requests.
     /// </summary>
-    enum ErrorMessage
+    enum ErrorCode
     {
         // none so far
     }
@@ -23,7 +23,7 @@ namespace SELibrary
         /// The event raised when the BusinessRules encounteres
         /// an error while trying to service a request.
         /// </summary>
-        public static event Action<ErrorMessage> ErrorEncountered;
+        public static event Action<ErrorCode> ErrorEncountered;
 
         /// <summary>
         /// Gets the current date, according to the BusinessRules
@@ -42,14 +42,14 @@ namespace SELibrary
             // to a method that does nothing since the BusinessRules
             // doesn't really care when the events occur right now.
             DateChanged = new Action<DateTime>((x) => { return; });
-            ErrorEncountered = new Action<ErrorMessage>((x) => { return; });
+            ErrorEncountered = new Action<ErrorCode>((x) => { return; });
         }
 
         /// <summary>
         /// Reports an error encountered while processing a request.
         /// </summary>
         /// <param name="em">An ErrorCode describing the error.</param>
-        public static void ReportError(ErrorMessage em)
+        public static void ReportError(ErrorCode ec)
         {
             throw new NotImplementedException();
         }
