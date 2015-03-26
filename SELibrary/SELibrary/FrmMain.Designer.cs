@@ -28,38 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.LstBookList = new System.Windows.Forms.ListBox();
+            this.CBoxPatron = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.CBoxBook = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.TxtDate = new System.Windows.Forms.TextBox();
+            this.BtnDayForward = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.RdoListNone = new System.Windows.Forms.RadioButton();
+            this.RdoListByPatron = new System.Windows.Forms.RadioButton();
+            this.RdoListOverdue = new System.Windows.Forms.RadioButton();
+            this.RdoListAll = new System.Windows.Forms.RadioButton();
+            this.BtnCheckOut = new System.Windows.Forms.Button();
+            this.BtnCheckIn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listBox1
+            // LstBookList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 221);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(574, 212);
-            this.listBox1.TabIndex = 0;
+            this.LstBookList.FormattingEnabled = true;
+            this.LstBookList.Location = new System.Drawing.Point(12, 221);
+            this.LstBookList.Name = "LstBookList";
+            this.LstBookList.Size = new System.Drawing.Size(574, 212);
+            this.LstBookList.TabIndex = 0;
             // 
-            // comboBox1
+            // CBoxPatron
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 64);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(574, 21);
-            this.comboBox1.TabIndex = 1;
+            this.CBoxPatron.FormattingEnabled = true;
+            this.CBoxPatron.Location = new System.Drawing.Point(12, 64);
+            this.CBoxPatron.Name = "CBoxPatron";
+            this.CBoxPatron.Size = new System.Drawing.Size(574, 21);
+            this.CBoxPatron.TabIndex = 1;
             // 
             // label1
             // 
@@ -79,13 +79,13 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Book";
             // 
-            // comboBox2
+            // CBoxBook
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(12, 104);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(574, 21);
-            this.comboBox2.TabIndex = 4;
+            this.CBoxBook.FormattingEnabled = true;
+            this.CBoxBook.Location = new System.Drawing.Point(12, 104);
+            this.CBoxBook.Name = "CBoxBook";
+            this.CBoxBook.Size = new System.Drawing.Size(574, 21);
+            this.CBoxBook.TabIndex = 4;
             // 
             // label3
             // 
@@ -96,22 +96,22 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Today\'s date";
             // 
-            // textBox1
+            // TxtDate
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(12, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(218, 20);
-            this.textBox1.TabIndex = 6;
+            this.TxtDate.Enabled = false;
+            this.TxtDate.Location = new System.Drawing.Point(12, 25);
+            this.TxtDate.Name = "TxtDate";
+            this.TxtDate.Size = new System.Drawing.Size(218, 20);
+            this.TxtDate.TabIndex = 6;
             // 
-            // button1
+            // BtnDayForward
             // 
-            this.button1.Location = new System.Drawing.Point(236, 23);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Forward one day >>";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnDayForward.Location = new System.Drawing.Point(236, 23);
+            this.BtnDayForward.Name = "BtnDayForward";
+            this.BtnDayForward.Size = new System.Drawing.Size(128, 23);
+            this.BtnDayForward.TabIndex = 7;
+            this.BtnDayForward.Text = "Forward one day >>";
+            this.BtnDayForward.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -122,87 +122,87 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "List books:";
             // 
-            // radioButton1
+            // RdoListNone
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(12, 196);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(51, 17);
-            this.radioButton1.TabIndex = 9;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "None";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.RdoListNone.AutoSize = true;
+            this.RdoListNone.Checked = true;
+            this.RdoListNone.Location = new System.Drawing.Point(12, 196);
+            this.RdoListNone.Name = "RdoListNone";
+            this.RdoListNone.Size = new System.Drawing.Size(51, 17);
+            this.RdoListNone.TabIndex = 9;
+            this.RdoListNone.TabStop = true;
+            this.RdoListNone.Text = "None";
+            this.RdoListNone.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // RdoListByPatron
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(266, 196);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(116, 17);
-            this.radioButton2.TabIndex = 10;
-            this.radioButton2.Text = "All loaned to patron";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.RdoListByPatron.AutoSize = true;
+            this.RdoListByPatron.Location = new System.Drawing.Point(266, 196);
+            this.RdoListByPatron.Name = "RdoListByPatron";
+            this.RdoListByPatron.Size = new System.Drawing.Size(116, 17);
+            this.RdoListByPatron.TabIndex = 10;
+            this.RdoListByPatron.Text = "All loaned to patron";
+            this.RdoListByPatron.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // RdoListOverdue
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(158, 196);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(78, 17);
-            this.radioButton3.TabIndex = 11;
-            this.radioButton3.Text = "All overdue";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.RdoListOverdue.AutoSize = true;
+            this.RdoListOverdue.Location = new System.Drawing.Point(158, 196);
+            this.RdoListOverdue.Name = "RdoListOverdue";
+            this.RdoListOverdue.Size = new System.Drawing.Size(78, 17);
+            this.RdoListOverdue.TabIndex = 11;
+            this.RdoListOverdue.Text = "All overdue";
+            this.RdoListOverdue.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // RdoListAll
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(93, 196);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(36, 17);
-            this.radioButton4.TabIndex = 12;
-            this.radioButton4.Text = "All";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.RdoListAll.AutoSize = true;
+            this.RdoListAll.Location = new System.Drawing.Point(93, 196);
+            this.RdoListAll.Name = "RdoListAll";
+            this.RdoListAll.Size = new System.Drawing.Size(36, 17);
+            this.RdoListAll.TabIndex = 12;
+            this.RdoListAll.Text = "All";
+            this.RdoListAll.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // BtnCheckOut
             // 
-            this.button2.Location = new System.Drawing.Point(93, 131);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Check out";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnCheckOut.Location = new System.Drawing.Point(93, 131);
+            this.BtnCheckOut.Name = "BtnCheckOut";
+            this.BtnCheckOut.Size = new System.Drawing.Size(75, 23);
+            this.BtnCheckOut.TabIndex = 13;
+            this.BtnCheckOut.Text = "Check out";
+            this.BtnCheckOut.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // BtnCheckIn
             // 
-            this.button3.Location = new System.Drawing.Point(12, 131);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Check in";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BtnCheckIn.Location = new System.Drawing.Point(12, 131);
+            this.BtnCheckIn.Name = "BtnCheckIn";
+            this.BtnCheckIn.Size = new System.Drawing.Size(75, 23);
+            this.BtnCheckIn.TabIndex = 14;
+            this.BtnCheckIn.Text = "Check in";
+            this.BtnCheckIn.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 445);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.BtnCheckIn);
+            this.Controls.Add(this.BtnCheckOut);
+            this.Controls.Add(this.RdoListAll);
+            this.Controls.Add(this.RdoListOverdue);
+            this.Controls.Add(this.RdoListByPatron);
+            this.Controls.Add(this.RdoListNone);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.BtnDayForward);
+            this.Controls.Add(this.TxtDate);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.CBoxBook);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.listBox1);
-            this.Name = "Form1";
+            this.Controls.Add(this.CBoxPatron);
+            this.Controls.Add(this.LstBookList);
+            this.Name = "FrmMain";
             this.Text = "Book Manager";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -211,21 +211,21 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ListBox LstBookList;
+        private System.Windows.Forms.ComboBox CBoxPatron;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox CBoxBook;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox TxtDate;
+        private System.Windows.Forms.Button BtnDayForward;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.RadioButton RdoListNone;
+        private System.Windows.Forms.RadioButton RdoListByPatron;
+        private System.Windows.Forms.RadioButton RdoListOverdue;
+        private System.Windows.Forms.RadioButton RdoListAll;
+        private System.Windows.Forms.Button BtnCheckOut;
+        private System.Windows.Forms.Button BtnCheckIn;
     }
 }
 
