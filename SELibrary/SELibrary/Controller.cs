@@ -12,7 +12,7 @@ namespace SELibrary
         // none so far
     }
 
-    static class BusinessRules
+    static class Controller
     {
         /// <summary>
         /// The event raised when the date changes.
@@ -33,7 +33,7 @@ namespace SELibrary
         /// <summary>
         /// Initializes the BusinessRules object.
         /// </summary>
-        static BusinessRules()
+        static Controller()
         {
             CurrentDate = new DateTime(2015, 1, 1);
 
