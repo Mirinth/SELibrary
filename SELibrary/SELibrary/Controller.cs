@@ -46,6 +46,15 @@ namespace SELibrary
         }
 
         /// <summary>
+        /// Reports an error encountered while processing a request.
+        /// </summary>
+        /// <param name="em">An ErrorCode describing the error.</param>
+        public static void ReportError(ErrorMessage em)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Checks out the given item to the given patron.
         /// </summary>
         /// <param name="item">The item to check out.</param>
