@@ -45,12 +45,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller.cs" />
+    <Compile Include="FileIO.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListInfo.cs" />
     <Compile Include="Media.cs" />
     <Compile Include="Patrons.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
