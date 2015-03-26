@@ -153,5 +153,15 @@ namespace SELibrary
         {
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        /// Converts the object to its string representation.
+        /// </summary>
+        /// <returns>The string representation of the object.</returns>
+        public override string ToString()
+        {
+            const string TO_STRING_FORMAT = "{0}: {1}, by {2}";
+            return string.Format(TO_STRING_FORMAT, MediaID, Title, Author);
+        }
     }
 }
