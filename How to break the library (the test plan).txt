@@ -1,116 +1,154 @@
-[[ Database. ]]
-What if I pick a media database that's...
-- nothing?
-- a file that doesn't exist?
-- a folder?
-- an empty file?
-- a corrupted file?
-Will everything save when the program closes?
-What if I delete the database file while the program is running?
+Requirement 1:
+- The book data is stored in a file (poor man’s database).
+Tests:
+- This is covered by the tests for requirements 2 and 3.
+Non-tests:
+- The specific format of the file will not be tested. As long the data can be accurately stored and retrieved, the format doesn't matter.
 
-[[ Loan time restrictions. ]]
-Do I get to pick the loan times?
-Do adult books get checked out for 2 weeks?
-Do children's books get checked out for 1 week?
-Do DVDs get checked out for 2 days?
-Do videos get checked out for 3 days?
-[[ Above should all be yes except picking. ]]
-[[ Dont let me pick or I promise I'll pick wrong. ]]
+Requirement 2:
+- When the program starts, it reads the data from the file.
+- - Allow the user to select the file name.
+Tests:
+- Does the program ask for a file name when first started?
+- Does the program accept the file name given by the user (not ignoring it)?
+- - Does the program reject non-database files?
+- - Does the program reject nonexistent files?
+- - Does the program reject corrupted files?
+- - Does the program reject inaccessible files?
+- - Does the program reject illegal path names, like "Path<Contains|Bad}Chars"?
+- Does the program fail gracefully if the database is rejected?
+- - Does the program display an error message?
+- - Does the program request a different database on failure?
+- Is the data loaded from the file the same as what was stored?
+Not testing:
+- Changing file permissions while reading
+- Deleting the file while reading
+- Modifying the file while reading
 
-[[ Rating restrictions. ]]
-Can I cneck out...
-- an adult item to a child?
-- a child item to a child?
-- an adult item to an adult?
-- a child item to an adult?
+Requirement 3:
+- When the program exits, it writes the data back out to the file.
+Tests:
+- Is the database file updated when the program exits?
+- Will the tests for requirement 2 pass for the written file?
+- Does the program fail gracefully if the database is deleted between loading and saving?
+- - Does it display an error message?
 
-[[ Quantity restrictions. ]]
-Can adults check out 6 items?
-Can children check out 3 items?
-[[ Should be yes for both. ]]
-Can adults check out 7 items?
-Can children check out 4 items?
-[[ Should be no for both. ]]
+Requirement 4:
+- Checkout times:
+- - Adult books can be checked out for 2 weeks
+- - Children's books can be checked out for 1 week
+- All DVDs can be checked out for 2 days
+- All videos can be checked out for 3 days
+Tests:
+- Does the program check out adult books for exactly 2 weeks?
+- Does the program check out children's books for exactly 1 week?
+- Does the program check out DVDs for exactly 2 days?
+- Does the program check out videos for exactly 3 days?
 
-[[ Checkout/in handling. ]]
-Can I check out books?
-Can I check out DVDs?
-Can I check out videos?
-What if I check out an item that's already checked out?
-What if I check in an item that's already checked in?
-What if I check an item out to nobody (blank)?
-What if I check an item out to someone who doesn't exist?
-What if I check out a blank item?
-What if I check out an item that doesn't exist?
+Requirement 5:
+- Checkout quantities:
+- - Adults can check out up to 6 books at a time
+- - Children can check out up to 3 books at a time
+Tests:
+- Will the program check out up to 6 items to an adult?
+- Will the program refuse to check out 7 or more items to an adult?
+- Will the program check out up to 3 items to a child?
+- Will the program refuse to check out 4 or more items to a child?
 
-[[ Status list. ]]
-Can I view the status list?
-What if the list is empty?
-What if there are checked out items?
-What if there are checked in items?
-What if there are checked out *and* checked in items?
-Are all the books shown?
+Requirement 6:
+- Adults and children may check books out and check them back in.
+Tests:
+- Most tests covered by requirements 5 & 6.
+- Is it easy to figure out how to check items out and back in?
 
-[[ Overdue list. ]]
-Can I view the overdue list?
-What if all the books are checked in?
-What if all the books are checked out?
-What if everything is overdue?
-What if nothing is overdue?
-What if some are overdue and some aren't?
-Are any checked in books shown?
-Are any not-due-yet books shown?
-Are *all* overdue books shown?
+Requirement 7:
+- The user is displayed a list of available patrons and media to choose from while checking items in and out.
+Tests:
+- Is the list of media visible to the user?
+- Is the list of media accurate?
+- Is the list of patrons visible to the user?
+- Is the list of patrons accurate?
 
-[[ Date picker. ]]
-Can I change the date?
-What if I set the date to...
-- (nothing)
--     	 (whitespace)
-- Jupiter
-- July
-- 5
-- July 5
-- July 5 2015
-- July 5 3015
-- January 1, 1 BC
-- 3.14159
-- Yesterday
-What if I don't change the date at all and use its default?
+Requirement 8:
+- Checked out items may not be checked out ("duh")
+Tests:
+- Will the program refuse to check out an item that is already checked out?
+- Will the program allow the item to be checked out again once it's checked in?
 
-[[ GUI. ]]
-What if I just click the buttons without entering any input?
-Can I use the keyboard to navigate? (I'm blind.)
-Does the quit button work?
+Requirement 9:
+- The user can view a list of all items and their status.
+Tests:
+- Can the user view a list of all items?
+- Does the list include the status of each items?
+- Is the list accurate?
+- Is the list complete?
+- Is it easy to find out how to generate the list?
 
-[[ Misc. ]]
-Can the library have two copies of something?
-What if they're both checked in?
-What if one is checked out?
-What if they're both checked out?
-- To different people?
-- To the same person?
-Can John Doe check out six copies of Ima Teacher's "How to Read"?
-- *Should* he be able to?
+Requirement 10:
+- The user can view a list of all overdue items
+Tests:
+- Can the user view a list of all overdue items?
+- Is the list accurate (no non-overdue items)?
+- Is the list complete?
+- Is it easy to find out how to generate the list?
+- Will the program work correctly if there are no overdue items?
 
-[[ Media addition/removal. ]]
-[[ Optional requirement. ]]
-Can I add new books to the database?
-Can I remove books from the database?
-Can I add new DVDs to the database?
-Can I remove DVDs from the database?
-Can I add new videos to the database?
-Can I remove videos from the database?
-What if I leave the title blank?
-What if I make the title a million characters long?
-What if I leave the author blank?
-What if I make the author's name a million character's long?
+Requirement 11:
+- The user can view a list of all items checked out to a specific patron
+Tests:
+- Can the user view a list of all books loaned to a specific patron?
+- Is the list accurate (no items checked out to other patrons included)?
+- Is the list complete?
+- Is it easy to find out how to generate the list?
+- Will the program work correctly if a patron has no items?
 
-[[ Patron addition/removal. ]]
-[[ Optional requirement. ]]
-Can I add new patrons to the database?
-Can I remove patrons from the database?
-What if I leave the patron's name blank?
-What if the patron's name is really short?
-What if the patron's name is really long?
-What if there are two patrons with the same name?
+Requirement 12:
+- Allow the date to be advanced, one day at a time, to simulate time passing.
+Tests:
+- Can the date be advanced?
+- Does the date advance exactly 1 day at a time?
+- Does the new date affect other time-sensitive features?
+
+Requirement 13:
+- The user might appreciate if the interface was usable.
+Tests:
+- Are error messages easy to understand, accurate, and descriptive?
+- Given an arbitrary patron at the counter or media item in hand, can the user easily locate the correct patron or media in the lists?
+- Is it clear what the various media lists are and how to generate them?
+- Is it clear what the various drop-down menus are for?
+- - e.g. is it clear that the list of patrons is a list of patrons?
+- Is it clear what the buttons do?
+- Does the program say when lists are empty? The user might otherwise assume the program failed somehow when presented with an empty list.
+- Scenario: The user wants to check out item 10098_8_987332, and accidentally types 10098_9_987332. The program informs the user that the item is already checked out. The user assumes the item simply failed to check in, instructs the program to check it back in and then out to the new patron. The old patron now has a free book and the new one is stuck paying for it. Will the program assist the librarian in preventing this situation?
+
+Requirement 14:
+- The program should handle multiple patrons with the same name and age, because it's only a matter of time until two people like that show up.
+Tests:
+- Give it a database with duplicate patrons.
+
+Requirement 15:
+- If the library is going to have multiple copies of popular items, it will need to handle duplicates.
+Tests:
+- Give it a database with duplicate media items.
+
+Requirement 16:
+- Graceful shutdown. Requirement 3 needs this.
+Tests:
+- Will the program close gracefully when the close button is clicked?
+
+Requirement 17:
+- Rating restrictions:
+- - Adults can check out any item (subject to quantity rules)
+- - Children can only check out children's items (subject to quantity rules)
+Tests:
+- Can adults check out adult items?
+- Can adults check out children's items?
+- Can children check out children's items?
+- Will the program refuse to check out adult items to children?
+
+Requirement 18:
+- Input validation
+Tests:
+- Will the program fail gracefully if given a patron or media item that doesn't exist?
+- Will the program work correctly if the user opens it up and immediately starts clicking buttons without entering any input?
+- Is an error message displayed?
