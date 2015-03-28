@@ -1,41 +1,61 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace SELibrary
 {
+    /// <summary>
+    /// Represents a patron of the library.
+    /// </summary>
     public class Patron
     {
-        const int MAX_ADULT = 6;
-        const int MAX_CHILD = 3;
-
-        private PATRONTYPE pType;
-        private string pName;
-        private int pAge;
-        private List<Media> mediaCheckoutOut;
-
-        //Constructor For Patron
-        public Patron(string name, int age, PATRONTYPE type)
+        /// <summary>
+        /// Gets the patron's name.
+        /// </summary>
+        public string Name
         {
-            pName = name;
-            pAge = age;
-            pType = type;
-            mediaCheckoutOut = new List<Media>();
+            get; private set;
         }
 
-        //Delete Media To Patron
-        public void CheckInBook(Media checkIn)
+        /// <summary>
+        /// Gets the patron's birthday.
+        /// </summary>
+        public DateTime Birthday
         {
-            
+            get; private set;
         }
 
-        //Add Media to Patron
-        public void CheckOutBook(Media checkout)
+        /// <summary>
+        /// Gets the number of items currently checked out
+        /// to the patron.
+        /// </summary>
+        public uint CheckoutCount
         {
-            //Check Age and Amount
+            get; private set;
+        }
+
+        /// <summary>
+        /// Initializes a new patron.
+        /// </summary>
+        /// <param name="patronName">The patron's name.</param>
+        /// <param name="patronBirthday">The patron's birthday.</param>
+        public Patron(string patronName, DateTime patronBirthday)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Checks out an item to the patron.
+        /// </summary>
+        public void CheckInItem()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Checks in an item from the patron.
+        /// </summary>
+        public void CheckOutItem()
+        {
+            throw new NotImplementedException();
         }
     }
-
-    public enum PATRONTYPE { ADULT, CHILD};
 }
