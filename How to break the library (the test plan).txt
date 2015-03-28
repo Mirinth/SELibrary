@@ -1,3 +1,32 @@
+Tools: 
+- Some test lists
+- Code unit tests
+- Some manual testing
+
+
+
+
+Timing:
+Requirements 2, 3 & 16 can be tested after FileIO reading/writing, Controller reading/writing, Patron, Media, and minimal UI are done. It isn't affected much by the presence or absence of other requirements.
+
+Requirements 4, 5, 6, & 17 can be tested after the UI and Controller support checkin/out.
+
+Requirements 7 & 8 can be tested as soon as Media, Patron, and minimal UI and Controller support is ready.
+
+Requirements 9, 10, 11 need support from the Database, UI, and Controller.
+
+Requirement 12 can be tested as time-sensitive features are implemented.
+
+Requirements 13 & 18 can be tested as the UI is developed.
+
+Requirements 14 and 15 will probably get most of their testing after the Database object is completed.
+
+
+
+
+
+
+
 Requirement 1:
 - The book data is stored in a file (poor man’s database).
 Tests:
@@ -58,8 +87,7 @@ Tests:
 Requirement 6:
 - Adults and children may check books out and check them back in.
 Tests:
-- Most tests covered by requirements 5 & 6.
-- Is it easy to figure out how to check items out and back in?
+- Tests covered by requirements 5 & 6.
 
 Requirement 7:
 - The user is displayed a list of available patrons and media to choose from while checking items in and out.
@@ -119,6 +147,7 @@ Tests:
 - - e.g. is it clear that the list of patrons is a list of patrons?
 - Is it clear what the buttons do?
 - Does the program say when lists are empty? The user might otherwise assume the program failed somehow when presented with an empty list.
+- Is it easy to figure out how to check items out and back in?
 - Scenario: The user wants to check out item 10098_8_987332, and accidentally types 10098_9_987332. The program informs the user that the item is already checked out. The user assumes the item simply failed to check in, instructs the program to check it back in and then out to the new patron. The old patron now has a free book and the new one is stuck paying for it. Will the program assist the librarian in preventing this situation?
 
 Requirement 14:
