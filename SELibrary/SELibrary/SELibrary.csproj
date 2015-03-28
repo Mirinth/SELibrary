@@ -52,7 +52,7 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListInfo.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="Media.cs" />
     <Compile Include="Patrons.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
