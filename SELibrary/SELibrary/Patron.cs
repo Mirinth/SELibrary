@@ -8,6 +8,14 @@ namespace SELibrary
     public class Patron
     {
         /// <summary>
+        /// Gets the patron's ID.
+        /// </summary>
+        public uint ID
+        {
+            get; private set;
+        }
+
+        /// <summary>
         /// Gets the patron's name.
         /// </summary>
         public string Name
@@ -37,7 +45,7 @@ namespace SELibrary
         /// </summary>
         /// <param name="patronName">The patron's name.</param>
         /// <param name="patronBirthday">The patron's birthday.</param>
-        public Patron(string patronName, DateTime patronBirthday)
+        public Patron(uint patronID, string patronName, DateTime patronBirthday)
         {
             throw new NotImplementedException();
         }
