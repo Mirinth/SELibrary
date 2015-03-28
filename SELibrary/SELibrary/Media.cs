@@ -27,6 +27,14 @@ namespace SELibrary
     public class Media
     {
         /// <summary>
+        /// Gets the media's rating (e.g. everyone, or adults only).
+        /// </summary>
+        public MediaRating Rating
+        {
+            get; private set;
+        }
+
+        /// <summary>
         /// Gets the media's type.
         /// </summary>
         public MediaType Type
@@ -35,9 +43,55 @@ namespace SELibrary
         }
 
         /// <summary>
+        /// The title of the work.
+        /// </summary>
+        public string Title
+        {
+            get; private set;
+        }
+
+        /// <summary>
+        /// The author of the work.
+        /// </summary>
+        public string Author
+        {
+            get; private set;
+        }
+
+        /// <summary>
+        /// The item's unique ID.
+        /// </summary>
+        public uint ID
+        {
+            get; private set;
+        }
+
+        /// <summary>
         /// Gets whether the media is currently loaned out to a patron.
         /// </summary>
         public bool IsBorrowed
+        {
+            get; private set;
+        }
+
+        /// <summary>
+        /// Gets the ID of the media's borrower.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if the media is not currently checked out.
+        /// </exception>
+        public uint Borrower
+        {
+            get; private set;
+        }
+
+        /// <summary>
+        /// Gets the date the media is due.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if the media is not currently checked out.
+        /// </exception>
+        public DateTime DueDate
         {
             get; private set;
         }
@@ -61,63 +115,6 @@ namespace SELibrary
         }
 
         /// <summary>
-        /// Gets the ID of the media's borrower.
-        /// </summary>
-        /// <exception cref="InvalidOperationException">
-        /// Thrown if the media is not currently checked out.
-        /// </exception>
-        public uint Borrower
-        {
-            get; private set;
-        }
-
-        /// <summary>
-        /// The item's unique ID.
-        /// </summary>
-        public uint MediaID
-        {
-            get; private set;
-        }
-
-        /// <summary>
-        /// Gets the date the media is due.
-        /// </summary>
-        /// <exception cref="InvalidOperationException">
-        /// Thrown if the media is not currently checked out.
-        /// </exception>
-        public DateTime DueDate
-        {
-            get; private set;
-        }
-
-        /// <summary>
-        /// The author of the work.
-        /// </summary>
-        public string Author
-        {
-            get; private set;
-        }
-
-        /// <summary>
-        /// The title of the work.
-        /// </summary>
-        public string Title
-        {
-            get; private set;
-        }
-
-        /// <summary>
-        /// Initializes a media object.
-        /// </summary>
-        /// <param name="mType">The type of the media.</param>
-        /// <param name="mAuthor">The author of the work.</param>
-        /// <param name="mTitle">The title of the work.</param>
-        public Media(MediaType mType, string mAuthor, string mTitle, string mIsbn)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
         /// Checks the media out to a patron.
         /// </summary>
         /// <param name="toPatron">
@@ -135,21 +132,21 @@ namespace SELibrary
         /// <summary>
         /// Checks the media in to the library.
         /// </summary>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if the item is already checked in.
+        /// </exception>
         public void CheckIn()
         {
             throw new NotImplementedException();
         }
 
         /// <summary>
-        /// Checks whether a patron can check out this media item.
+        /// Initializes a media object.
         /// </summary>
-        /// <param name="pType">
-        /// The most restricted rating the patron can check out.
-        /// </param>
-        /// <returns>
-        /// Whether a patron that can check out the given rating can check out this media.
-        /// </returns>
-        public bool IsRestricted(MediaRating rating)
+        /// <param name="mType">The type of the media.</param>
+        /// <param name="mAuthor">The author of the work.</param>
+        /// <param name="mTitle">The title of the work.</param>
+        public Media(MediaType mType, string mAuthor, string mTitle, string mIsbn)
         {
             throw new NotImplementedException();
         }
@@ -161,7 +158,7 @@ namespace SELibrary
         public override string ToString()
         {
             const string TO_STRING_FORMAT = "{0}: {1}, by {2}";
-            return string.Format(TO_STRING_FORMAT, MediaID, Title, Author);
+            return string.Format(TO_STRING_FORMAT, ID, Title, Author);
         }
     }
 }
