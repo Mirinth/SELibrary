@@ -77,17 +77,13 @@ The GNC (and Git) lets you make branches in your repository.
 Branching is similar to copying the whole project and working
 on the copy. This is useful because it lets you make changes
 to the copy without worrying that you'll break the original.
-We'll make a branch of the main repository so we don't break
-everyone else's work while we're learning.
+We'll use a tutorial branch so we don't break everyone else's
+work while we're learning.
 
-To make a new branch, click the `master V` (master, down arrow)
-button at the top left of the middle panel of the GNC. Type in
-a name for the new branch -- like `tutorial` -- and either click
-its name in the dropdown list or click the `Create New` button
-to make it.
-
-The GNC will make and switch to a new branch that you can
-safely experiment with.
+To use the tutorial branch, click the `master V` (master, down
+arrow) button at the top left of the middle panel of the GNC
+and click on the `tutorial` branch. The GNC will switch to the
+tutorial branch, which you can safely experiment with.
 
 ## Making and reviewing changes
 
@@ -148,7 +144,7 @@ later.
 
 This makes it easy to see how things changed, why they changed,
 and who changed them. It also makes it easy to undo changes that
-you only realized were bad after long after you made them.
+you only realized were bad long after you made them.
 
 When you make a commit, you'll need to add a summary to it. The
 summary is just a short, one line explanation of what you did.
@@ -161,11 +157,12 @@ but it's better if they're short enough to be all black.
 My strategy is that if my summaries are so long that the GNC
 turns the ends gray, I try to go back and break it up into 
 several small commits instead of one big one. The
-'Discard changes' feature helps me a lot with this. The
+`Discard changes` feature helps me a lot with this. The
 checkboxes next to each file name also help -- they let me
 exclude some files from the commit without actually discarding
 their changes, which is good if the changes in two different
-files aren't related.
+files aren't related. Then I can commit the other files in
+a different, smaller commit.
 
 Commits are just like objects: Their changes should have
 high cohesion (be strongly related) and low coupling
@@ -188,9 +185,11 @@ deleted one.
 
 When you've reviewed things, type in a summary in the center
 panel under the `Uncommitted changes` heading. Something like
-`Experiment` will do. You can add a longer, more detailed
-explanation in the `Description` field if you like, but it's
-optional. Only the summary is required.
+`Experiment` will do (note: you can try typing in a very long
+summary here if you want to see how the colors change when the
+GNC thinks the summary is too long). You can add a longer, more
+detailed explanation in the `Description` field if you like, but
+it's optional. Only the summary is required.
 
 Now click the `Commit to <repository>` button under the
 `Description` field to make your first commit.
@@ -207,7 +206,7 @@ The reason why is that you're working on your local
 repository on your computer, which is different from the
 central repository on Github's computers. It's also different
 from the local repositories on everyone else's computers.
-My repository won't see your commits either.
+My repository won't see your commits either, for example.
 
 If you want everyone else to see your changes, you have to
 sync your repository with the central one on Github.
@@ -228,7 +227,7 @@ match the ones on your computer. Nobody else will see the
 changes right away though. They'll have to sync their own
 repositories to get the changes you just uploaded. That goes
 for everyone. If you want to see the changes made by someone
-else, you have to sync first.
+else, you both have to sync first.
 
 ## Good and bad syncing
 
@@ -247,6 +246,19 @@ it less likely that someone else will stop you since they
 won't make as many breaking changes, and when they do, you
 won't see them until you're already done.
 
+My strategy is that I save my files frequently (each compile,
+because Visual Studio saves them automatically), make commits
+a little less frequently (about every 10 to 30 minutes), and
+sync less frequently (usually when I'm done coding for a while).
+
+## Switching back to the main branch
+
+We're just about done now, so it's time to switch back to the
+main branch. Click on the `tutorial V` button near the top left
+(where `master V` was earlier) and choose `master`. The GNC will
+switch all your files over to the `master` branch again, and
+you can start working on the code there with everyone else.
+
 ## Conclusion
 
 I think that covers the basics of using the GNC. There are
@@ -254,4 +266,4 @@ a lot of other features (many of them involving Git itself),
 but this should be enough to finish the project.
 
 If you run into any trouble using the GNC, let me know and
-I can try to figure it out.
+I can try to help you.
