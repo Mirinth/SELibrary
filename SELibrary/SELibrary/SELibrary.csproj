@@ -52,9 +52,9 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListInfo.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="Media.cs" />
-    <Compile Include="Patrons.cs" />
+    <Compile Include="Patron.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

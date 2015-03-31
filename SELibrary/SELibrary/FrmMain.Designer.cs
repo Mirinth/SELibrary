@@ -28,21 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LstBookList = new System.Windows.Forms.ListBox();
             this.CBoxPatron = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LblPatron = new System.Windows.Forms.Label();
+            this.LblMedia = new System.Windows.Forms.Label();
             this.CBoxBook = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LblDate = new System.Windows.Forms.Label();
             this.TxtDate = new System.Windows.Forms.TextBox();
             this.BtnDayForward = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.LblMediaList = new System.Windows.Forms.Label();
             this.RdoListNone = new System.Windows.Forms.RadioButton();
             this.RdoListByPatron = new System.Windows.Forms.RadioButton();
             this.RdoListOverdue = new System.Windows.Forms.RadioButton();
             this.RdoListAll = new System.Windows.Forms.RadioButton();
             this.BtnCheckOut = new System.Windows.Forms.Button();
             this.BtnCheckIn = new System.Windows.Forms.Button();
+            this.EProvReport = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.EProvReport)).BeginInit();
             this.SuspendLayout();
             // 
             // LstBookList
@@ -61,23 +64,23 @@
             this.CBoxPatron.Size = new System.Drawing.Size(574, 21);
             this.CBoxPatron.TabIndex = 1;
             // 
-            // label1
+            // LblPatron
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Patron";
+            this.LblPatron.AutoSize = true;
+            this.LblPatron.Location = new System.Drawing.Point(12, 48);
+            this.LblPatron.Name = "LblPatron";
+            this.LblPatron.Size = new System.Drawing.Size(38, 13);
+            this.LblPatron.TabIndex = 2;
+            this.LblPatron.Text = "Patron";
             // 
-            // label2
+            // LblMedia
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Book";
+            this.LblMedia.AutoSize = true;
+            this.LblMedia.Location = new System.Drawing.Point(12, 88);
+            this.LblMedia.Name = "LblMedia";
+            this.LblMedia.Size = new System.Drawing.Size(58, 13);
+            this.LblMedia.TabIndex = 3;
+            this.LblMedia.Text = "Media item";
             // 
             // CBoxBook
             // 
@@ -87,14 +90,14 @@
             this.CBoxBook.Size = new System.Drawing.Size(574, 21);
             this.CBoxBook.TabIndex = 4;
             // 
-            // label3
+            // LblDate
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Today\'s date";
+            this.LblDate.AutoSize = true;
+            this.LblDate.Location = new System.Drawing.Point(12, 9);
+            this.LblDate.Name = "LblDate";
+            this.LblDate.Size = new System.Drawing.Size(68, 13);
+            this.LblDate.TabIndex = 5;
+            this.LblDate.Text = "Today\'s date";
             // 
             // TxtDate
             // 
@@ -113,14 +116,14 @@
             this.BtnDayForward.Text = "Forward one day >>";
             this.BtnDayForward.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // LblMediaList
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 180);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "List books:";
+            this.LblMediaList.AutoSize = true;
+            this.LblMediaList.Location = new System.Drawing.Point(9, 180);
+            this.LblMediaList.Name = "LblMediaList";
+            this.LblMediaList.Size = new System.Drawing.Size(57, 13);
+            this.LblMediaList.TabIndex = 8;
+            this.LblMediaList.Text = "List media:";
             // 
             // RdoListNone
             // 
@@ -182,6 +185,10 @@
             this.BtnCheckIn.Text = "Check in";
             this.BtnCheckIn.UseVisualStyleBackColor = true;
             // 
+            // EProvReport
+            // 
+            this.EProvReport.ContainerControl = this;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,17 +200,18 @@
             this.Controls.Add(this.RdoListOverdue);
             this.Controls.Add(this.RdoListByPatron);
             this.Controls.Add(this.RdoListNone);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.LblMediaList);
             this.Controls.Add(this.BtnDayForward);
             this.Controls.Add(this.TxtDate);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.LblDate);
             this.Controls.Add(this.CBoxBook);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LblMedia);
+            this.Controls.Add(this.LblPatron);
             this.Controls.Add(this.CBoxPatron);
             this.Controls.Add(this.LstBookList);
             this.Name = "FrmMain";
             this.Text = "Book Manager";
+            ((System.ComponentModel.ISupportInitialize)(this.EProvReport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,19 +221,20 @@
 
         private System.Windows.Forms.ListBox LstBookList;
         private System.Windows.Forms.ComboBox CBoxPatron;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblPatron;
+        private System.Windows.Forms.Label LblMedia;
         private System.Windows.Forms.ComboBox CBoxBook;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LblDate;
         private System.Windows.Forms.TextBox TxtDate;
         private System.Windows.Forms.Button BtnDayForward;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LblMediaList;
         private System.Windows.Forms.RadioButton RdoListNone;
         private System.Windows.Forms.RadioButton RdoListByPatron;
         private System.Windows.Forms.RadioButton RdoListOverdue;
         private System.Windows.Forms.RadioButton RdoListAll;
         private System.Windows.Forms.Button BtnCheckOut;
         private System.Windows.Forms.Button BtnCheckIn;
+        private System.Windows.Forms.ErrorProvider EProvReport;
     }
 }
 
