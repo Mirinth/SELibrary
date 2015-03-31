@@ -23,6 +23,9 @@ You'll also need the Github Native Client for Windows. You can get
 the client from Github here: https://windows.github.com/
 Just download, install, start it and you're ready.
 
+Finally, you'll need an account on Github. Everyone in the project
+has one of these already.
+
 ## A little about the GNC
 
 The GNC is essentially a pretty interface around a console application
