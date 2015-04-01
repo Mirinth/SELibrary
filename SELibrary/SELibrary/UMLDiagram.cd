@@ -17,7 +17,7 @@
   <Class Name="SELibrary.FrmMain">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAACAQAhEEEAGCAAACAQAgAAAAAAAAAAAAECE=</HashCode>
+      <HashCode>AAAAAAIAACAQAgEEEAGCAAACEQAgAAAAAAAAAAAAECE=</HashCode>
       <FileName>FrmMain.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -31,7 +31,7 @@
   <Class Name="SELibrary.Patron">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAAAAQABAAIAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>gAIAAAAAAAAAgAABAAAAAAQABAAIAAQAAAAAAQAAAUA=</HashCode>
       <FileName>Patron.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -50,7 +50,7 @@
     </TypeIdentifier>
   </Enum>
   <Enum Name="SELibrary.MediaRating">
-    <Position X="4" Y="3" Width="1.5" />
+    <Position X="4" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAI=</HashCode>
       <FileName>Media.cs</FileName>

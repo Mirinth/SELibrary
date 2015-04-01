@@ -7,12 +7,18 @@ namespace SELibrary
     /// </summary>
     public class Patron
     {
+        private uint patronId;
+        private string patronName;
+        private DateTime dataofBirth;
+        private uint checkOutCount;
+        private PatronType patronType;
+
         /// <summary>
         /// Gets the patron's ID.
         /// </summary>
         public uint ID
         {
-            get; private set;
+            get { return patronId; }
         }
 
         /// <summary>
@@ -20,7 +26,7 @@ namespace SELibrary
         /// </summary>
         public string Name
         {
-            get; private set;
+            get { return patronName; }
         }
 
         /// <summary>
@@ -28,7 +34,7 @@ namespace SELibrary
         /// </summary>
         public DateTime Birthday
         {
-            get; private set;
+            get { return dataofBirth; }
         }
 
         /// <summary>
@@ -37,7 +43,7 @@ namespace SELibrary
         /// </summary>
         public uint CheckoutCount
         {
-            get; private set;
+            get { return checkOutCount; }
         }
 
         /// <summary>
@@ -45,15 +51,19 @@ namespace SELibrary
         /// </summary>
         /// <param name="patronName">The patron's name.</param>
         /// <param name="patronBirthday">The patron's birthday.</param>
-        public Patron(uint patronID, string patronName, DateTime patronBirthday)
+        public Patron(uint _patronID, string _patronName, DateTime _patronBirthday, PatronType ptype)
         {
-            throw new NotImplementedException();
+            patronId = _patronID;
+            patronName = _patronName;
+            dataofBirth = _patronBirthday;
+            checkOutCount = 0;
+            patronType = ptype;
         }
 
         /// <summary>
         /// Checks out an item to the patron.
         /// </summary>
-        public void CheckInItem()
+        public bool CheckInItem()
         {
             throw new NotImplementedException();
         }
@@ -61,9 +71,15 @@ namespace SELibrary
         /// <summary>
         /// Checks in an item from the patron.
         /// </summary>
-        public void CheckOutItem()
+        public bool CheckOutItem()
         {
             throw new NotImplementedException();
         }
+    }
+
+    public enum PatronType
+    {
+        Child,
+        Adult
     }
 }
