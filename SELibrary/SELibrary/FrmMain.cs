@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SELibrary
 {
-    public partial class FrmMain : Form
+    public partial class FrmMainLibrary : Form
     {
-        public FrmMain()
+        public FrmMainLibrary()
         {
             InitializeComponent();
         }

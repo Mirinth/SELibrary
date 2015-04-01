@@ -1,6 +1,6 @@
 ﻿namespace SELibrary
 {
-    partial class FrmMain
+    partial class FrmMainLibrary
     {
         /// <summary>
         /// Required designer variable.
@@ -189,7 +189,7 @@
             // 
             this.EProvReport.ContainerControl = this;
             // 
-            // FrmMain
+            // FrmMainLibrary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -209,7 +209,7 @@
             this.Controls.Add(this.LblPatron);
             this.Controls.Add(this.CBoxPatron);
             this.Controls.Add(this.LstBookList);
-            this.Name = "FrmMain";
+            this.Name = "FrmMainLibrary";
             this.Text = "Book Manager";
             ((System.ComponentModel.ISupportInitialize)(this.EProvReport)).EndInit();
             this.ResumeLayout(false);

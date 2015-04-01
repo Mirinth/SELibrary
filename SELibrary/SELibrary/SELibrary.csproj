@@ -55,6 +55,7 @@
     <Compile Include="Database.cs" />
     <Compile Include="Media.cs" />
     <Compile Include="Patron.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
