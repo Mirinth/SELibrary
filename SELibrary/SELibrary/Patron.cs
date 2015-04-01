@@ -7,6 +7,9 @@ namespace SELibrary
     /// </summary>
     public class Patron
     {
+        const uint MAX_ADULT_MEDIA = 6;
+        const uint MAX_CHILD_MEDIA = 3;
+
         private uint patronId;
         private string patronName;
         private DateTime dataofBirth;
@@ -65,7 +68,13 @@ namespace SELibrary
         /// </summary>
         public bool CheckInItem()
         {
-            throw new NotImplementedException();
+            if (checkOutCount > 0)
+            {
+                checkOutCount--;
+                return true;
+            }
+            else
+                return false;
         }
 
         /// <summary>
@@ -73,7 +82,18 @@ namespace SELibrary
         /// </summary>
         public bool CheckOutItem()
         {
-            throw new NotImplementedException();
+            if (patronType == PatronType.Child && checkOutCount < MAX_ADULT_MEDIA)
+            {
+                checkOutCount++;
+                return true;
+            }
+            else if (patronType == PatronType.Adult && checkOutCount < MAX_CHILD_MEDIA)
+            {
+                checkOutCount++;
+                return true;
+            }
+            else
+                return false;
         }
     }
 
