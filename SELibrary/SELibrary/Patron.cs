@@ -52,20 +52,22 @@ namespace SELibrary
         /// <summary>
         /// Initializes a new patron.
         /// </summary>
-        /// <param name="patronName">The patron's name.</param>
-        /// <param name="patronBirthday">The patron's birthday.</param>
-        public Patron(uint _patronID, string _patronName, DateTime _patronBirthday, PatronType ptype)
+        /// <param name="_patronName">The patron's name.</param>
+        /// <param name="_patronBirthday">The patron's birthday.</param>
+        /// <param name="_ptype">The patron type</param> 
+        public Patron(uint _patronID, string _patronName, DateTime _patronBirthday, PatronType _ptype)
         {
             patronId = _patronID;
             patronName = _patronName;
             dataofBirth = _patronBirthday;
             checkOutCount = 0;
-            patronType = ptype;
+            patronType = _ptype;
         }
 
         /// <summary>
         /// Checks out an item to the patron.
         /// </summary>
+        /// <returns>bool if failed or successful</returns>
         public bool CheckInItem()
         {
             if (checkOutCount > 0)
@@ -80,6 +82,7 @@ namespace SELibrary
         /// <summary>
         /// Checks in an item from the patron.
         /// </summary>
+        /// <returns>bool if failed or successful</returns>
         public bool CheckOutItem()
         {
             if (patronType == PatronType.Child && checkOutCount < MAX_ADULT_MEDIA)
@@ -97,6 +100,9 @@ namespace SELibrary
         }
     }
 
+    /// <summary>
+    /// Patron Types, Child or Adult
+    /// </summary>
     public enum PatronType
     {
         Child,

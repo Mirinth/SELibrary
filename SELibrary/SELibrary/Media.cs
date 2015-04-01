@@ -3,25 +3,6 @@
 namespace SELibrary
 {
     /// <summary>
-    /// Enumerates media types in the library's collection.
-    /// </summary>
-    public enum MediaType
-    {
-        Book,
-        DVD,
-        Video,
-    }
-
-    /// <summary>
-    /// Enumerates media ratings handled by the library
-    /// </summary>
-    public enum MediaRating
-    {
-        Everyone,
-        Adult
-    }
-
-    /// <summary>
     /// Represents a media item in the library.
     /// </summary>
     public class Media
@@ -160,5 +141,24 @@ namespace SELibrary
             const string TO_STRING_FORMAT = "{0}: {1}, by {2}";
             return string.Format(TO_STRING_FORMAT, ID, Title, Author);
         }
+    }
+
+    /// <summary>
+    /// Enumerates media types in the library's collection.
+    /// </summary>
+    public enum MediaType
+    {
+        Book,
+        DVD,
+        Video,
+    }
+
+    /// <summary>
+    /// Enumerates media ratings handled by the library
+    /// </summary>
+    public enum MediaRating
+    {
+        Everyone,
+        Adult
     }
 }
