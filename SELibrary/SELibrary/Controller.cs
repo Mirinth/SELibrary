@@ -210,9 +210,12 @@ namespace SELibrary
         /// </summary>
         public static void PassTime()
         {
+            const int TIME_INCREMENT = 1;
+
             EnsureInitialized();
 
-            throw new NotImplementedException();
+            CurrentDate.AddDays(TIME_INCREMENT);
+            DateChanged(CurrentDate);
         }
 
         /// <summary>
