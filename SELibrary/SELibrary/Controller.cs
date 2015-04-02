@@ -28,8 +28,10 @@ namespace SELibrary
     /// <summary>
     /// Handles requests from the UI and reports error conditions
     /// back to the UI. Requests should only throw exceptions if
-    /// the program cannot continue. ErrorEncountered event is
-    /// raised instead when errors occur.
+    /// the program cannot continue (or the constructor fails to
+    /// initialize).
+    /// EventDispatcher.OnErrorEncountered event is raised instead
+    /// when errors occur.
     /// </summary>
     class Controller
     {
@@ -59,6 +61,7 @@ namespace SELibrary
             EventDispatcher.OnErrorEncountered -= errorCatcher;
 
             // If the database failed to open, the Controller
+            // failed to initialize. There's no point continuing.
             if (error)
             {
                 throw new TypeInitializationException("Controller", null);
