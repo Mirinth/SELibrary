@@ -181,3 +181,9 @@ Tests:
 - Will the program fail gracefully if given a patron or media item that doesn't exist?
 - Will the program work correctly if the user opens it up and immediately starts clicking buttons without entering any input?
 - Is an error message displayed?
+
+Requirement 19:
+- The program can distinguish between children and adults (needed by other requirements that differ between children/adults)
+Tests:
+- Will the program treat patrons below the child limit as children?
+- Will the program treat patrons above th child limit as adults?
