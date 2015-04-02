@@ -46,6 +46,9 @@ namespace SELibrary
         /// <summary>
         /// Initializes the BusinessRules object.
         /// </summary>
+        /// <exception cref="TypeInitializationException">
+        /// Thrown when the database fails to load.
+        /// </exception>
         public Controller(string databaseFile)
         {
             bool error = false;
@@ -55,14 +58,10 @@ namespace SELibrary
             libraryDatabase = FileIO.LoadDatabase(databaseFile);
             EventDispatcher.OnErrorEncountered -= errorCatcher;
 
-            // If the database failed to open, this method will probably
-            // be called again with a new database file. The below code
-            // may assume it only gets called once. Failure means the
-            // Controller can't be used anyway, so return early without
-            // initializing.
+            // If the database failed to open, the Controller
             if (error)
             {
-                return;
+                throw new TypeInitializationException("Controller", null);
             }
 
             CurrentDate = new DateTime(2015, 1, 1);
