@@ -36,6 +36,7 @@ namespace SELibrary
         private const int ADULT_CHECKOUT_CAP = 6;
         private const int CHILD_CHECKOUT_CAP = 3;
         private static Database libraryDatabase;
+        private static bool initialized;
 
         /// <summary>
         /// The event raised when the date changes.
@@ -52,6 +53,16 @@ namespace SELibrary
         /// Gets the current date, according to the BusinessRules
         /// </summary>
         public static DateTime CurrentDate { get; private set; }
+
+        /// <summary>
+        /// The Controller's static constructor. Partially
+        /// initializes the Controller object. Call Init to
+        /// complete initialization.
+        /// </summary>
+        static Controller()
+        {
+            initialized = false;
+        }
 
         /// <summary>
         /// Initializes the BusinessRules object.
@@ -83,6 +94,8 @@ namespace SELibrary
             // doesn't really care when the events occur right now.
             DateChanged = new Action<DateTime>((x) => { return; });
             ErrorEncountered = new Action<ErrorCode>((x) => { return; });
+
+            initialized = true;
         }
 
         /// <summary>
@@ -101,6 +114,8 @@ namespace SELibrary
         /// <param name="toPatron">The patron to loan it to.</param>
         public static void CheckOut(Media item, Patron toPatron)
         {
+            EnsureInitialized();
+
             bool error = false;
 
             if (item.IsBorrowed)
@@ -140,6 +155,8 @@ namespace SELibrary
         /// <param name="item">The item to check in.</param>
         public static void CheckIn(Media item)
         {
+            EnsureInitialized();
+
             throw new NotImplementedException();
         }
 
@@ -149,6 +166,8 @@ namespace SELibrary
         /// <returns>A list of all patrons.</returns>
         public static List<Patron> ListPatrons()
         {
+            EnsureInitialized();
+
             throw new NotImplementedException();
         }
 
@@ -158,6 +177,8 @@ namespace SELibrary
         /// <returns>A list of all media.</returns>
         public static List<Media> ListMedia()
         {
+            EnsureInitialized();
+
             throw new NotImplementedException();
         }
 
@@ -167,6 +188,8 @@ namespace SELibrary
         /// <returns>A list of all overdue media.</returns>
         public static List<Media> ListOverdueMedia()
         {
+            EnsureInitialized();
+
             throw new NotImplementedException();
         }
 
@@ -177,6 +200,8 @@ namespace SELibrary
         /// <returns>A list of all media items checked out to the patron.</returns>
         public static List<Media> ListMediaByPatron(Patron byPatron)
         {
+            EnsureInitialized();
+
             throw new NotImplementedException();
         }
 
@@ -185,6 +210,8 @@ namespace SELibrary
         /// </summary>
         public static void PassTime()
         {
+            EnsureInitialized();
+
             throw new NotImplementedException();
         }
 
@@ -259,6 +286,21 @@ namespace SELibrary
             TimeSpan checkoutDuration = new TimeSpan(days, 0, 0, 0);
             DateTime dueDate = CurrentDate.Add(checkoutDuration);
             return dueDate;
+        }
+
+        /// <summary>
+        /// Ensures the object was correctly initialized by a
+        /// call to Init.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if the object wasn't correctly initialized.
+        /// </exception>
+        public static void EnsureInitialized()
+        {
+            if (!initialized)
+            {
+                throw new InvalidOperationException();
+            }
         }
     }
 }
