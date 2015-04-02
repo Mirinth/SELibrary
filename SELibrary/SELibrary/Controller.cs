@@ -12,6 +12,12 @@ namespace SELibrary
         // none so far
     }
 
+    /// <summary>
+    /// Handles requests from the UI and reports error conditions
+    /// back to the UI. Requests should only throw exceptions if
+    /// the program cannot continue. ErrorEncountered event is
+    /// raised instead when errors occur.
+    /// </summary>
     static class Controller
     {
         /// <summary>
