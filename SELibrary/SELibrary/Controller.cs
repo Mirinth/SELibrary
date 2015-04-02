@@ -33,6 +33,9 @@ namespace SELibrary
     /// </summary>
     static class Controller
     {
+        private const int ADULT_CHECKOUT_CAP = 6;
+        private const int CHILD_CHECKOUT_CAP = 3;
+
         /// <summary>
         /// The event raised when the date changes.
         /// </summary>
@@ -80,7 +83,37 @@ namespace SELibrary
         /// <param name="toPatron">The patron to loan it to.</param>
         public static void CheckOut(Media item, Patron toPatron)
         {
-            throw new NotImplementedException();
+            bool error = false;
+
+            if (item.IsBorrowed)
+            {
+                ErrorEncountered(ErrorCode.ItemCheckedOut);
+                error = true;
+            }
+
+            if (IsAdult(toPatron) && toPatron.CheckoutCount >= ADULT_CHECKOUT_CAP)
+            {
+                ErrorEncountered(ErrorCode.AdultCheckoutsExceeded);
+                error = true;
+            }
+            else if (toPatron.CheckoutCount >= CHILD_CHECKOUT_CAP)
+            {
+                ErrorEncountered(ErrorCode.ChildCheckoutsExceeded);
+                error = true;
+            }
+
+            // All preconditions have been checked and either met or
+            // reported, so this is the best place to stop if there
+            // is a detectable error.
+            if (error)
+            {
+                return;
+            }
+
+            DateTime dueDate = CalculateDueDate(item);
+
+            item.CheckOut(toPatron.ID, dueDate);
+            toPatron.CheckOutItem();
         }
 
         /// <summary>
