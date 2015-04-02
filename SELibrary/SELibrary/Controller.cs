@@ -9,7 +9,20 @@ namespace SELibrary
     /// </summary>
     enum ErrorCode
     {
-        // none so far
+        /// <summary>
+        /// Attempted to check out an item that was already checked out.
+        /// </summary>
+        ItemCheckedOut,
+
+        /// <summary>
+        /// An adult tried to check out more items than allowed.
+        /// </summary>
+        AdultCheckoutsExceeded,
+
+        /// <summary>
+        /// A child tried to check out more items than allowed.
+        /// </summary>
+        ChildCheckoutsExceeded,
     }
 
     /// <summary>
