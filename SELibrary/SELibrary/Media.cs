@@ -7,12 +7,31 @@ namespace SELibrary
     /// </summary>
     public class Media
     {
+        private uint mediaId;
+        private MediaRating mediaRating;
+        private MediaType mediaType;
+        private string title;
+        private string author;
+        private bool isBorrowed;
+        private uint borrowerId;
+        private DateTime dueDate;
+        private bool isDue;
+        private bool isOverDue;
+
+        /// <summary>
+        /// The item's unique ID.
+        /// </summary>
+        public uint ID
+        {
+            get { return mediaId; }
+        }
+
         /// <summary>
         /// Gets the media's rating (e.g. everyone, or adults only).
         /// </summary>
         public MediaRating Rating
         {
-            get; private set;
+            get { return mediaRating; }
         }
 
         /// <summary>
@@ -20,7 +39,7 @@ namespace SELibrary
         /// </summary>
         public MediaType Type
         {
-            get; private set;
+            get { return mediaType; }
         }
 
         /// <summary>
@@ -28,7 +47,7 @@ namespace SELibrary
         /// </summary>
         public string Title
         {
-            get; private set;
+            get { return title; }
         }
 
         /// <summary>
@@ -36,15 +55,7 @@ namespace SELibrary
         /// </summary>
         public string Author
         {
-            get; private set;
-        }
-
-        /// <summary>
-        /// The item's unique ID.
-        /// </summary>
-        public uint ID
-        {
-            get; private set;
+            get { return author; }
         }
 
         /// <summary>
@@ -52,7 +63,8 @@ namespace SELibrary
         /// </summary>
         public bool IsBorrowed
         {
-            get; private set;
+            get { return isBorrowed; }
+            set { isBorrowed = value; }
         }
 
         /// <summary>
@@ -63,7 +75,8 @@ namespace SELibrary
         /// </exception>
         public uint Borrower
         {
-            get; private set;
+            get { return borrowerId; }
+            set { borrowerId = value; }
         }
 
         /// <summary>
@@ -74,7 +87,8 @@ namespace SELibrary
         /// </exception>
         public DateTime DueDate
         {
-            get; private set;
+            get { return dueDate; }
+            set { dueDate = value; }
         }
 
         /// <summary>
