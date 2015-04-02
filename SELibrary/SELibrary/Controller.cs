@@ -35,6 +35,7 @@ namespace SELibrary
     {
         private const int ADULT_CHECKOUT_CAP = 6;
         private const int CHILD_CHECKOUT_CAP = 3;
+        private static Database libraryDatabase;
 
         /// <summary>
         /// The event raised when the date changes.
@@ -55,8 +56,25 @@ namespace SELibrary
         /// <summary>
         /// Initializes the BusinessRules object.
         /// </summary>
-        static Controller()
+        public static void Init(string databaseFile)
         {
+            bool error = false;
+            Action<ErrorCode> errorCatcher = (ec) => error = true;
+            ErrorEncountered += errorCatcher;
+
+            libraryDatabase = FileIO.LoadDatabase(databaseFile);
+            ErrorEncountered -= errorCatcher;
+
+            // If the database failed to open, this method will probably
+            // be called again with a new database file. The below code
+            // may assume it only gets called once. Failure means the
+            // Controller can't be used anyway, so return early without
+            // initializing.
+            if (error)
+            {
+                return;
+            }
+
             CurrentDate = new DateTime(2015, 1, 1);
 
             // Events need to be initialized, but you can't have an
