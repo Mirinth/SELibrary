@@ -39,17 +39,6 @@ namespace SELibrary
         private static bool initialized;
 
         /// <summary>
-        /// The event raised when the date changes.
-        /// </summary>
-        public static event Action<DateTime> DateChanged;
-
-        /// <summary>
-        /// The event raised when the BusinessRules encounteres
-        /// an error while trying to service a request.
-        /// </summary>
-        public static event Action<ErrorCode> ErrorEncountered;
-
-        /// <summary>
         /// Gets the current date, according to the BusinessRules
         /// </summary>
         public static DateTime CurrentDate { get; private set; }
@@ -71,10 +60,10 @@ namespace SELibrary
         {
             bool error = false;
             Action<ErrorCode> errorCatcher = (ec) => error = true;
-            ErrorEncountered += errorCatcher;
+            EventDispatcher.OnErrorEncountered += errorCatcher;
 
             libraryDatabase = FileIO.LoadDatabase(databaseFile);
-            ErrorEncountered -= errorCatcher;
+            EventDispatcher.OnErrorEncountered -= errorCatcher;
 
             // If the database failed to open, this method will probably
             // be called again with a new database file. The below code
@@ -88,23 +77,7 @@ namespace SELibrary
 
             CurrentDate = new DateTime(2015, 1, 1);
 
-            // Events need to be initialized, but you can't have an
-            // Action<T> that doesn't point to a method, so point them
-            // to a method that does nothing since the BusinessRules
-            // doesn't really care when the events occur right now.
-            DateChanged = new Action<DateTime>((x) => { return; });
-            ErrorEncountered = new Action<ErrorCode>((x) => { return; });
-
             initialized = true;
-        }
-
-        /// <summary>
-        /// Reports an error encountered while processing a request.
-        /// </summary>
-        /// <param name="em">An ErrorCode describing the error.</param>
-        public static void ReportError(ErrorCode ec)
-        {
-            ErrorEncountered(ec);
         }
 
         /// <summary>
@@ -120,18 +93,18 @@ namespace SELibrary
 
             if (item.IsBorrowed)
             {
-                ErrorEncountered(ErrorCode.ItemCheckedOut);
+                EventDispatcher.ReportError(ErrorCode.ItemCheckedOut);
                 error = true;
             }
 
             if (IsAdult(toPatron) && toPatron.CheckoutCount >= ADULT_CHECKOUT_CAP)
             {
-                ErrorEncountered(ErrorCode.AdultCheckoutsExceeded);
+                EventDispatcher.ReportError(ErrorCode.AdultCheckoutsExceeded);
                 error = true;
             }
             else if (toPatron.CheckoutCount >= CHILD_CHECKOUT_CAP)
             {
-                ErrorEncountered(ErrorCode.ChildCheckoutsExceeded);
+                EventDispatcher.ReportError(ErrorCode.ChildCheckoutsExceeded);
                 error = true;
             }
 
@@ -215,7 +188,7 @@ namespace SELibrary
             EnsureInitialized();
 
             CurrentDate.AddDays(TIME_INCREMENT);
-            DateChanged(CurrentDate);
+            EventDispatcher.DateChanged(CurrentDate);
         }
 
         /// <summary>
