@@ -202,7 +202,7 @@ namespace SELibrary
         {
             EnsureInitialized();
 
-            throw new NotImplementedException();
+            return libraryDatabase.MediaByBorrower(byPatron);
         }
 
         /// <summary>
