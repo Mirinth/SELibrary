@@ -136,5 +136,28 @@ namespace SELibrary
         {
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        /// Returns whether a given patron is an adult.
+        /// </summary>
+        /// <param name="toCheck">The patron to check.</param>
+        /// <returns>True if the patron is an adult, else false.</returns>
+        public static bool IsAdult(Patron toCheck)
+        {
+            const int CHILD_YEARS = 18;
+            const int DAYS_PER_YEAR = 365;
+
+            TimeSpan childSpan = new TimeSpan(CHILD_YEARS * DAYS_PER_YEAR, 0, 0, 0);
+            TimeSpan age = CurrentDate.Subtract(toCheck.Birthday);
+
+            if (age < childSpan)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
