@@ -31,32 +31,22 @@ namespace SELibrary
     /// the program cannot continue. ErrorEncountered event is
     /// raised instead when errors occur.
     /// </summary>
-    static class Controller
+    class Controller
     {
         private const int ADULT_CHECKOUT_CAP = 6;
         private const int CHILD_CHECKOUT_CAP = 3;
-        private static Database libraryDatabase;
-        private static bool initialized;
+        private Database libraryDatabase;
+        private bool initialized;
 
         /// <summary>
         /// Gets the current date, according to the BusinessRules
         /// </summary>
-        public static DateTime CurrentDate { get; private set; }
-
-        /// <summary>
-        /// The Controller's static constructor. Partially
-        /// initializes the Controller object. Call Init to
-        /// complete initialization.
-        /// </summary>
-        static Controller()
-        {
-            initialized = false;
-        }
+        public DateTime CurrentDate { get; private set; }
 
         /// <summary>
         /// Initializes the BusinessRules object.
         /// </summary>
-        public static void Init(string databaseFile)
+        public Controller(string databaseFile)
         {
             bool error = false;
             Action<ErrorCode> errorCatcher = (ec) => error = true;
@@ -85,7 +75,7 @@ namespace SELibrary
         /// </summary>
         /// <param name="item">The item to check out.</param>
         /// <param name="toPatron">The patron to loan it to.</param>
-        public static void CheckOut(Media item, Patron toPatron)
+        public void CheckOut(Media item, Patron toPatron)
         {
             EnsureInitialized();
 
@@ -126,7 +116,7 @@ namespace SELibrary
         /// Checks in the given item.
         /// </summary>
         /// <param name="item">The item to check in.</param>
-        public static void CheckIn(Media item)
+        public void CheckIn(Media item)
         {
             EnsureInitialized();
 
@@ -137,7 +127,7 @@ namespace SELibrary
         /// Gets a list of all patrons.
         /// </summary>
         /// <returns>A list of all patrons.</returns>
-        public static List<Patron> ListPatrons()
+        public List<Patron> ListPatrons()
         {
             EnsureInitialized();
 
@@ -148,7 +138,7 @@ namespace SELibrary
         /// Gets a list of all media.
         /// </summary>
         /// <returns>A list of all media.</returns>
-        public static List<Media> ListMedia()
+        public List<Media> ListMedia()
         {
             EnsureInitialized();
 
@@ -159,7 +149,7 @@ namespace SELibrary
         /// Gets a list of all overdue media.
         /// </summary>
         /// <returns>A list of all overdue media.</returns>
-        public static List<Media> ListOverdueMedia()
+        public List<Media> ListOverdueMedia()
         {
             EnsureInitialized();
 
@@ -171,7 +161,7 @@ namespace SELibrary
         /// </summary>
         /// <param name="byPatron">The patron of interest.</param>
         /// <returns>A list of all media items checked out to the patron.</returns>
-        public static List<Media> ListMediaByPatron(Patron byPatron)
+        public List<Media> ListMediaByPatron(Patron byPatron)
         {
             EnsureInitialized();
 
@@ -181,7 +171,7 @@ namespace SELibrary
         /// <summary>
         /// Simulates the passage of time
         /// </summary>
-        public static void PassTime()
+        public void PassTime()
         {
             const int TIME_INCREMENT = 1;
 
@@ -196,7 +186,7 @@ namespace SELibrary
         /// </summary>
         /// <param name="toCheck">The patron to check.</param>
         /// <returns>True if the patron is an adult, else false.</returns>
-        public static bool IsAdult(Patron toCheck)
+        public bool IsAdult(Patron toCheck)
         {
             const int CHILD_YEARS = 18;
             const int DAYS_PER_YEAR = 365;
@@ -219,7 +209,7 @@ namespace SELibrary
         /// </summary>
         /// <param name="item">The item to calculate th due date for.</param>
         /// <returns>The date the item will be due, if it is checked out today.</returns>
-        public static DateTime CalculateDueDate(Media item)
+        public DateTime CalculateDueDate(Media item)
         {
             const int ADULT_BOOK_DAYS = 14;
             const int CHILD_BOOK_DAYS = 7;
@@ -271,7 +261,7 @@ namespace SELibrary
         /// <exception cref="InvalidOperationException">
         /// Thrown if the object wasn't correctly initialized.
         /// </exception>
-        public static void EnsureInitialized()
+        public void EnsureInitialized()
         {
             if (!initialized)
             {
