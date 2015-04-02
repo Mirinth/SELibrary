@@ -70,7 +70,7 @@ namespace SELibrary
         /// <param name="em">An ErrorCode describing the error.</param>
         public static void ReportError(ErrorCode ec)
         {
-            throw new NotImplementedException();
+            ErrorEncountered(ec);
         }
 
         /// <summary>
