@@ -159,5 +159,55 @@ namespace SELibrary
                 return true;
             }
         }
+
+        /// <summary>
+        /// Calculates the due date of an item to be checked out.
+        /// </summary>
+        /// <param name="item">The item to calculate th due date for.</param>
+        /// <returns>The date the item will be due, if it is checked out today.</returns>
+        public static DateTime CalculateDueDate(Media item)
+        {
+            const int ADULT_BOOK_DAYS = 14;
+            const int CHILD_BOOK_DAYS = 7;
+            const int DVD_DAYS = 2;
+            const int VIDEO_DAYS = 3;
+            int days;
+
+            if (item.Type == MediaType.Video)
+            {
+                days = VIDEO_DAYS;
+            }
+            else if (item.Type == MediaType.DVD)
+            {
+                days = DVD_DAYS;
+            }
+            else if (item.Type == MediaType.Book)
+            {
+                if (item.Rating == MediaRating.Adult)
+                {
+                    days = ADULT_BOOK_DAYS;
+                }
+                else if (item.Rating == MediaRating.Everyone)
+                {
+                    days = CHILD_BOOK_DAYS;
+                }
+                else
+                {
+                    // A new type of rating was added without accounting
+                    // for it here.
+                    throw new NotImplementedException();
+                }
+            }
+            else
+            {
+                // A new MediaType was added without accounting
+                // for it here.
+                throw new NotImplementedException();
+            }
+
+            TimeSpan checkoutDuration = new TimeSpan(days, 0, 0, 0);
+            DateTime dueDate = CurrentDate.Add(checkoutDuration);
+            return dueDate;
+        }
     }
 }
