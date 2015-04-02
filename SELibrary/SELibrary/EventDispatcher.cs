@@ -3,6 +3,28 @@
 namespace SELibrary
 {
     /// <summary>
+    /// Enumerates the various error conditions the program
+    /// can encounter while servicing requests.
+    /// </summary>
+    enum ErrorCode
+    {
+        /// <summary>
+        /// Attempted to check out an item that was already checked out.
+        /// </summary>
+        ItemCheckedOut,
+
+        /// <summary>
+        /// An adult tried to check out more items than allowed.
+        /// </summary>
+        AdultCheckoutsExceeded,
+
+        /// <summary>
+        /// A child tried to check out more items than allowed.
+        /// </summary>
+        ChildCheckoutsExceeded,
+    }
+
+    /// <summary>
     /// Generates and allows subscription to various
     /// events in the program.
     /// </summary>

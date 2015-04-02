@@ -4,28 +4,6 @@ using System.Collections.Generic;
 namespace SELibrary
 {
     /// <summary>
-    /// Enumerates the various error conditions the BusinessRules
-    /// object can encounter while servicing requests.
-    /// </summary>
-    enum ErrorCode
-    {
-        /// <summary>
-        /// Attempted to check out an item that was already checked out.
-        /// </summary>
-        ItemCheckedOut,
-
-        /// <summary>
-        /// An adult tried to check out more items than allowed.
-        /// </summary>
-        AdultCheckoutsExceeded,
-
-        /// <summary>
-        /// A child tried to check out more items than allowed.
-        /// </summary>
-        ChildCheckoutsExceeded,
-    }
-
-    /// <summary>
     /// Handles requests from the UI and reports error conditions
     /// back to the UI. Requests should only throw exceptions if
     /// the program cannot continue (or the constructor fails to
