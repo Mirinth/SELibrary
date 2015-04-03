@@ -16,5 +16,11 @@ namespace SELibrary
         {
             InitializeComponent();
         }
+        private DatePicker date= new DatePicker();
+        private void BtnDayForward_Click(object sender, EventArgs e)
+        {
+            date.incrementDat();
+            TxtDate.Text = date.GetDate();
+        }
     }
 }
