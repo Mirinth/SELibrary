@@ -71,5 +71,31 @@ namespace SELibrary
         {
             ChildCheckoutsExceeded(item, borrower);
         }
+
+        /// <summary>
+        /// The event raised when a null item was encountered.
+        /// </summary>
+        public static event Action ItemWasNull;
+
+        /// <summary>
+        /// Notifies listeners that a null item was encountered.
+        /// </summary>
+        public static void RaiseItemWasNull()
+        {
+            ItemWasNull();
+        }
+
+        /// <summary>
+        /// The event raised when a null patron was encountered.
+        /// </summary>
+        public static event Action PatronWasNull;
+
+        /// <summary>
+        /// Notifies listeners that a null item was encountered.
+        /// </summary>
+        public static void RaisePatronWasNull()
+        {
+            PatronWasNull();
+        }
     }
 }
