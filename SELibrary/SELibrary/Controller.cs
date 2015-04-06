@@ -152,7 +152,7 @@ namespace SELibrary
         /// </summary>
         /// <param name="toCheck">The patron to check.</param>
         /// <returns>True if the patron is an adult, else false.</returns>
-        public bool IsAdult(Patron toCheck)
+        private bool IsAdult(Patron toCheck)
         {
             const int CHILD_YEARS = 18;
             const int DAYS_PER_YEAR = 365;
@@ -175,7 +175,7 @@ namespace SELibrary
         /// </summary>
         /// <param name="item">The item to calculate the due date for.</param>
         /// <returns>The date the item will be due, if it is checked out today.</returns>
-        public DateTime CalculateDueDate(Media item)
+        private DateTime CalculateDueDate(Media item)
         {
             const int ADULT_BOOK_DAYS = 14;
             const int CHILD_BOOK_DAYS = 7;
