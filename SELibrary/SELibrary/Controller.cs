@@ -47,18 +47,30 @@ namespace SELibrary
         {
             bool error = false;
 
-            if (item.IsBorrowed)
+            if (item == null)
+            {
+                EventDispatcher.RaiseItemWasNull();
+                error = true;
+            }
+
+            if (toPatron == null)
+            {
+                EventDispatcher.RaisePatronWasNull();
+                error = true;
+            }
+
+            if (item != null && item.IsBorrowed)
             {
                 EventDispatcher.RaiseItemAlreadyCheckedOut(item);
                 error = true;
             }
 
-            if (IsAdult(toPatron) && toPatron.CheckoutCount >= ADULT_CHECKOUT_CAP)
+            if (toPatron != null && IsAdult(toPatron) && toPatron.CheckoutCount >= ADULT_CHECKOUT_CAP)
             {
                 EventDispatcher.RaiseAdultCheckoutsExceeded(item, toPatron);
                 error = true;
             }
-            else if (toPatron.CheckoutCount >= CHILD_CHECKOUT_CAP)
+            else if (toPatron != null && toPatron.CheckoutCount >= CHILD_CHECKOUT_CAP)
             {
                 EventDispatcher.RaiseChildCheckoutsExceeded(item, toPatron);
                 error = true;
@@ -102,7 +114,7 @@ namespace SELibrary
         /// <returns>A list of all media.</returns>
         public List<Media> ListMedia()
         {
-            return libraryDatabase.AllMedia();
+            return libraryDatabase.AllMedia() ?? new List<Media>();
         }
 
         /// <summary>
@@ -111,7 +123,7 @@ namespace SELibrary
         /// <returns>A list of all overdue media.</returns>
         public List<Media> ListOverdueMedia()
         {
-            return libraryDatabase.OverdueMedia();
+            return libraryDatabase.OverdueMedia() ?? new List<Media>();
         }
 
         /// <summary>
@@ -121,7 +133,7 @@ namespace SELibrary
         /// <returns>A list of all media items checked out to the patron.</returns>
         public List<Media> ListMediaByPatron(Patron byPatron)
         {
-            return libraryDatabase.MediaByBorrower(byPatron);
+            return libraryDatabase.MediaByBorrower(byPatron) ?? new List<Media>();
         }
 
         /// <summary>
@@ -161,7 +173,7 @@ namespace SELibrary
         /// <summary>
         /// Calculates the due date of an item to be checked out.
         /// </summary>
-        /// <param name="item">The item to calculate th due date for.</param>
+        /// <param name="item">The item to calculate the due date for.</param>
         /// <returns>The date the item will be due, if it is checked out today.</returns>
         public DateTime CalculateDueDate(Media item)
         {
