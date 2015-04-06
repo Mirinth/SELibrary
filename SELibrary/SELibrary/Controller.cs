@@ -31,19 +31,7 @@ namespace SELibrary
         /// </exception>
         public Controller(string databaseFile)
         {
-            bool error = false;
-            Action<ErrorCode> errorCatcher = (ec) => error = true;
-            EventDispatcher.OnErrorEncountered += errorCatcher;
-
             libraryDatabase = FileIO.LoadDatabase(databaseFile);
-            EventDispatcher.OnErrorEncountered -= errorCatcher;
-
-            // If the database failed to open, the Controller
-            // failed to initialize. There's no point continuing.
-            if (error)
-            {
-                throw new TypeInitializationException("Controller", null);
-            }
 
             CurrentDate = new DateTime(2015, 1, 1);
 
@@ -63,18 +51,18 @@ namespace SELibrary
 
             if (item.IsBorrowed)
             {
-                EventDispatcher.ReportError(ErrorCode.ItemCheckedOut);
+                EventDispatcher.RaiseItemAlreadyCheckedOut(item);
                 error = true;
             }
 
             if (IsAdult(toPatron) && toPatron.CheckoutCount >= ADULT_CHECKOUT_CAP)
             {
-                EventDispatcher.ReportError(ErrorCode.AdultCheckoutsExceeded);
+                EventDispatcher.RaiseAdultCheckoutsExceeded(item, toPatron);
                 error = true;
             }
             else if (toPatron.CheckoutCount >= CHILD_CHECKOUT_CAP)
             {
-                EventDispatcher.ReportError(ErrorCode.ChildCheckoutsExceeded);
+                EventDispatcher.RaiseChildCheckoutsExceeded(item, toPatron);
                 error = true;
             }
 
