@@ -24,6 +24,7 @@ namespace SELibrary
         /// <summary>
         /// Gets a list of all media items in the library.
         /// </summary>
+        /// <returns>A list of all media in the library.</returns>
         public List<Media> AllMedia()
         {
             throw new NotImplementedException();
@@ -36,6 +37,7 @@ namespace SELibrary
         /// <param name="borrower">
         /// The patron to find the items checked out to.
         /// </param>
+        /// <returns>A list of all media loaned to the given patron.</returns>
         public List<Media> MediaByBorrower(Patron borrower)
         {
             throw new NotImplementedException();
@@ -44,6 +46,7 @@ namespace SELibrary
         /// <summary>
         /// Gets a list of all media items that are overdue.
         /// </summary>
+        /// <returns>A list of all overdue media.</returns>
         public List<Media> OverdueMedia()
         {
             throw new NotImplementedException();
