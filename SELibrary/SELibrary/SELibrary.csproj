@@ -55,6 +55,8 @@
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="Integration\DataGenerator.cs" />
+    <Compile Include="Integration\TestRunner.cs" />
     <Compile Include="Media.cs" />
     <Compile Include="Patron.cs" />
     <Compile Include="Program.cs" />
