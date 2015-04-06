@@ -45,8 +45,6 @@ namespace SELibrary
         /// <param name="toPatron">The patron to loan it to.</param>
         public void CheckOut(Media item, Patron toPatron)
         {
-            EnsureInitialized();
-
             bool error = false;
 
             if (item.IsBorrowed)
@@ -86,8 +84,6 @@ namespace SELibrary
         /// <param name="item">The item to check in.</param>
         public void CheckIn(Media item)
         {
-            EnsureInitialized();
-
             throw new NotImplementedException();
         }
 
@@ -97,8 +93,6 @@ namespace SELibrary
         /// <returns>A list of all patrons.</returns>
         public List<Patron> ListPatrons()
         {
-            EnsureInitialized();
-
             throw new NotImplementedException();
         }
 
@@ -108,8 +102,6 @@ namespace SELibrary
         /// <returns>A list of all media.</returns>
         public List<Media> ListMedia()
         {
-            EnsureInitialized();
-
             return libraryDatabase.AllMedia();
         }
 
@@ -119,8 +111,6 @@ namespace SELibrary
         /// <returns>A list of all overdue media.</returns>
         public List<Media> ListOverdueMedia()
         {
-            EnsureInitialized();
-
             return libraryDatabase.OverdueMedia();
         }
 
@@ -131,8 +121,6 @@ namespace SELibrary
         /// <returns>A list of all media items checked out to the patron.</returns>
         public List<Media> ListMediaByPatron(Patron byPatron)
         {
-            EnsureInitialized();
-
             return libraryDatabase.MediaByBorrower(byPatron);
         }
 
@@ -142,8 +130,6 @@ namespace SELibrary
         public void PassTime()
         {
             const int TIME_INCREMENT = 1;
-
-            EnsureInitialized();
 
             CurrentDate.AddDays(TIME_INCREMENT);
             EventDispatcher.RaiseDateChanged(CurrentDate);
@@ -220,21 +206,6 @@ namespace SELibrary
             TimeSpan checkoutDuration = new TimeSpan(days, 0, 0, 0);
             DateTime dueDate = CurrentDate.Add(checkoutDuration);
             return dueDate;
-        }
-
-        /// <summary>
-        /// Ensures the object was correctly initialized by a
-        /// call to Init.
-        /// </summary>
-        /// <exception cref="InvalidOperationException">
-        /// Thrown if the object wasn't correctly initialized.
-        /// </exception>
-        public void EnsureInitialized()
-        {
-            if (!initialized)
-            {
-                throw new InvalidOperationException();
-            }
         }
     }
 }
