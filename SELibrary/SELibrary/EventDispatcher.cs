@@ -3,28 +3,6 @@
 namespace SELibrary
 {
     /// <summary>
-    /// Enumerates the various error conditions the program
-    /// can encounter while servicing requests.
-    /// </summary>
-    enum ErrorCode
-    {
-        /// <summary>
-        /// Attempted to check out an item that was already checked out.
-        /// </summary>
-        ItemCheckedOut,
-
-        /// <summary>
-        /// An adult tried to check out more items than allowed.
-        /// </summary>
-        AdultCheckoutsExceeded,
-
-        /// <summary>
-        /// A child tried to check out more items than allowed.
-        /// </summary>
-        ChildCheckoutsExceeded,
-    }
-
-    /// <summary>
     /// Generates and allows subscription to various
     /// events in the program.
     /// </summary>
@@ -33,43 +11,65 @@ namespace SELibrary
         /// <summary>
         /// The event raised when the date changes.
         /// </summary>
-        public static event Action<DateTime> OnDateChanged;
-
-        /// <summary>
-        /// The event raised when the BusinessRules encounteres
-        /// an error while trying to service a request.
-        /// </summary>
-        public static event Action<ErrorCode> OnErrorEncountered;
+        public static event Action<DateTime> DateChanged = delegate { };
 
         /// <summary>
         /// Notifies listeners that the date has been changed.
         /// </summary>
         /// <param name="newDate">The new date.</param>
-        public static void DateChanged(DateTime newDate)
+        public static void RaiseDateChanged(DateTime newDate)
         {
-            OnDateChanged(newDate);
+            DateChanged(newDate);
         }
 
         /// <summary>
-        /// Notifies listeners that an error occurred.
+        /// The event raised when an item failed to be checked out
+        /// because it was already checked out.
         /// </summary>
-        /// <param name="ec">The error that occurred.</param>
-        public static void ReportError(ErrorCode ec)
+        public static event Action<Media> ItemAlreadyCheckedOut = delegate { };
+
+        /// <summary>
+        /// Notifies listeners that an item failed to be checked
+        /// out because it was already checked out.
+        /// </summary>
+        /// <param name="item">The item that failed to be checked out.</param>
+        public static void RaiseItemAlreadyCheckedOut(Media item)
         {
-            OnErrorEncountered(ec);
+            ItemAlreadyCheckedOut(item);
         }
 
         /// <summary>
-        /// Initializes the EventDispatcher object.
+        /// The event raised when an item failed to be checked out
+        /// because an adult patron's checkout count was exceeded.
         /// </summary>
-        static EventDispatcher()
+        public static Action<Media, Patron> AdultCheckoutsExceeded = delegate { };
+
+        /// <summary>
+        /// Notifies listeners that an item failed to be checked
+        /// out because an adult's checkout count was exceeded.
+        /// </summary>
+        /// <param name="item">The item that failed to be checked out.</param>
+        /// <param name="borrower">The patron who tried to borrow the item.</param>
+        public static void RaiseAdultCheckoutsExceeded(Media item, Patron borrower)
         {
-            // Events need to be initialized, but you can't have an
-            // Action<T> that doesn't point to a method, so point them
-            // to a method that does nothing since nobody has registered
-            // for any events at this point in the execution.
-            OnDateChanged = new Action<DateTime>((x) => { return; });
-            OnErrorEncountered = new Action<ErrorCode>((x) => { return; });
+            AdultCheckoutsExceeded(item, borrower);
+        }
+
+        /// <summary>
+        /// The event raised when an item failed to be checked out
+        /// because a child patron's checkout count was exceeded.
+        /// </summary>
+        public static Action<Media, Patron> ChildCheckoutsExceeded = delegate { };
+
+        /// <summary>
+        /// Notifies listeners that an item failed to be checked
+        /// out because a child's checkout count was exceeded.
+        /// </summary>
+        /// <param name="item">The item that failed to be checked out.</param>
+        /// <param name="borrower">The patron who tried to borrow the item.</param>
+        public static void RaiseChildCheckoutsExceeded(Media item, Patron borrower)
+        {
+            ChildCheckoutsExceeded(item, borrower);
         }
     }
 }

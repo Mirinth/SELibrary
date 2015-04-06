@@ -158,7 +158,7 @@ namespace SELibrary
             EnsureInitialized();
 
             CurrentDate.AddDays(TIME_INCREMENT);
-            EventDispatcher.DateChanged(CurrentDate);
+            EventDispatcher.RaiseDateChanged(CurrentDate);
         }
 
         /// <summary>
