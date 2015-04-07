@@ -72,12 +72,31 @@ namespace SELibrary
         /// </summary>
         /// <param name="id">The patron's ID.</param>
         /// <returns>The patron with the given ID.</returns>
-        public Patron this[uint id]
+        public Patron PatronByID(uint id)
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Updates a patron in the database. The patron with the
+        /// same ID as toUpdate is overwritten, or toUpdate is
+        /// inserted.
+        /// </summary>
+        /// <param name="toUpdate">The patron to update.</param>
+        public void UpdatePatron(Patron toUpdate)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Updates a media in th database. The media with the
+        /// same ID as toUpdate is overwritten, or toUpdate is
+        /// inserted.
+        /// </summary>
+        /// <param name="toUpdate">The media to update.</param>
+        public void UpdateMedia(Media toUpdate)
+        {
+            throw new NotImplementedException();
         }
     }
 }
