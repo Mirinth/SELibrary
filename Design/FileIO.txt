@@ -1,0 +1,5 @@
+The FileIO object's purpose is to load the Database object from storage, and save it back again.
+
+Since I/O is prone to failure, the FileIO object will need to catch a lot of exceptions and report them through the EventDispatcher.
+
+Whether the FileIO object throws exceptions on failure to save is up to the implementer, but loading is expected to throw SOME exception if it fails, since the Controller object needs to cancel its construction.
