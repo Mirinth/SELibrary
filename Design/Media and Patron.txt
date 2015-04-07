@@ -1,0 +1,3 @@
+The media and patron objects are simple objects that store information about a media item and patron in the library, respectively. Their primary purpose is a container, so they aren't expected to do a lot of error checking beyond ensuring their data makes sense (e.g. it doesn't make sense for a media item to be checked out to two different people at once, or for a patron to have -5 items checked out).
+
+Since the controller object is responsible for keeping bad data out of the media and patron objects, they can assume their data is valid. If they find out some of their data isn't valid after all, that's a symptom of a program bug and an exception should be thrown.
