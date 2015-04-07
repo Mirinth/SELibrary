@@ -113,7 +113,7 @@ namespace SELibrary
                 error = true;
             }
 
-            Patron borrower = libraryDatabase[item.Borrower];
+            Patron borrower = libraryDatabase.PatronByID(item.Borrower);
 
             if (borrower == null)
             {
