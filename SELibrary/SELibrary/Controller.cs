@@ -52,25 +52,23 @@ namespace SELibrary
                 EventDispatcher.RaiseItemWasNull();
                 error = true;
             }
+            else if (item.IsBorrowed)
+            {
+                EventDispatcher.RaiseItemAlreadyCheckedOut(item);
+                error = true;
+            }
 
             if (toPatron == null)
             {
                 EventDispatcher.RaisePatronWasNull();
                 error = true;
             }
-
-            if (item != null && item.IsBorrowed)
-            {
-                EventDispatcher.RaiseItemAlreadyCheckedOut(item);
-                error = true;
-            }
-
-            if (toPatron != null && IsAdult(toPatron) && toPatron.CheckoutCount >= ADULT_CHECKOUT_CAP)
+            else if (IsAdult(toPatron) && toPatron.CheckoutCount >= ADULT_CHECKOUT_CAP)
             {
                 EventDispatcher.RaiseAdultCheckoutsExceeded(item, toPatron);
                 error = true;
             }
-            else if (toPatron != null && toPatron.CheckoutCount >= CHILD_CHECKOUT_CAP)
+            else if (toPatron.CheckoutCount >= CHILD_CHECKOUT_CAP)
             {
                 EventDispatcher.RaiseChildCheckoutsExceeded(item, toPatron);
                 error = true;
