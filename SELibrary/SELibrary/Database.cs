@@ -51,5 +51,27 @@ namespace SELibrary
         {
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        /// Gets a list of all patrons in the library.
+        /// </summary>
+        /// <returns>A list of all patrons in the library.</returns>
+        public List<Patron> AllPatrons()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Gets a patron by its ID.
+        /// </summary>
+        /// <param name="patronID">The ID of the patron.</param>
+        /// <returns>
+        /// The patron with the given ID, or null if no patron with that
+        /// ID exists.
+        /// </returns>
+        public Patron GetPatronByID(uint patronID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
