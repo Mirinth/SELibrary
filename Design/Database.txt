@@ -1,0 +1,5 @@
+The database's purpose is to manage the lists of patrons and media. It provides methods for updating items in the database, retrieving items as needed, and creating filtered item lists as needed.
+
+Since the database's primary user is the controller, and the controller's job is to filter out bad input, the database can assume its input is valid and impose harsh penalties if its input is bad. It may also assume its input is non-null, since the controller will filter those inputs out.
+
+The database can return null items, since the controller can convert them to something more useful as needed. The database isn't required to return null items, however.
