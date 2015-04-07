@@ -2,7 +2,7 @@ The controller's purpose is to accept requests and data from the UI, convert the
 
 The controller object makes some assumptions about the behavior of other objects. These assumptions are:
 
-- If the database object's constructor fails to initialize the object, it will raise the appropriate event and then throw an exception.
+- If FileIO.LoadDatabase(string) fails to initialize the object, it will raise the appropriate event and then throw an exception.
 - (Optional, but helpful): The media object will throw an exception if the controller tries to check out an already checked out item (useful for bug catching).
 - (Optional, but helpful): The patron object will throw an exception if the controller tries to check in an item from the patron when the patron has no items checked in (i.e. the patron's checkout count becomes negative) (useful for bug catching).
 
