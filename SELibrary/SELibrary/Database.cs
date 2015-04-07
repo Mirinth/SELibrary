@@ -25,9 +25,12 @@ namespace SELibrary
         /// Gets a list of all media items in the library.
         /// </summary>
         /// <returns>A list of all media in the library.</returns>
-        public List<Media> AllMedia()
+        public List<Media> AllMedia
         {
-            throw new NotImplementedException();
+            get
+            {
+                throw new NotImplementedException();
+            }
         }
 
         /// <summary>
@@ -56,22 +59,25 @@ namespace SELibrary
         /// Gets a list of all patrons in the library.
         /// </summary>
         /// <returns>A list of all patrons in the library.</returns>
-        public List<Patron> AllPatrons()
+        public List<Patron> AllPatrons
         {
-            throw new NotImplementedException();
+            get
+            {
+                throw new NotImplementedException();
+            }
         }
 
         /// <summary>
         /// Gets a patron by its ID.
         /// </summary>
-        /// <param name="patronID">The ID of the patron.</param>
-        /// <returns>
-        /// The patron with the given ID, or null if no patron with that
-        /// ID exists.
-        /// </returns>
-        public Patron GetPatronByID(uint patronID)
+        /// <param name="id">The patron's ID.</param>
+        /// <returns>The patron with the given ID.</returns>
+        public Patron this[uint id]
         {
-            throw new NotImplementedException();
+            get
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }
