@@ -1,0 +1,5 @@
+The EventDispatcher object's purpose is to let the UI know when various events (mostly errors) occur in behind-the-scenes objects. It provides one event object for each event that the UI is likely to need to know about.
+
+Any object that needs to notify the UI when something happens should either use one of the existing events in the EventDispatcher if one already makes sense for the situation, or make a new one otherwose.
+
+The UI should subscribe and respond to all of the events so it can inform the user what's happening.
