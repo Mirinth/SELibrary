@@ -94,7 +94,43 @@ namespace SELibrary
         /// <param name="item">The item to check in.</param>
         public void CheckIn(Media item)
         {
-            throw new NotImplementedException();
+            bool error = false;
+
+            // method returns if true
+            if (item == null)
+            {
+                EventDispatcher.RaiseItemWasNull();
+
+                // All the other errors can only occur once the patron
+                // who checked out the item is known, but that patron
+                // can't be identified given a null media, so there's
+                // no point in continuing if there's already an error.
+                return;
+            }
+            else if (item.IsBorrowed)
+            {
+                EventDispatcher.RaiseItemAlreadyCheckedOut(item);
+                error = true;
+            }
+
+            Patron borrower = libraryDatabase[item.Borrower];
+
+            if (borrower == null)
+            {
+                EventDispatcher.RaisePatronWasNull();
+                error = true;
+            }
+
+            // All preconditions have been checked and either met or
+            // reported, so this is the best place to stop if there
+            // is a detectable error.
+            if (error)
+            {
+                return;
+            }
+
+            item.CheckIn();
+            borrower.CheckInItem();
         }
 
         /// <summary>
