@@ -1,0 +1,5 @@
+FrmMain's purpose is to interact with the user. It collects data from the user, identifies the user's request, and passes the collected data to the appropriate method in the controller. FrmMain also presents data from the controller to the user, and notifies the user of events which occur during the process of following the user's request.
+
+FrmMain should subscribe to the events in the EventDispatcher so it can tell the user when things happen (such as failing to check out a book).
+
+Aside from the events, FrmMain should only interact with the controller and refrain from any error checking that isn't absolutely necessary to do in the UI. The controller is responsible for validating and converting data, so these jobs should be given to the controller instead of complicating the UI with them.
