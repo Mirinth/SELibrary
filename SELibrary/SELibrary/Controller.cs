@@ -105,7 +105,7 @@ namespace SELibrary
         /// <returns>A list of all patrons.</returns>
         public List<Patron> ListPatrons()
         {
-            throw new NotImplementedException();
+            return libraryDatabase.AllPatrons ?? new List<Patron>();
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace SELibrary
         /// <returns>A list of all media.</returns>
         public List<Media> ListMedia()
         {
-            return libraryDatabase.AllMedia() ?? new List<Media>();
+            return libraryDatabase.AllMedia ?? new List<Media>();
         }
 
         /// <summary>
