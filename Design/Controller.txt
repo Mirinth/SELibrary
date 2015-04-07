@@ -1,0 +1,18 @@
+The controller's purpose is to accept requests and data from the UI, convert the data as needed, check that the data and request are valid, and then either report errors or delegate the work to the appropriate object. It is essentially a filter that ensures that bad data from the user doesn't get into the objects behind the controller.
+
+The controller object makes some assumptions about the behavior of other objects. These assumptions are:
+
+- If the database object's constructor fails to initialize the object, it will raise the appropriate event and then throw an exception.
+- (Optional, but helpful): The media object will throw an exception if the controller tries to check out an already checked out item (useful for bug catching).
+- (Optional, but helpful): The patron object will throw an exception if the controller tries to check in an item from the patron when the patron has no items checked in (i.e. the patron's checkout count becomes negative) (useful for bug catching).
+
+The controller object also guarantees some behaviors to other objects. These guarantees are:
+
+- If a request fails due to bad input, the controller will try to identify and report all of the problems with the input before quitting, instead of reporting the first and ignoring the rest.
+- - This is primarily so the UI can let the user fix all the problems at once instead of fixing one, retrying, fixing another, retrying, etc. until they get annoyed.
+- If a request fails and the controller didn't throw an exception, then the controller has reverted to the same state it was in before the bad request occurred.
+- Except for its constructor, the controller will only throw exceptions when the program is in such a bad state that it probably shouldn't continue.
+- The controller's constructor will throw an exception if the database failed to load.
+- The controller will never pass or return a null collection to another object. Any null collections encountered by the controller will be converted to empty collections instead, so objects that interact with the controller may assume the controller's lists are not null.
+
+The controller does NOT assume any data passed or returned to it is non-null. It is safe to pass or return null to the controller.
