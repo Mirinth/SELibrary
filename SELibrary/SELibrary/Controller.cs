@@ -42,8 +42,8 @@ namespace SELibrary
         /// Checks out the given item to the given patron.
         /// </summary>
         /// <param name="item">The item to check out.</param>
-        /// <param name="toPatron">The patron to loan it to.</param>
-        public void CheckOut(Media item, Patron toPatron)
+        /// <param name="borrower">The patron to loan it to.</param>
+        public void CheckOut(Media item, Patron borrower)
         {
             bool error = false;
 
@@ -58,19 +58,19 @@ namespace SELibrary
                 error = true;
             }
 
-            if (toPatron == null)
+            if (borrower == null)
             {
                 EventDispatcher.RaisePatronWasNull();
                 error = true;
             }
-            else if (IsAdult(toPatron) && toPatron.CheckoutCount >= ADULT_CHECKOUT_CAP)
+            else if (IsAdult(borrower) && borrower.CheckoutCount >= ADULT_CHECKOUT_CAP)
             {
-                EventDispatcher.RaiseAdultCheckoutsExceeded(item, toPatron);
+                EventDispatcher.RaiseAdultCheckoutsExceeded(item, borrower);
                 error = true;
             }
-            else if (toPatron.CheckoutCount >= CHILD_CHECKOUT_CAP)
+            else if (borrower.CheckoutCount >= CHILD_CHECKOUT_CAP)
             {
-                EventDispatcher.RaiseChildCheckoutsExceeded(item, toPatron);
+                EventDispatcher.RaiseChildCheckoutsExceeded(item, borrower);
                 error = true;
             }
 
@@ -84,8 +84,8 @@ namespace SELibrary
 
             DateTime dueDate = CalculateDueDate(item);
 
-            item.CheckOut(toPatron.ID, dueDate);
-            toPatron.CheckOutItem();
+            item.CheckOut(borrower.ID, dueDate);
+            borrower.CheckOutItem();
         }
 
         /// <summary>
