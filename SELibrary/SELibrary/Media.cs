@@ -95,19 +95,36 @@ namespace SELibrary
         /// Gets whether the media is due at the current time.
         /// Media is never due when the library has it.
         /// </summary>
+        public bool SetIsDue(DateTime curDate)
+        {
+            if (curDate.Day == DueDate.Day)
+                return true;
+            else
+                return false;
+        }
+
         public bool IsDue
         {
-            get; private set;
+            get { return isDue; }
         }
 
         /// <summary>
         /// Gets whether the media is overdue at the current time.
         /// Media is never overdue when the library has it.
         /// </summary>
+        public bool SetIsOverdue(DateTime curDate)
+        {
+            if (curDate.Day < DueDate.Day)
+                return true;
+            else
+                return false;
+        }
+
         public bool IsOverdue
         {
-            get; private set;
+            get { return isOverDue; }
         }
+        
 
         /// <summary>
         /// Checks the media out to a patron.
@@ -141,9 +158,12 @@ namespace SELibrary
         /// <param name="mType">The type of the media.</param>
         /// <param name="mAuthor">The author of the work.</param>
         /// <param name="mTitle">The title of the work.</param>
-        public Media(MediaType mType, string mAuthor, string mTitle, string mIsbn)
+        public Media(uint mID, MediaType mType, string mAuthor, string mTitle)
         {
-            throw new NotImplementedException();
+            mediaType = mType;
+            author = mAuthor;
+            title = mTitle;
+            mediaId = mID;
         }
 
         /// <summary>
