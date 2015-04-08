@@ -17,6 +17,7 @@ namespace SELibrary
         private const int CHILD_CHECKOUT_CAP = 3;
         private Database libraryDatabase;
         private bool initialized;
+        private FileIO disk;
 
         /// <summary>
         /// Gets the current date, according to the BusinessRules
@@ -31,11 +32,57 @@ namespace SELibrary
         /// </exception>
         public Controller(string databaseFile)
         {
-            libraryDatabase = FileIO.LoadDatabase(databaseFile);
+            disk = new FileIO();
+
+            //AFTER SEED
+            //libraryDatabase = disk.LoadDatabase(databaseFile);
+
+            //SEED
+            TempDBCreator();
 
             CurrentDate = new DateTime(2015, 1, 1);
 
             initialized = true;
+        }
+
+
+
+
+
+
+
+        //SEED THE DATABASE HERE
+        //TEMP DATABASE CREATOR--------------------------------------------------------------------------------------------------------------
+        public void TempDBCreator()
+        {
+            List<Media> startMedia = new List<Media>();
+            List<Patron> startPatron = new List<Patron>();
+            //Add 4 Media
+            startMedia.Add(new Media(1, MediaType.Book, "Heber Allred", "The Great Book of Heber"));
+            startMedia.Add(new Media(2, MediaType.Book, "Jack Runner", "The Great Book of Jack"));
+            startMedia.Add(new Media(3, MediaType.Book, "Nick Smith", "The Great Book of Nick"));
+            startMedia.Add(new Media(4, MediaType.Book, "Louis Pike", "The Great Book of Louis"));
+
+            //Add 4 People
+            startPatron.Add(new Patron(1, "Yellow 24", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(2, "Blue 24", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(3, "Red 24", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(4, "Black 24", new DateTime(), PatronType.Adult));
+
+            libraryDatabase = new Database(startMedia, startPatron);
+
+        }
+//---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+        public void SaveDB(string path)
+        {
+            disk.SaveDatabase(path, libraryDatabase);
         }
 
         /// <summary>

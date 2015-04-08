@@ -12,17 +12,25 @@ namespace SELibrary
 {
     public partial class FrmMainLibrary : Form
     {
-        private Controller proControl = new Controller("Library_Database.txt");
+        private Controller proControl = new Controller("Library_Database.bin");
 
         public FrmMainLibrary()
         {
             InitializeComponent();
         }
 
+        //Open DB
         private void FrmMainLibrary_Load(object sender, EventArgs e)
         {
-            proControl.CurrentDate = DateTime.Today;
+            //proControl.CurrentDate = DateTime.Today;
             TxtDate.Text = proControl.CurrentDate.ToShortDateString();
+        }
+
+        //Save DB
+        private void BtnSaveClose_Click(object sender, EventArgs e)
+        {
+            proControl.SaveDB("Library_Database.bin");
+            this.Close();
         }
 
         private void BtnDayForward_Click_1(object sender, EventArgs e)
@@ -40,7 +48,11 @@ namespace SELibrary
         private void RdoListAll_CheckedChanged(object sender, EventArgs e)
         {
             LstBookList.Items.Clear();
-            LstBookList.Items.Add("All");
+            List<Media> allMedia = proControl.ListMedia();
+            foreach(Media item in allMedia)
+            {
+                LstBookList.Items.Add(item.Title.ToString());
+            }
         }
 
         private void RdoListOverdue_CheckedChanged(object sender, EventArgs e)

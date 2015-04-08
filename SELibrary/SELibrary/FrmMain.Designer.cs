@@ -45,6 +45,7 @@
             this.BtnCheckOut = new System.Windows.Forms.Button();
             this.BtnCheckIn = new System.Windows.Forms.Button();
             this.EProvReport = new System.Windows.Forms.ErrorProvider(this.components);
+            this.BtnSaveClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.EProvReport)).BeginInit();
             this.SuspendLayout();
             // 
@@ -194,11 +195,22 @@
             // 
             this.EProvReport.ContainerControl = this;
             // 
+            // BtnSaveClose
+            // 
+            this.BtnSaveClose.Location = new System.Drawing.Point(467, 23);
+            this.BtnSaveClose.Name = "BtnSaveClose";
+            this.BtnSaveClose.Size = new System.Drawing.Size(118, 23);
+            this.BtnSaveClose.TabIndex = 15;
+            this.BtnSaveClose.Text = "Save and Exit";
+            this.BtnSaveClose.UseVisualStyleBackColor = true;
+            this.BtnSaveClose.Click += new System.EventHandler(this.BtnSaveClose_Click);
+            // 
             // FrmMainLibrary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 445);
+            this.Controls.Add(this.BtnSaveClose);
             this.Controls.Add(this.BtnCheckIn);
             this.Controls.Add(this.BtnCheckOut);
             this.Controls.Add(this.RdoListAll);
@@ -241,6 +253,7 @@
         private System.Windows.Forms.Button BtnCheckOut;
         private System.Windows.Forms.Button BtnCheckIn;
         private System.Windows.Forms.ErrorProvider EProvReport;
+        private System.Windows.Forms.Button BtnSaveClose;
     }
 }
 

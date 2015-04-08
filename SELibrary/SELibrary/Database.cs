@@ -6,6 +6,7 @@ namespace SELibrary
     /// <summary>
     /// Stores information about the library's media and patrons.
     /// </summary>
+    [Serializable]
     class Database
     {
         private List<Media> items;

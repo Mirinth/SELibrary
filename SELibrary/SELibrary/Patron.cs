@@ -5,6 +5,7 @@ namespace SELibrary
     /// <summary>
     /// Represents a patron of the library.
     /// </summary>
+    [Serializable]
     public class Patron
     {
         const uint MAX_ADULT_MEDIA = 6;

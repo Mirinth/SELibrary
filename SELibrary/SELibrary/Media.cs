@@ -5,6 +5,7 @@ namespace SELibrary
     /// <summary>
     /// Represents a media item in the library.
     /// </summary>
+    [Serializable]
     public class Media
     {
         private uint mediaId;
