@@ -36,7 +36,17 @@ namespace SELibrary
         /// <returns>The database stored in the file, or null on failure.</returns>
         public Database LoadDatabase(string path)
         {
-            return null;
+            FileStream _fileStream;
+            BinaryFormatter _binaryFormat;
+
+            _fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
+            _binaryFormat = new BinaryFormatter();
+
+            Database db = (Database)_binaryFormat.Deserialize(_fileStream);
+
+            _fileStream.Flush();
+            _fileStream.Close();
+            return db;
         }
     }
 }
