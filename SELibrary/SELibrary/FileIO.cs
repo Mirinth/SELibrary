@@ -14,7 +14,7 @@ namespace SELibrary
         /// <param name="db">The database to store.</param>
         public static void SaveDatabase(string path, Database db)
         {
-            throw new NotImplementedException();
+            
         }
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace SELibrary
         /// <returns>The database stored in the file, or null on failure.</returns>
         public static Database LoadDatabase(string path)
         {
-            throw new NotImplementedException();
+            return null;
         }
     }
 }

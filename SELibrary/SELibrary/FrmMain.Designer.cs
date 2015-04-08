@@ -115,6 +115,7 @@
             this.BtnDayForward.TabIndex = 7;
             this.BtnDayForward.Text = "Forward one day >>";
             this.BtnDayForward.UseVisualStyleBackColor = true;
+            this.BtnDayForward.Click += new System.EventHandler(this.BtnDayForward_Click_1);
             // 
             // LblMediaList
             // 
@@ -211,6 +212,7 @@
             this.Controls.Add(this.LstBookList);
             this.Name = "FrmMainLibrary";
             this.Text = "Book Manager";
+            this.Load += new System.EventHandler(this.FrmMainLibrary_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EProvReport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

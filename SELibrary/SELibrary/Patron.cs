@@ -101,7 +101,6 @@ namespace SELibrary
     }
 
     /// <summary>
-    /// Patron Types, Child or Adult
     /// </summary>
     public enum PatronType
     {

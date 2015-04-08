@@ -21,7 +21,7 @@ namespace SELibrary
         /// <summary>
         /// Gets the current date, according to the BusinessRules
         /// </summary>
-        public DateTime CurrentDate { get; private set; }
+        public DateTime CurrentDate { get; set; } = new DateTime();
 
         /// <summary>
         /// Initializes the BusinessRules object.
