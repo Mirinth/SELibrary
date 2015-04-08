@@ -18,7 +18,8 @@ namespace SELibrary
         /// <param name="patrons">A list of patrons of the library.</param>
         public Database(List<Media> mediaList, List<Patron> patronList)
         {
-            throw new NotImplementedException();
+            items = mediaList;
+            patrons = patronList;
         }
 
         /// <summary>
@@ -29,7 +30,7 @@ namespace SELibrary
         {
             get
             {
-                throw new NotImplementedException();
+                return items;
             }
         }
 
@@ -43,7 +44,15 @@ namespace SELibrary
         /// <returns>A list of all media loaned to the given patron.</returns>
         public List<Media> MediaByBorrower(Patron borrower)
         {
-            throw new NotImplementedException();
+            List<Media> returnList = new List<Media>();
+            foreach(Media item in items)
+            {
+                if(item.Borrower == borrower.ID)
+                {
+                    returnList.Add(item);
+                }
+            }
+            return returnList;
         }
 
         /// <summary>
@@ -52,7 +61,15 @@ namespace SELibrary
         /// <returns>A list of all overdue media.</returns>
         public List<Media> OverdueMedia()
         {
-            throw new NotImplementedException();
+            List<Media> returnList = new List<Media>();
+            foreach (Media item in items)
+            {
+                if (item.IsOverdue == true)
+                {
+                    returnList.Add(item);
+                }
+            }
+            return returnList;
         }
 
         /// <summary>
@@ -63,7 +80,7 @@ namespace SELibrary
         {
             get
             {
-                throw new NotImplementedException();
+                return patrons;
             }
         }
 
@@ -74,29 +91,32 @@ namespace SELibrary
         /// <returns>The patron with the given ID.</returns>
         public Patron PatronByID(uint id)
         {
-            throw new NotImplementedException();
+            foreach (Patron person in patrons)
+            {
+                if (person.ID == id)
+                {
+                    return person;
+                }
+            }
+            return null;
         }
 
         /// <summary>
-        /// Updates a patron in the database. The patron with the
-        /// same ID as toUpdate is overwritten, or toUpdate is
-        /// inserted.
+        /// Add A book To DataBase
         /// </summary>
-        /// <param name="toUpdate">The patron to update.</param>
-        public void UpdatePatron(Patron toUpdate)
+        /// <param name="toAdd"></param>
+        public void AddPatron(Patron toAdd)
         {
-            throw new NotImplementedException();
+            patrons.Add(toAdd);
         }
 
         /// <summary>
-        /// Updates a media in th database. The media with the
-        /// same ID as toUpdate is overwritten, or toUpdate is
-        /// inserted.
+        /// Add Media To DataBase
         /// </summary>
-        /// <param name="toUpdate">The media to update.</param>
-        public void UpdateMedia(Media toUpdate)
+        /// <param name="toAdd"></param>
+        public void AddMedia(Media toAdd)
         {
-            throw new NotImplementedException();
+            items.Add(toAdd);
         }
     }
 }

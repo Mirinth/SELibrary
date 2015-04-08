@@ -137,6 +137,7 @@
             this.RdoListNone.TabStop = true;
             this.RdoListNone.Text = "None";
             this.RdoListNone.UseVisualStyleBackColor = true;
+            this.RdoListNone.CheckedChanged += new System.EventHandler(this.RdoListNone_CheckedChanged);
             // 
             // RdoListByPatron
             // 
@@ -147,6 +148,7 @@
             this.RdoListByPatron.TabIndex = 10;
             this.RdoListByPatron.Text = "All loaned to patron";
             this.RdoListByPatron.UseVisualStyleBackColor = true;
+            this.RdoListByPatron.CheckedChanged += new System.EventHandler(this.RdoListByPatron_CheckedChanged);
             // 
             // RdoListOverdue
             // 
@@ -157,6 +159,7 @@
             this.RdoListOverdue.TabIndex = 11;
             this.RdoListOverdue.Text = "All overdue";
             this.RdoListOverdue.UseVisualStyleBackColor = true;
+            this.RdoListOverdue.CheckedChanged += new System.EventHandler(this.RdoListOverdue_CheckedChanged);
             // 
             // RdoListAll
             // 
@@ -167,6 +170,7 @@
             this.RdoListAll.TabIndex = 12;
             this.RdoListAll.Text = "All";
             this.RdoListAll.UseVisualStyleBackColor = true;
+            this.RdoListAll.CheckedChanged += new System.EventHandler(this.RdoListAll_CheckedChanged);
             // 
             // BtnCheckOut
             // 

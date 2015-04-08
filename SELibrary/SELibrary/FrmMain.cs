@@ -30,5 +30,29 @@ namespace SELibrary
             proControl.CurrentDate = proControl.CurrentDate.AddDays(1);
             TxtDate.Text = proControl.CurrentDate.ToShortDateString();
         }
+
+        private void RdoListNone_CheckedChanged(object sender, EventArgs e)
+        {
+            LstBookList.Items.Clear();
+            LstBookList.Items.Add("None");
+        }
+
+        private void RdoListAll_CheckedChanged(object sender, EventArgs e)
+        {
+            LstBookList.Items.Clear();
+            LstBookList.Items.Add("All");
+        }
+
+        private void RdoListOverdue_CheckedChanged(object sender, EventArgs e)
+        {
+            LstBookList.Items.Clear();
+            LstBookList.Items.Add("OverDue");
+        }
+
+        private void RdoListByPatron_CheckedChanged(object sender, EventArgs e)
+        {
+            LstBookList.Items.Clear();
+            LstBookList.Items.Add("Patron's Books");
+        }
     }
 }
