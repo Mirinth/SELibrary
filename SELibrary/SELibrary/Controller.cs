@@ -35,10 +35,10 @@ namespace SELibrary
             disk = new FileIO();
 
             //AFTER SEED
-            //libraryDatabase = disk.LoadDatabase(databaseFile);
+            libraryDatabase = disk.LoadDatabase(databaseFile);
 
             //SEED
-            TempDBCreator();
+            //TempDBCreator();
 
             CurrentDate = new DateTime(2015, 1, 1);
 
