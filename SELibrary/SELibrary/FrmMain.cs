@@ -35,17 +35,14 @@ namespace SELibrary
             proControl = new Controller(this);
         }
 
-        //Save DB
-        private void BtnSaveClose_Click(object sender, EventArgs e)
-        {
-            proControl.SaveDatabase("Library_Database.bin");
-            this.Close();
-        }
-
+        /// <summary>
+        /// Passes time
+        /// </summary>
+        /// <param name="sender">Unused</param>
+        /// <param name="e">Unused</param>
         private void BtnDayForward_Click_1(object sender, EventArgs e)
         {
-            proControl.CurrentDate = proControl.CurrentDate.AddDays(1);
-            TxtDate.Text = proControl.CurrentDate.ToShortDateString();
+            proControl.PassTime();
         }
 
         private void RdoListNone_CheckedChanged(object sender, EventArgs e)
@@ -74,6 +71,13 @@ namespace SELibrary
         {
             LstBookList.Items.Clear();
             LstBookList.Items.Add("Patron's Books");
+        }
+
+        //Save DB
+        private void BtnSaveClose_Click(object sender, EventArgs e)
+        {
+            proControl.SaveDatabase("Library_Database.bin");
+            this.Close();
         }
     }
 }
