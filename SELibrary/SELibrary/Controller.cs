@@ -16,8 +16,7 @@ namespace SELibrary
         private const int ADULT_CHECKOUT_CAP = 6;
         private const int CHILD_CHECKOUT_CAP = 3;
         private Database libraryDatabase;
-        private bool initialized;
-        private FileIO disk;
+        private ILibraryUI _ui;
 
         /// <summary>
         /// Gets the current date, according to the BusinessRules
@@ -30,19 +29,10 @@ namespace SELibrary
         /// <exception cref="TypeInitializationException">
         /// Thrown when the database fails to load.
         /// </exception>
-        public Controller(string databaseFile)
+        public Controller(ILibraryUI ui)
         {
-            disk = new FileIO();
-
-            //AFTER SEED
-            libraryDatabase = disk.LoadDatabase(databaseFile);
-
-            //SEED
-            //TempDBCreator();
-
             CurrentDate = new DateTime(2015, 1, 1);
-
-            initialized = true;
+            _ui = ui;
         }
 
 
