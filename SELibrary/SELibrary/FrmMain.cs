@@ -173,14 +173,6 @@ namespace SELibrary
         }
 
         /// <summary>
-        /// Notifies the user that a bad file path was encountered.
-        /// </summary>
-        public void ReportBadFilePath()
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
         /// Notifies the user that the selected database was corrupted.
         /// </summary>
         public void ReportCorruptedDatabase()
