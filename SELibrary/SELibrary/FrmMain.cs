@@ -148,7 +148,7 @@ namespace SELibrary
         /// <param name="newDate"></param>
         public void ReportDateChanged(DateTime newDate)
         {
-            throw new NotImplementedException();
+            TxtDate.Text = newDate.ToShortDateString();
         }
 
         /// <summary>
