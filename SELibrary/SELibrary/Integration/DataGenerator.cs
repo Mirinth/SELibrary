@@ -33,6 +33,34 @@ namespace SELibrary.Integration
             "Lastname"
         };
 
+        private static string[] Adjectives =
+        {
+            "Big",
+            "Little",
+            "Orange",
+            "Forgotten",
+            "Missing",
+            "Fuzzy",
+            "Bald",
+            "Suspicious",
+            "Friendly",
+            "Invisible"
+        };
+
+        private static string[] Nouns =
+        {
+            "Dog",
+            "Cat",
+            "Fish",
+            "Book",
+            "Car",
+            "Train",
+            "Soup",
+            "Shoes",
+            "Door",
+            "Sock"
+        };
+
         public static string RandomName()
         {
             Random rng = new Random();
@@ -40,6 +68,14 @@ namespace SELibrary.Integration
             string last = LastNames[rng.Next(LastNames.Length)];
 
             return first + " " + last;
+        }
+
+        public static string RandomTitle(Random rng)
+        {
+            string adjective = Adjectives[rng.Next(Adjectives.Length)];
+            string noun = Nouns[rng.Next(Nouns.Length)];
+
+            return string.Format("The {0} {1}", adjective, noun);
         }
     }
 }
