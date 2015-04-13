@@ -99,6 +99,16 @@ namespace SELibrary
             else
                 return false;
         }
+
+        /// <summary>
+        /// Converts the patron to its string representation.
+        /// </summary>
+        /// <returns>A string representation of the patron.</returns>
+        public override string ToString()
+        {
+            const string TO_STRING_FORMAT = "{0}: {1}";
+            return string.Format(TO_STRING_FORMAT, ID, Name);
+        }
     }
 
     /// <summary>
