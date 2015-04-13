@@ -80,7 +80,7 @@ namespace SELibrary
         private void RdoListOverdue_CheckedChanged(object sender, EventArgs e)
         {
             LstBookList.Items.Clear();
-            List<Media> overdueMedia = proControl.ListMedia();
+            List<Media> overdueMedia = proControl.ListOverdueMedia();
             foreach (Media item in overdueMedia)
             {
                 LstBookList.Items.Add(item);
