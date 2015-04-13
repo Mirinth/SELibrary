@@ -10,5 +10,7 @@ namespace SELibrary
             "selected item is the intended one. If it is, check it in so it can be checked out again.";
         public const string ADULT_CHECKOUT_LIMIT_EXCEEDED = "An adult patron's checkout limit was exceeded.";
         public const string CHILD_CHECKOUT_LIMIT_EXCEEDED = "A child patron's checkout limit was exceeded.";
+        public const string DATABASE_CORRUPTED = "The database could not be loaded because it was corrupted. " +
+            "Please use a different database, or reload this one from a backup and try again.";
     }
 }

@@ -177,7 +177,7 @@ namespace SELibrary
         /// </summary>
         public void ReportCorruptedDatabase()
         {
-            throw new NotImplementedException();
+            MessageBox.Show(UIStrings.DATABASE_CORRUPTED);
         }
 
         /// <summary>
