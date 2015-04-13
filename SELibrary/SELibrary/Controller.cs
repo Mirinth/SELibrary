@@ -176,8 +176,6 @@ namespace SELibrary
         {
             _ui.ClearErrors();
 
-            bool error = false;
-
             // method returns if true
             if (item == null)
             {
@@ -192,7 +190,7 @@ namespace SELibrary
             else if (!item.IsBorrowed)
             {
                 _ui.ReportItemAlreadyCheckedIn(item);
-                error = true;
+                return;
             }
 
             Patron borrower = libraryDatabase.PatronByID(item.Borrower);
@@ -201,14 +199,6 @@ namespace SELibrary
             {
                 // The database is probably corrupted.
                 throw new InvalidOperationException();
-            }
-
-            // All preconditions have been checked and either met or
-            // reported, so this is the best place to stop if there
-            // is a detectable error.
-            if (error)
-            {
-                return;
             }
 
             item.CheckIn();
