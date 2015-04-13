@@ -3,99 +3,48 @@
 namespace SELibrary
 {
     /// <summary>
-    /// Generates and allows subscription to various
-    /// events in the program.
+    /// The interface to a UI that the various back-end
+    /// classes expect to interact with.
     /// </summary>
-    static class EventDispatcher
+    interface ILibraryUI
     {
         /// <summary>
-        /// The event raised when the date changes.
-        /// </summary>
-        public static event Action<DateTime> DateChanged = delegate { };
-
-        /// <summary>
-        /// Notifies listeners that the date has been changed.
+        /// Notifies the UI that the date has been changed.
         /// </summary>
         /// <param name="newDate">The new date.</param>
-        public static void RaiseDateChanged(DateTime newDate)
-        {
-            DateChanged(newDate);
-        }
+        void ReportDateChanged(DateTime newDate);
 
         /// <summary>
-        /// The event raised when an item failed to be checked out
-        /// because it was already checked out.
-        /// </summary>
-        public static event Action<Media> ItemAlreadyCheckedOut = delegate { };
-
-        /// <summary>
-        /// Notifies listeners that an item failed to be checked
+        /// Notifies the UI that an item failed to be checked
         /// out because it was already checked out.
         /// </summary>
         /// <param name="item">The item that failed to be checked out.</param>
-        public static void RaiseItemAlreadyCheckedOut(Media item)
-        {
-            ItemAlreadyCheckedOut(item);
-        }
+        void ReportItemAlreadyCheckedOut(Media item);
 
         /// <summary>
-        /// The event raised when an item failed to be checked out
-        /// because an adult patron's checkout count was exceeded.
-        /// </summary>
-        public static Action<Media, Patron> AdultCheckoutsExceeded = delegate { };
-
-        /// <summary>
-        /// Notifies listeners that an item failed to be checked
+        /// Notifies the UI that an item failed to be checked
         /// out because an adult's checkout count was exceeded.
         /// </summary>
         /// <param name="item">The item that failed to be checked out.</param>
         /// <param name="borrower">The patron who tried to borrow the item.</param>
-        public static void RaiseAdultCheckoutsExceeded(Media item, Patron borrower)
-        {
-            AdultCheckoutsExceeded(item, borrower);
-        }
+        void ReportAdultCheckoutsExceeded(Media item, Patron borrower);
 
         /// <summary>
-        /// The event raised when an item failed to be checked out
-        /// because a child patron's checkout count was exceeded.
-        /// </summary>
-        public static Action<Media, Patron> ChildCheckoutsExceeded = delegate { };
-
-        /// <summary>
-        /// Notifies listeners that an item failed to be checked
+        /// Notifies the UI that an item failed to be checked
         /// out because a child's checkout count was exceeded.
         /// </summary>
         /// <param name="item">The item that failed to be checked out.</param>
         /// <param name="borrower">The patron who tried to borrow the item.</param>
-        public static void RaiseChildCheckoutsExceeded(Media item, Patron borrower)
-        {
-            ChildCheckoutsExceeded(item, borrower);
-        }
+        void ReportChildCheckoutsExceeded(Media item, Patron borrower);
 
         /// <summary>
-        /// The event raised when a null item was encountered.
+        /// Notifies the UI that a null item was encountered.
         /// </summary>
-        public static event Action ItemWasNull;
+        void ReportItemWasNull();
 
         /// <summary>
-        /// Notifies listeners that a null item was encountered.
+        /// Notifies the UI that a null item was encountered.
         /// </summary>
-        public static void RaiseItemWasNull()
-        {
-            ItemWasNull();
-        }
-
-        /// <summary>
-        /// The event raised when a null patron was encountered.
-        /// </summary>
-        public static event Action PatronWasNull;
-
-        /// <summary>
-        /// Notifies listeners that a null item was encountered.
-        /// </summary>
-        public static void RaisePatronWasNull()
-        {
-            PatronWasNull();
-        }
+        void ReportPatronWasNull();
     }
 }
