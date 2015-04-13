@@ -103,5 +103,32 @@ namespace SELibrary.Integration
 
             return birthday;
         }
+
+        /// <summary>
+        /// Selects a random media type.
+        /// </summary>
+        /// <param name="rng">The random number generator to use.</param>
+        /// <returns>A randomly chosen media type.</returns>
+        public static MediaType RandomMediaType(Random rng)
+        {
+            const int MAX = 3;
+            const int BOOK = 0;
+            const int DVD = 1;
+            const int VIDEO = 2;
+
+            int choice = rng.Next(MAX);
+
+            switch (choice)
+            {
+                case BOOK:
+                    return MediaType.Book;
+                case DVD:
+                    return MediaType.DVD;
+                case VIDEO:
+                    return MediaType.Video;
+                default:
+                    throw new InvalidOperationException();
+            }
+        }
     }
 }
