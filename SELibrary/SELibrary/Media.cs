@@ -8,23 +8,12 @@ namespace SELibrary
     [Serializable]
     public class Media
     {
-        private uint mediaId;
-        private MediaRating mediaRating;
-        private MediaType mediaType;
-        private string title;
-        private string author;
-        private bool isBorrowed;
-        private uint borrowerId;
-        private DateTime dueDate;
-        private bool isDue;
-        private bool isOverDue;
-
         /// <summary>
         /// The item's unique ID.
         /// </summary>
         public uint ID
         {
-            get { return mediaId; }
+            get; private set;
         }
 
         /// <summary>
@@ -32,7 +21,7 @@ namespace SELibrary
         /// </summary>
         public MediaRating Rating
         {
-            get { return mediaRating; }
+            get; private set;
         }
 
         /// <summary>
@@ -40,7 +29,7 @@ namespace SELibrary
         /// </summary>
         public MediaType Type
         {
-            get { return mediaType; }
+            get; private set;
         }
 
         /// <summary>
@@ -48,7 +37,7 @@ namespace SELibrary
         /// </summary>
         public string Title
         {
-            get { return title; }
+            get; private set;
         }
 
         /// <summary>
@@ -56,7 +45,7 @@ namespace SELibrary
         /// </summary>
         public string Author
         {
-            get { return author; }
+            get; private set;
         }
 
         /// <summary>
@@ -64,8 +53,7 @@ namespace SELibrary
         /// </summary>
         public bool IsBorrowed
         {
-            get { return isBorrowed; }
-            set { isBorrowed = value; }
+            get; private set;
         }
 
         /// <summary>
@@ -76,8 +64,7 @@ namespace SELibrary
         /// </exception>
         public uint Borrower
         {
-            get { return borrowerId; }
-            set { borrowerId = value; }
+            get; private set;
         }
 
         /// <summary>
@@ -88,44 +75,32 @@ namespace SELibrary
         /// </exception>
         public DateTime DueDate
         {
-            get { return dueDate; }
-            set { dueDate = value; }
+            get; private set;
         }
 
         /// <summary>
         /// Gets whether the media is due at the current time.
         /// Media is never due when the library has it.
         /// </summary>
-        public bool SetIsDue(DateTime curDate)
+        public bool IsDue(DateTime curDate)
         {
-            if (curDate.Day == DueDate.Day)
+            if (curDate >= DueDate)
                 return true;
             else
                 return false;
-        }
-
-        public bool IsDue
-        {
-            get { return isDue; }
         }
 
         /// <summary>
         /// Gets whether the media is overdue at the current time.
         /// Media is never overdue when the library has it.
         /// </summary>
-        public bool SetIsOverdue(DateTime curDate)
+        public bool IsOverdue(DateTime curDate)
         {
-            if (curDate.Day < DueDate.Day)
+            if (curDate > DueDate)
                 return true;
             else
                 return false;
         }
-
-        public bool IsOverdue
-        {
-            get { return isOverDue; }
-        }
-        
 
         /// <summary>
         /// Checks the media out to a patron.
@@ -161,10 +136,10 @@ namespace SELibrary
         /// <param name="mTitle">The title of the work.</param>
         public Media(uint mID, MediaType mType, string mAuthor, string mTitle)
         {
-            mediaType = mType;
-            author = mAuthor;
-            title = mTitle;
-            mediaId = mID;
+            Type = mType;
+            Author = mAuthor;
+            Title = mTitle;
+            ID = mID;
         }
 
         /// <summary>
