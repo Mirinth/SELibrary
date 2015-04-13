@@ -59,9 +59,6 @@ namespace SELibrary
         /// <summary>
         /// Gets the ID of the media's borrower.
         /// </summary>
-        /// <exception cref="InvalidOperationException">
-        /// Thrown if the media is not currently checked out.
-        /// </exception>
         public uint Borrower
         {
             get; private set;
@@ -70,9 +67,6 @@ namespace SELibrary
         /// <summary>
         /// Gets the date the media is due.
         /// </summary>
-        /// <exception cref="InvalidOperationException">
-        /// Thrown if the media is not currently checked out.
-        /// </exception>
         public DateTime DueDate
         {
             get; private set;
@@ -140,6 +134,13 @@ namespace SELibrary
             }
 
             IsBorrowed = false;
+
+            // The library can have books forever
+            DueDate = DateTime.MaxValue;
+
+            // Give people the most unlikely patron ID if they still
+            // think it's good to get it.
+            Borrower = uint.MaxValue;
         }
 
         /// <summary>
