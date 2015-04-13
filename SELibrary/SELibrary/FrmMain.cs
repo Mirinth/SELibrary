@@ -117,7 +117,10 @@ namespace SELibrary
         /// </summary>
         public void ReportPatronWasNull()
         {
-            throw new NotImplementedException();
+            // Null patrons usually happen because the user typed in
+            // a name that doesn't exist in the combo box. Selecting
+            // a name from the combo box should fix the issue.
+            EProvReport.SetError(CBoxPatron, UIStrings.SELECT_PATRON);
         }
 
         /// <summary>
