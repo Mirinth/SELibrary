@@ -130,5 +130,29 @@ namespace SELibrary.Integration
                     throw new InvalidOperationException();
             }
         }
+
+        /// <summary>
+        /// Selects a random media rating.
+        /// </summary>
+        /// <param name="rng">The random numger generator to use.</param>
+        /// <returns>A randomly chosen media rating.</returns>
+        public static MediaRating RandomMediaRating(Random rng)
+        {
+            const int MAX = 2;
+            const int EVERYONE = 0;
+            const int ADULT = 1;
+
+            int choice = rng.Next(MAX);
+
+            switch (choice)
+            {
+                case EVERYONE:
+                    return MediaRating.Everyone;
+                case ADULT:
+                    return MediaRating.Adult;
+                default:
+                    throw new InvalidOperationException();
+            }
+        }
     }
 }
