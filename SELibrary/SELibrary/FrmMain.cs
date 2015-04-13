@@ -139,7 +139,7 @@ namespace SELibrary
         /// </summary>
         public void ReportItemAlreadyCheckedOut()
         {
-            throw new NotImplementedException();
+            EProvReport.SetError(CBoxBook, UIStrings.ITEM_ALREADY_CHECKED_OUT);
         }
 
         /// <summary>
