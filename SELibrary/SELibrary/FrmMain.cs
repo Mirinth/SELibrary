@@ -135,14 +135,6 @@ namespace SELibrary
         }
 
         /// <summary>
-        /// Notifies the user that an item was already checked out.
-        /// </summary>
-        public void ReportItemAlreadyCheckedOut()
-        {
-            EProvReport.SetError(CBoxBook, UIStrings.ITEM_ALREADY_CHECKED_OUT);
-        }
-
-        /// <summary>
         /// Updates the currently displayed date.
         /// </summary>
         /// <param name="newDate"></param>
@@ -157,7 +149,7 @@ namespace SELibrary
         /// <param name="item">The item that was already checked out.</param>
         public void ReportItemAlreadyCheckedOut(Media item)
         {
-            throw new NotImplementedException();
+            EProvReport.SetError(CBoxBook, UIStrings.ITEM_ALREADY_CHECKED_OUT);
         }
 
         /// <summary>
