@@ -113,6 +113,16 @@ namespace SELibrary
             proControl.LoadDemoDatabase();
         }
 
+        /// <summary>
+        /// Checks in the currently selected item.
+        /// </summary>
+        /// <param name="sender">Unused</param>
+        /// <param name="e">Also unused</param>
+        private void BtnCheckIn_Click(object sender, EventArgs e)
+        {
+            proControl.CheckIn((Media)CBoxBook.SelectedItem);
+        }
+
         //Save DB
         private void BtnSaveClose_Click(object sender, EventArgs e)
         {

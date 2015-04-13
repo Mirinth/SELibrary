@@ -192,6 +192,7 @@
             this.BtnCheckIn.TabIndex = 14;
             this.BtnCheckIn.Text = "Check in";
             this.BtnCheckIn.UseVisualStyleBackColor = true;
+            this.BtnCheckIn.Click += new System.EventHandler(this.BtnCheckIn_Click);
             // 
             // EProvReport
             // 
