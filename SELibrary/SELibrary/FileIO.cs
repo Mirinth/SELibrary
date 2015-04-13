@@ -76,17 +76,60 @@ namespace SELibrary
         /// <returns>The database stored in the file, or null on failure.</returns>
         public static Database LoadDatabase(ILibraryUI ui, string path)
         {
-            FileStream _fileStream;
+            FileStream _fileStream = null;
             BinaryFormatter _binaryFormat;
 
-            _fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
+            try
+            {
+                _fileStream = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
+            }
+            // let ArgumentNullException rise since Controller should have
+            // prevented that
+
+            // ArgumentOutOfRangeException should be impossible
+            catch (IOException)
+            {
+                ui.ReportBadFilePath();
+                return null;
+            }
+            catch (ArgumentException)
+            {
+                ui.ReportBadFilePath();
+                return null;
+            }
+            catch (NotSupportedException)
+            {
+                ui.ReportBadFilePath();
+                return null;
+            }
+            catch (UnauthorizedAccessException)
+            {
+                ui.ReportBadFilePath();
+                return null;
+            }
+            catch (System.Security.SecurityException)
+            {
+                ui.ReportBadFilePath();
+                return null;
+            }
+
             _binaryFormat = new BinaryFormatter();
 
-            Database db = (Database)_binaryFormat.Deserialize(_fileStream);
-
-            _fileStream.Flush();
-            _fileStream.Close();
-            return db;
+            try
+            {
+                Database db = (Database)_binaryFormat.Deserialize(_fileStream);
+                return db;
+            }
+            catch (System.Runtime.Serialization.SerializationException)
+            {
+                ui.ReportCorruptedDatabase();
+                return null;
+            }
+            finally
+            {
+                _fileStream.Flush();
+                _fileStream.Close();
+            }
         }
     }
 }

@@ -51,5 +51,10 @@ namespace SELibrary
         /// Notifies the UI that a bad file path was encountered.
         /// </summary>
         void ReportBadFilePath();
+
+        /// <summary>
+        /// Notifies the UI that the database file was corrupted.
+        /// </summary>
+        void ReportCorruptedDatabase();
     }
 }
