@@ -14,8 +14,14 @@ namespace SELibrary
     {
         private Controller proControl;
 
+        /// <summary>
+        /// Initializes the form.
+        /// </summary>
         public FrmMainLibrary()
         {
+            // This method is used by the IDE; try not to modify
+            // it unless absolutely needed. Use FrmMainLibrary_Load
+            // for initialization instead.
             InitializeComponent();
         }
 
