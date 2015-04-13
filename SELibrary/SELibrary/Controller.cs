@@ -67,7 +67,7 @@ namespace SELibrary
         /// <param name="filePath">The path to the database fie.</param>
         public void LoadDatabase(string filePath)
         {
-            FileStream fs = FileIO.Open(_ui, filePath);
+            FileStream fs = FileIO.Open(filePath);
 
             if (fs == null)
             {
@@ -75,7 +75,7 @@ namespace SELibrary
                 return;
             }
 
-            Database db = FileIO.LoadDatabase(_ui, fs);
+            Database db = FileIO.LoadDatabase(fs);
 
             if (db == null)
             {
@@ -85,10 +85,6 @@ namespace SELibrary
 
             libraryDatabase = db;
         }
-
-
-
-
 
         public void SaveDB(string path)
         {
