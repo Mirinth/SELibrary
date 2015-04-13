@@ -56,6 +56,11 @@ namespace SELibrary
             LstBookList.Items.Add("None");
         }
 
+        /// <summary>
+        /// Updates the form to display all items in its list.
+        /// </summary>
+        /// <param name="sender">Unused</param>
+        /// <param name="e">Unused</param>
         private void RdoListAll_CheckedChanged(object sender, EventArgs e)
         {
             LstBookList.Items.Clear();
