@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SELibrary
 {
-    public partial class FrmMainLibrary : Form
+    public partial class FrmMainLibrary : Form, ILibraryUI
     {
-        private Controller proControl = new Controller("Library_Database.bin");
+        private Controller proControl;
 
         public FrmMainLibrary()
         {
