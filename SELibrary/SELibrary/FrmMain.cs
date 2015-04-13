@@ -45,6 +45,11 @@ namespace SELibrary
             proControl.PassTime();
         }
 
+        /// <summary>
+        /// Updates the form to display no items in its list.
+        /// </summary>
+        /// <param name="sender">Unused</param>
+        /// <param name="e">Unused</param>
         private void RdoListNone_CheckedChanged(object sender, EventArgs e)
         {
             LstBookList.Items.Clear();
