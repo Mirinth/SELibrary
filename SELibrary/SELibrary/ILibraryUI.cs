@@ -20,6 +20,11 @@ namespace SELibrary
         void ReportDateChanged(DateTime newDate);
 
         /// <summary>
+        /// Notifies the UI that an item was already checked in.
+        /// </summary>
+        void ReportItemAlreadyCheckedIn(Media item);
+
+        /// <summary>
         /// Notifies the UI that an item failed to be checked
         /// out because it was already checked out.
         /// </summary>

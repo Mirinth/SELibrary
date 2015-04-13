@@ -172,6 +172,15 @@ namespace SELibrary
         }
 
         /// <summary>
+        /// Notifies the user that an item was already checked in.
+        /// </summary>
+        /// <param name="item">The item that was already checked out.</param>
+        public void ReportItemAlreadyCheckedIn(Media item)
+        {
+            EProvReport.SetError(CBoxBook, UIStrings.ITEM_ALREADY_CHECKED_IN);
+        }
+
+        /// <summary>
         /// Notifies the user that an item was already checked out.
         /// </summary>
         /// <param name="item">The item that was already checked out.</param>

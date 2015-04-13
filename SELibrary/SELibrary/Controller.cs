@@ -189,9 +189,9 @@ namespace SELibrary
                 // no point in continuing if there's already an error.
                 return;
             }
-            else if (item.IsBorrowed)
+            else if (!item.IsBorrowed)
             {
-                _ui.ReportItemAlreadyCheckedOut(item);
+                _ui.ReportItemAlreadyCheckedIn(item);
                 error = true;
             }
 
@@ -199,8 +199,8 @@ namespace SELibrary
 
             if (borrower == null)
             {
-                _ui.ReportPatronWasNull();
-                error = true;
+                // The database is probably corrupted.
+                throw new InvalidOperationException();
             }
 
             // All preconditions have been checked and either met or
