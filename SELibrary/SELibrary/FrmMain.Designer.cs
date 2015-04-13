@@ -105,6 +105,7 @@
             this.TxtDate.Enabled = false;
             this.TxtDate.Location = new System.Drawing.Point(12, 25);
             this.TxtDate.Name = "TxtDate";
+            this.TxtDate.ReadOnly = true;
             this.TxtDate.Size = new System.Drawing.Size(218, 20);
             this.TxtDate.TabIndex = 6;
             // 
