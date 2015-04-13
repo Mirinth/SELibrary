@@ -2,6 +2,9 @@
 
 namespace SELibrary
 {
+    /// <summary>
+    /// Contains strings used by the UI.
+    /// </summary>
     static class UIStrings
     {
         public const string SELECT_PATRON = "Please select a patron from the list.";
