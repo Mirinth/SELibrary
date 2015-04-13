@@ -18,14 +18,52 @@ namespace SELibrary
         /// <param name="db">The database to store.</param>
         public static void SaveDatabase(ILibraryUI ui, string path, Database db)
         {
-            FileStream _fileStream;
+            FileStream _fileStream = null;
             BinaryFormatter _binaryFormat;
 
-            _fileStream = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
+            try
+            {
+                _fileStream = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
+            }
+            // let ArgumentNullException rise since Controller should have
+            // prevented that
+
+            // ArgumentOutOfRangeException should be impossible
+            catch (IOException)
+            {
+                ui.ReportBadFilePath();
+                return;
+            }
+            catch (ArgumentException)
+            {
+                ui.ReportBadFilePath();
+                return;
+            }
+            catch (NotSupportedException)
+            {
+                ui.ReportBadFilePath();
+                return;
+            }
+            catch (UnauthorizedAccessException)
+            {
+                ui.ReportBadFilePath();
+                return;
+            }
+            catch (System.Security.SecurityException)
+            {
+                ui.ReportBadFilePath();
+                return;
+            }
+
             _binaryFormat = new BinaryFormatter();
 
+            // Assume _fileStream != null since it should have been
+            // assigned above if an exception wasn't thrown.
+            // This can still throw, but only in cases where either
+            // the controller should have prevented it or there isn't
+            // much that can be done about the situation.
             _binaryFormat.Serialize(_fileStream, db);
-
+            
             _fileStream.Flush();
             _fileStream.Close();
         }

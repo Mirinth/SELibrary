@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="Controller.cs" />
     <Compile Include="Demo.cs" />
-    <Compile Include="EventDispatcher.cs" />
+    <Compile Include="ILibraryUI.cs" />
     <Compile Include="FileIO.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>

@@ -46,5 +46,10 @@ namespace SELibrary
         /// Notifies the UI that a null item was encountered.
         /// </summary>
         void ReportPatronWasNull();
+
+        /// <summary>
+        /// Notifies the UI that a bad file path was encountered.
+        /// </summary>
+        void ReportBadFilePath();
     }
 }
