@@ -239,6 +239,13 @@ namespace SELibrary
         /// <returns>A list of all media items checked out to the patron.</returns>
         public List<Media> ListMediaByPatron(Patron byPatron)
         {
+            if (byPatron == null)
+            {
+                // Don't trust the UI to give a valid patron.
+                // Because it won't.
+                return new List<Media>();
+            }
+
             return libraryDatabase.MediaByBorrower(byPatron) ?? new List<Media>();
         }
 
