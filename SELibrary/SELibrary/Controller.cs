@@ -165,7 +165,7 @@ namespace SELibrary
             // method returns if true
             if (item == null)
             {
-                EventDispatcher.RaiseItemWasNull();
+                _ui.ReportItemWasNull();
 
                 // All the other errors can only occur once the patron
                 // who checked out the item is known, but that patron
@@ -175,7 +175,7 @@ namespace SELibrary
             }
             else if (item.IsBorrowed)
             {
-                EventDispatcher.RaiseItemAlreadyCheckedOut(item);
+                _ui.ReportItemAlreadyCheckedOut(item);
                 error = true;
             }
 
@@ -183,7 +183,7 @@ namespace SELibrary
 
             if (borrower == null)
             {
-                EventDispatcher.RaisePatronWasNull();
+                _ui.ReportPatronWasNull();
                 error = true;
             }
 
