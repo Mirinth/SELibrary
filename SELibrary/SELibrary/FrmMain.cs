@@ -29,7 +29,7 @@ namespace SELibrary
         //Save DB
         private void BtnSaveClose_Click(object sender, EventArgs e)
         {
-            proControl.SaveDB("Library_Database.bin");
+            proControl.SaveDatabase("Library_Database.bin");
             this.Close();
         }
 

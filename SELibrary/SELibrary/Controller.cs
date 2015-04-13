@@ -86,9 +86,22 @@ namespace SELibrary
             libraryDatabase = db;
         }
 
-        public void SaveDB(string path)
+        /// <summary>
+        /// Saves the database to filePath.
+        /// If an error occurs, it is reported to the UI.
+        /// </summary>
+        /// <param name="filePath">The path to the database fie.</param>
+        public void SaveDatabase(string filePath)
         {
-            disk.SaveDatabase(path, libraryDatabase);
+            FileStream fs = FileIO.Open(filePath);
+
+            if (fs == null)
+            {
+                _ui.ReportFileOpenFail();
+                return;
+            }
+
+            FileIO.SaveDatabase(fs, libraryDatabase);
         }
 
         /// <summary>
