@@ -30,7 +30,7 @@ namespace SELibrary
         }
 
         /// <summary>
-        /// Loads th database from the given file.
+        /// Loads the database from the given file.
         /// </summary>
         /// <param name="path">The path to the file where th database is stored.</param>
         /// <returns>The database stored in the file, or null on failure.</returns>
