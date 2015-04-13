@@ -25,11 +25,14 @@ namespace SELibrary
             InitializeComponent();
         }
 
-        //Open DB
+        /// <summary>
+        /// Prepares the form for viewing by the user.
+        /// </summary>
+        /// <param name="sender">Unused.</param>
+        /// <param name="e">Unused.</param>
         private void FrmMainLibrary_Load(object sender, EventArgs e)
         {
-            //proControl.CurrentDate = DateTime.Today;
-            TxtDate.Text = proControl.CurrentDate.ToShortDateString();
+            proControl = new Controller(this);
         }
 
         //Save DB
