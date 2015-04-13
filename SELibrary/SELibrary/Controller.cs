@@ -37,6 +37,7 @@ namespace SELibrary
             _ui = ui;
 
             _ui.ReportDateChanged(CurrentDate);
+            _ui.ReportDatabaseChanged();
         }
 
         /// <summary>
