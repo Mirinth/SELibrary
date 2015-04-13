@@ -35,6 +35,8 @@ namespace SELibrary
             CurrentDate = new DateTime(2015, 1, 1);
             libraryDatabase = new Database(new List<Media>(), new List<Patron>());
             _ui = ui;
+
+            _ui.ReportDateChanged(CurrentDate);
         }
 
         /// <summary>
