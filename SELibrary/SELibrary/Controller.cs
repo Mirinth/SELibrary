@@ -59,6 +59,8 @@ namespace SELibrary
             startPatron.Add(new Patron(4, "Black 24", new DateTime(), PatronType.Adult));
 
             libraryDatabase = new Database(startMedia, startPatron);
+
+            _ui.ReportDatabaseChanged();
         }
 
         /// <summary>
@@ -86,6 +88,8 @@ namespace SELibrary
             }
 
             libraryDatabase = db;
+
+            _ui.ReportDatabaseChanged();
         }
 
         /// <summary>

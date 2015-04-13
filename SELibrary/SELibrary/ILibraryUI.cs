@@ -52,5 +52,6 @@ namespace SELibrary
         /// </summary>
         void ReportCorruptedDatabase();
         void ReportFileOpenFail();
+        void ReportDatabaseChanged();
     }
 }
