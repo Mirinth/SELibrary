@@ -123,6 +123,19 @@ namespace SELibrary
             proControl.CheckIn((Media)CBoxBook.SelectedItem);
         }
 
+        /// <summary>
+        /// Checks out the currently selected item to the currently
+        /// selected patron.
+        /// </summary>
+        /// <param name="sender">Unused (as usual)</param>
+        /// <param name="e">Unused (surprise!)</param>
+        private void BtnCheckOut_Click(object sender, EventArgs e)
+        {
+            proControl.CheckOut(
+                (Media)CBoxBook.SelectedItem,
+                (Patron)CBoxPatron.SelectedItem);
+        }
+
         //Save DB
         private void BtnSaveClose_Click(object sender, EventArgs e)
         {

@@ -183,6 +183,7 @@
             this.BtnCheckOut.TabIndex = 13;
             this.BtnCheckOut.Text = "Check out";
             this.BtnCheckOut.UseVisualStyleBackColor = true;
+            this.BtnCheckOut.Click += new System.EventHandler(this.BtnCheckOut_Click);
             // 
             // BtnCheckIn
             // 
