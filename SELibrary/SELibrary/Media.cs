@@ -114,6 +114,12 @@ namespace SELibrary
         /// </exception>
         public void CheckOut(uint toPatron, DateTime due)
         {
+            if (IsBorrowed)
+            {
+                // The caller should have prevented double-checkouts
+                throw new InvalidOperationException();
+            }
+
             IsBorrowed = true;
             Borrower = toPatron;
             DueDate = due;
