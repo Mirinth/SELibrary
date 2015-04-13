@@ -244,7 +244,7 @@ namespace SELibrary
             const int TIME_INCREMENT = 1;
 
             CurrentDate.AddDays(TIME_INCREMENT);
-            EventDispatcher.RaiseDateChanged(CurrentDate);
+            _ui.ReportDateChanged(CurrentDate);
         }
 
         /// <summary>
