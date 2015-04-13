@@ -32,18 +32,14 @@ namespace SELibrary
         public Controller(ILibraryUI ui)
         {
             CurrentDate = new DateTime(2015, 1, 1);
+            libraryDatabase = new Database(new List<Media>(), new List<Patron>());
             _ui = ui;
         }
 
-
-
-
-
-
-
-        //SEED THE DATABASE HERE
-        //TEMP DATABASE CREATOR--------------------------------------------------------------------------------------------------------------
-        public void TempDBCreator()
+        /// <summary>
+        /// Loads a demo database with patrons and media.
+        /// </summary>
+        public void LoadDemoDatabase()
         {
             List<Media> startMedia = new List<Media>();
             List<Patron> startPatron = new List<Patron>();
@@ -60,9 +56,7 @@ namespace SELibrary
             startPatron.Add(new Patron(4, "Black 24", new DateTime(), PatronType.Adult));
 
             libraryDatabase = new Database(startMedia, startPatron);
-
         }
-//---------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
