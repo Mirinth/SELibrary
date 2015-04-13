@@ -103,6 +103,16 @@ namespace SELibrary
             }
         }
 
+        /// <summary>
+        /// Loads the demo database.
+        /// </summary>
+        /// <param name="sender">Unused</param>
+        /// <param name="e">Unused</param>
+        private void BtnLoadDemo_Click(object sender, EventArgs e)
+        {
+            proControl.LoadDemoDatabase();
+        }
+
         //Save DB
         private void BtnSaveClose_Click(object sender, EventArgs e)
         {
