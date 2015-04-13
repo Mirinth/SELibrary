@@ -61,6 +61,11 @@ namespace SELibrary.Integration
             "Sock"
         };
 
+        /// <summary>
+        /// Generates a random patron name.
+        /// </summary>
+        /// <param name="rng">The random number generator to use.</param>
+        /// <returns>A randomly generated patron name.</returns>
         public static string RandomName()
         {
             Random rng = new Random();
@@ -70,6 +75,11 @@ namespace SELibrary.Integration
             return first + " " + last;
         }
 
+        /// <summary>
+        /// Returns a random title.
+        /// </summary>
+        /// <param name="rng">The random number generator to use.</param>
+        /// <returns>A randomly generated title.</returns>
         public static string RandomTitle(Random rng)
         {
             string adjective = Adjectives[rng.Next(Adjectives.Length)];
