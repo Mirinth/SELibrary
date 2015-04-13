@@ -87,5 +87,21 @@ namespace SELibrary.Integration
 
             return string.Format("The {0} {1}", adjective, noun);
         }
+
+        /// <summary>
+        /// Returns a random birthday.
+        /// </summary>
+        /// <param name="rng">The random number generator to use.</param>
+        /// <returns>A randomly generated birthday.</returns>
+        public static DateTime RandomBirthday(Random rng)
+        {
+            const int MAX_OFFSET = 100 * 365; // 100 years
+            DateTime birthday = DateTime.Now;
+            int offset = rng.Next(MAX_OFFSET);
+
+            birthday.AddDays(-offset);
+
+            return birthday;
+        }
     }
 }
