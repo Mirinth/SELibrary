@@ -133,6 +133,14 @@ namespace SELibrary
 
         #region Report methods
         /// <summary>
+        /// Clears any errors currently on display.
+        /// </summary>
+        public void ClearErrors()
+        {
+            EProvReport.Clear();
+        }
+
+        /// <summary>
         /// Notifies the user that a null patron was encountered.
         /// </summary>
         public void ReportPatronWasNull()

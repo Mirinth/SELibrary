@@ -44,6 +44,8 @@ namespace SELibrary
         /// </summary>
         public void LoadDemoDatabase()
         {
+            _ui.ClearErrors();
+
             List<Media> startMedia = new List<Media>();
             List<Patron> startPatron = new List<Patron>();
             //Add 4 Media
@@ -71,6 +73,8 @@ namespace SELibrary
         /// <param name="filePath">The path to the database fie.</param>
         public void LoadDatabase(string filePath)
         {
+            _ui.ClearErrors();
+
             FileStream fs = FileIO.Open(filePath);
 
             if (fs == null)
@@ -99,6 +103,8 @@ namespace SELibrary
         /// <param name="filePath">The path to the database fie.</param>
         public void SaveDatabase(string filePath)
         {
+            _ui.ClearErrors();
+
             FileStream fs = FileIO.Open(filePath);
 
             if (fs == null)
@@ -117,6 +123,8 @@ namespace SELibrary
         /// <param name="borrower">The patron to loan it to.</param>
         public void CheckOut(Media item, Patron borrower)
         {
+            _ui.ClearErrors();
+
             bool error = false;
 
             if (item == null)
@@ -166,6 +174,8 @@ namespace SELibrary
         /// <param name="item">The item to check in.</param>
         public void CheckIn(Media item)
         {
+            _ui.ClearErrors();
+
             bool error = false;
 
             // method returns if true

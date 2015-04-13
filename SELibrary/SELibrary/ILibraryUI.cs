@@ -9,6 +9,11 @@ namespace SELibrary
     interface ILibraryUI
     {
         /// <summary>
+        /// Clears any errors currently on display in the UI.
+        /// </summary>
+        void ClearErrors();
+
+        /// <summary>
         /// Notifies the UI that the date has been changed.
         /// </summary>
         /// <param name="newDate">The new date.</param>
