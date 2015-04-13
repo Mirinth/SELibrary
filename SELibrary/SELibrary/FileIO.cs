@@ -13,9 +13,10 @@ namespace SELibrary
         /// <summary>
         /// Saves the database to the given path.
         /// </summary>
+        /// <param name="ui">A user interface to report errors to.</param>
         /// <param name="path">The path to the file to store the database in.</param>
         /// <param name="db">The database to store.</param>
-        public static void SaveDatabase(string path, Database db)
+        public static void SaveDatabase(ILibraryUI ui, string path, Database db)
         {
             FileStream _fileStream;
             BinaryFormatter _binaryFormat;
@@ -32,9 +33,10 @@ namespace SELibrary
         /// <summary>
         /// Loads the database from the given file.
         /// </summary>
+        /// <param name="ui">A user interface to report errors to.</param>
         /// <param name="path">The path to the file where th database is stored.</param>
         /// <returns>The database stored in the file, or null on failure.</returns>
-        public static Database LoadDatabase(string path)
+        public static Database LoadDatabase(ILibraryUI ui, string path)
         {
             FileStream _fileStream;
             BinaryFormatter _binaryFormat;
