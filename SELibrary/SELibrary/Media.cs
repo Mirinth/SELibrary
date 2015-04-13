@@ -133,7 +133,13 @@ namespace SELibrary
         /// </exception>
         public void CheckIn()
         {
-            throw new NotImplementedException();
+            if (!IsBorrowed)
+            {
+                // The caller should have prevented double-checkins
+                throw new InvalidOperationException();
+            }
+
+            IsBorrowed = false;
         }
 
         /// <summary>
