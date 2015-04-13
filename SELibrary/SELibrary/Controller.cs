@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace SELibrary
 {
@@ -58,7 +59,32 @@ namespace SELibrary
             libraryDatabase = new Database(startMedia, startPatron);
         }
 
+        /// <summary>
+        /// Loads the database at filePath and uses it.
+        /// If an error occurs, it is reported to the UI and
+        /// the previous database is retained.
+        /// </summary>
+        /// <param name="filePath">The path to the database fie.</param>
+        public void LoadDatabase(string filePath)
+        {
+            FileStream fs = FileIO.Open(_ui, filePath);
 
+            if (fs == null)
+            {
+                _ui.ReportFileOpenFail();
+                return;
+            }
+
+            Database db = FileIO.LoadDatabase(_ui, fs);
+
+            if (db == null)
+            {
+                _ui.ReportCorruptedDatabase();
+                return;
+            }
+
+            libraryDatabase = db;
+        }
 
 
 
