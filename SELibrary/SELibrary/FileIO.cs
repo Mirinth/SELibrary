@@ -11,15 +11,14 @@ namespace SELibrary
     static class FileIO
     {
         /// <summary>
-        /// Saves the database to the given path.
+        /// Opens a database file for reading.
         /// </summary>
-        /// <param name="ui">A user interface to report errors to.</param>
-        /// <param name="path">The path to the file to store the database in.</param>
-        /// <param name="db">The database to store.</param>
-        public static void SaveDatabase(ILibraryUI ui, string path, Database db)
+        /// <param name="ui">A UI to report errors to.</param>
+        /// <param name="path">The path of the file to open.</param>
+        /// <returns>An open FileStream, or null on failure.</returns>
+        public static FileStream Open(ILibraryUI ui, string path)
         {
             FileStream _fileStream = null;
-            BinaryFormatter _binaryFormat;
 
             try
             {
@@ -32,104 +31,89 @@ namespace SELibrary
             catch (IOException)
             {
                 ui.ReportBadFilePath();
-                return;
             }
             catch (ArgumentException)
             {
                 ui.ReportBadFilePath();
-                return;
             }
             catch (NotSupportedException)
             {
                 ui.ReportBadFilePath();
-                return;
             }
             catch (UnauthorizedAccessException)
             {
                 ui.ReportBadFilePath();
-                return;
             }
             catch (System.Security.SecurityException)
             {
                 ui.ReportBadFilePath();
+            }
+
+            return _fileStream;
+        }
+
+        /// <summary>
+        /// Closes a database file.
+        /// </summary>
+        /// <param name="fs">The file to close.</param>
+        public static void Close(FileStream fs)
+        {
+            if (fs == null)
+            {
                 return;
             }
 
-            _binaryFormat = new BinaryFormatter();
+            fs.Flush();
+            fs.Close();
+            fs.Dispose();
+        }
+        
+        /// <summary>
+        /// Saves the database to the given path.
+        /// </summary>
+        /// <param name="ui">A user interface to report errors to.</param>
+        /// <param name="fs">The location to store the database in.</param>
+        /// <param name="db">The database to store.</param>
+        public static void SaveDatabase(ILibraryUI ui, FileStream fs, Database db)
+        {
+            BinaryFormatter _binaryFormat = new BinaryFormatter();
 
             // Assume _fileStream != null since it should have been
             // assigned above if an exception wasn't thrown.
             // This can still throw, but only in cases where either
-            // the controller should have prevented it or there isn't
-            // much that can be done about the situation.
-            _binaryFormat.Serialize(_fileStream, db);
+            // the controller should have prevented it or we're
+            // not handling. See requirement 2, "Not Handling"
+            // section.
+            _binaryFormat.Serialize(fs, db);
             
-            _fileStream.Flush();
-            _fileStream.Close();
+            fs.Flush();
         }
 
         /// <summary>
         /// Loads the database from the given file.
         /// </summary>
         /// <param name="ui">A user interface to report errors to.</param>
-        /// <param name="path">The path to the file where th database is stored.</param>
+        /// <param name="fs">The file to store the database in.</param>
         /// <returns>The database stored in the file, or null on failure.</returns>
-        public static Database LoadDatabase(ILibraryUI ui, string path)
+        public static Database LoadDatabase(ILibraryUI ui, FileStream fs)
         {
-            FileStream _fileStream = null;
-            BinaryFormatter _binaryFormat;
+            BinaryFormatter _binaryFormat = new BinaryFormatter();
+            Database db = null;
 
             try
             {
-                _fileStream = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
-            }
-            // let ArgumentNullException rise since Controller should have
-            // prevented that
-
-            // ArgumentOutOfRangeException should be impossible
-            catch (IOException)
-            {
-                ui.ReportBadFilePath();
-                return null;
-            }
-            catch (ArgumentException)
-            {
-                ui.ReportBadFilePath();
-                return null;
-            }
-            catch (NotSupportedException)
-            {
-                ui.ReportBadFilePath();
-                return null;
-            }
-            catch (UnauthorizedAccessException)
-            {
-                ui.ReportBadFilePath();
-                return null;
-            }
-            catch (System.Security.SecurityException)
-            {
-                ui.ReportBadFilePath();
-                return null;
-            }
-
-            _binaryFormat = new BinaryFormatter();
-
-            try
-            {
-                Database db = (Database)_binaryFormat.Deserialize(_fileStream);
-                return db;
+                db = (Database)_binaryFormat.Deserialize(fs);
             }
             catch (System.Runtime.Serialization.SerializationException)
             {
                 ui.ReportCorruptedDatabase();
-                return null;
             }
-            finally
+            catch (InvalidCastException)
             {
-                _fileStream.Flush();
-                _fileStream.Close();
+                ui.ReportCorruptedDatabase();
             }
+
+            return db;
         }
     }
 }
