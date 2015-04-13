@@ -9,5 +9,6 @@ namespace SELibrary
         public const string ITEM_ALREADY_CHECKED_OUT = "The item was already checked out. Please verify that the " +
             "selected item is the intended one. If it is, check it in so it can be checked out again.";
         public const string ADULT_CHECKOUT_LIMIT_EXCEEDED = "An adult patron's checkout limit was exceeded.";
+        public const string CHILD_CHECKOUT_LIMIT_EXCEEDED = "A child patron's checkout limit was exceeded.";
     }
 }

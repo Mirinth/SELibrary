@@ -169,7 +169,7 @@ namespace SELibrary
         /// <param name="borrower">The patron whose limit was exceeded.</param>
         public void ReportChildCheckoutsExceeded(Media item, Patron borrower)
         {
-            throw new NotImplementedException();
+            EProvReport.SetError(CBoxPatron, UIStrings.CHILD_CHECKOUT_LIMIT_EXCEEDED);
         }
 
         /// <summary>
