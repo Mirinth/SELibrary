@@ -198,6 +198,25 @@ namespace SELibrary
             MessageBox.Show(UIStrings.FILE_OPEN_FAIL);
         }
 
+        /// <summary>
+        /// Updates the UI to reflect a new database.
+        /// </summary>
+        public void ReportDatabaseChanged()
+        {
+            CBoxBook.Items.Clear();
+            foreach (Media med in proControl.ListMedia())
+            {
+                CBoxBook.Items.Add(med);
+            }
+
+            CBoxPatron.Items.Clear();
+            foreach (Patron pat in proControl.ListPatrons())
+            {
+                CBoxPatron.Items.Add(pat);
+            }
+
+            RdoListNone.Checked = true;
+        }
         #endregion
     }
 }
