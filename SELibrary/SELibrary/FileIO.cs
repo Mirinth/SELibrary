@@ -13,10 +13,9 @@ namespace SELibrary
         /// <summary>
         /// Opens a database file for reading.
         /// </summary>
-        /// <param name="ui">A UI to report errors to.</param>
         /// <param name="path">The path of the file to open.</param>
         /// <returns>An open FileStream, or null on failure.</returns>
-        public static FileStream Open(ILibraryUI ui, string path)
+        public static FileStream Open(string path)
         {
             FileStream _fileStream = null;
 
@@ -59,15 +58,14 @@ namespace SELibrary
         /// <summary>
         /// Saves the database to the given path.
         /// </summary>
-        /// <param name="ui">A user interface to report errors to.</param>
         /// <param name="fs">The location to store the database in.</param>
         /// <param name="db">The database to store.</param>
-        public static void SaveDatabase(ILibraryUI ui, FileStream fs, Database db)
+        public static void SaveDatabase(FileStream fs, Database db)
         {
             BinaryFormatter _binaryFormat = new BinaryFormatter();
 
             // Assume _fileStream != null since it should have been
-            // assigned above if an exception wasn't thrown.
+            // prevented by the caller.
             // This can still throw, but only in cases where either
             // the controller should have prevented it or we're
             // not handling. See requirement 2, "Not Handling"
@@ -80,10 +78,9 @@ namespace SELibrary
         /// <summary>
         /// Loads the database from the given file.
         /// </summary>
-        /// <param name="ui">A user interface to report errors to.</param>
         /// <param name="fs">The file to store the database in.</param>
         /// <returns>The database stored in the file, or null on failure.</returns>
-        public static Database LoadDatabase(ILibraryUI ui, FileStream fs)
+        public static Database LoadDatabase(FileStream fs)
         {
             BinaryFormatter _binaryFormat = new BinaryFormatter();
             Database db = null;
