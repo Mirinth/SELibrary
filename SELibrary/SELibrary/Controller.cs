@@ -229,7 +229,7 @@ namespace SELibrary
         /// <returns>A list of all overdue media.</returns>
         public List<Media> ListOverdueMedia()
         {
-            return libraryDatabase.OverdueMedia() ?? new List<Media>();
+            return libraryDatabase.OverdueMedia(CurrentDate) ?? new List<Media>();
         }
 
         /// <summary>

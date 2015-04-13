@@ -59,13 +59,14 @@ namespace SELibrary
         /// <summary>
         /// Gets a list of all media items that are overdue.
         /// </summary>
+        /// <param name="currentDate">The current date.</param>
         /// <returns>A list of all overdue media.</returns>
-        public List<Media> OverdueMedia()
+        public List<Media> OverdueMedia(DateTime currentDate)
         {
             List<Media> returnList = new List<Media>();
             foreach (Media item in items)
             {
-                if (item.IsOverdue == true)
+                if (item.IsOverdue(currentDate))
                 {
                     returnList.Add(item);
                 }
