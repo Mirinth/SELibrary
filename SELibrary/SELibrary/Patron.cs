@@ -68,36 +68,22 @@ namespace SELibrary
         /// <summary>
         /// Checks out an item to the patron.
         /// </summary>
-        /// <returns>bool if failed or successful</returns>
-        public bool CheckInItem()
+        public void CheckInItem()
         {
-            if (checkOutCount > 0)
+            if (checkOutCount == 0)
             {
-                checkOutCount--;
-                return true;
+                throw new InvalidOperationException();
             }
-            else
-                return false;
+
+            checkOutCount--;
         }
 
         /// <summary>
         /// Checks in an item from the patron.
         /// </summary>
-        /// <returns>bool if failed or successful</returns>
-        public bool CheckOutItem()
+        public void CheckOutItem()
         {
-            if (patronType == PatronType.Child && checkOutCount < MAX_ADULT_MEDIA)
-            {
-                checkOutCount++;
-                return true;
-            }
-            else if (patronType == PatronType.Adult && checkOutCount < MAX_CHILD_MEDIA)
-            {
-                checkOutCount++;
-                return true;
-            }
-            else
-                return false;
+            checkOutCount++;
         }
 
         /// <summary>
