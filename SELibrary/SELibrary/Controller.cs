@@ -115,28 +115,28 @@ namespace SELibrary
 
             if (item == null)
             {
-                EventDispatcher.RaiseItemWasNull();
+                _ui.ReportItemWasNull();
                 error = true;
             }
             else if (item.IsBorrowed)
             {
-                EventDispatcher.RaiseItemAlreadyCheckedOut(item);
+                _ui.ReportItemAlreadyCheckedOut(item);
                 error = true;
             }
 
             if (borrower == null)
             {
-                EventDispatcher.RaisePatronWasNull();
+                _ui.ReportPatronWasNull();
                 error = true;
             }
             else if (IsAdult(borrower) && borrower.CheckoutCount >= ADULT_CHECKOUT_CAP)
             {
-                EventDispatcher.RaiseAdultCheckoutsExceeded(item, borrower);
+                _ui.ReportAdultCheckoutsExceeded(item, borrower);
                 error = true;
             }
             else if (borrower.CheckoutCount >= CHILD_CHECKOUT_CAP)
             {
-                EventDispatcher.RaiseChildCheckoutsExceeded(item, borrower);
+                _ui.ReportChildCheckoutsExceeded(item, borrower);
                 error = true;
             }
 
