@@ -12,5 +12,8 @@ namespace SELibrary
         public const string CHILD_CHECKOUT_LIMIT_EXCEEDED = "A child patron's checkout limit was exceeded.";
         public const string DATABASE_CORRUPTED = "The database could not be loaded because it was corrupted. " +
             "Please use a different database, or reload this one from a backup and try again.";
+        public const string FILE_OPEN_FAIL = "The database could not be loaded because the file failed to open. " +
+            "Some possible reasons: The file doesn't exist, it is open in a different program, or you don't have " +
+            "permission to access it.";
     }
 }

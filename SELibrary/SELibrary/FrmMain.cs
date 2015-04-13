@@ -185,7 +185,7 @@ namespace SELibrary
         /// </summary>
         public void ReportFileOpenFail()
         {
-            throw new NotImplementedException();
+            MessageBox.Show(UIStrings.FILE_OPEN_FAIL);
         }
 
         #endregion
