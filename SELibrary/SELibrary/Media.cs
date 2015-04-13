@@ -112,9 +112,11 @@ namespace SELibrary
         /// <exception cref="InvalidOperationException">
         /// Thrown if the media is already checked out.
         /// </exception>
-        public void CheckOut(uint toPatron, DateTime dueDate)
+        public void CheckOut(uint toPatron, DateTime due)
         {
-            throw new NotImplementedException();
+            IsBorrowed = true;
+            Borrower = toPatron;
+            DueDate = due;
         }
 
         /// <summary>
