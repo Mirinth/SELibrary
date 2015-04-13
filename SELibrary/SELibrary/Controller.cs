@@ -245,7 +245,7 @@ namespace SELibrary
         {
             const int TIME_INCREMENT = 1;
 
-            CurrentDate.AddDays(TIME_INCREMENT);
+            CurrentDate = CurrentDate.AddDays(TIME_INCREMENT);
             _ui.ReportDateChanged(CurrentDate);
         }
 
