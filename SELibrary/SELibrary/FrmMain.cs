@@ -25,6 +25,7 @@ namespace SELibrary
             InitializeComponent();
         }
 
+        #region Event handlers
         /// <summary>
         /// Prepares the form for viewing by the user.
         /// </summary>
@@ -108,5 +109,10 @@ namespace SELibrary
             proControl.SaveDatabase("Library_Database.bin");
             this.Close();
         }
+        #endregion
+
+        #region Report methods
+
+        #endregion
     }
 }
