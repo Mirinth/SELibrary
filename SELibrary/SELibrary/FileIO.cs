@@ -24,30 +24,18 @@ namespace SELibrary
             {
                 _fileStream = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
             }
-            // let ArgumentNullException rise since Controller should have
-            // prevented that
-
-            // ArgumentOutOfRangeException should be impossible
-            catch (IOException)
-            {
-                ui.ReportBadFilePath();
-            }
-            catch (ArgumentException)
-            {
-                ui.ReportBadFilePath();
-            }
-            catch (NotSupportedException)
-            {
-                ui.ReportBadFilePath();
-            }
-            catch (UnauthorizedAccessException)
-            {
-                ui.ReportBadFilePath();
-            }
-            catch (System.Security.SecurityException)
-            {
-                ui.ReportBadFilePath();
-            }
+            
+            // ArgumentNullException should continue since caller should have
+            // prevented that.
+            // ArgumentOutOfRangeException should be impossible.
+            // "Handling" is just leaving _fileStream as null so null
+            // gets returned. The caller will figure out what to do
+            // about the error.
+            catch (IOException) { }
+            catch (ArgumentException) { }
+            catch (NotSupportedException) { }
+            catch (UnauthorizedAccessException) { }
+            catch (System.Security.SecurityException) { }
 
             return _fileStream;
         }
@@ -104,14 +92,10 @@ namespace SELibrary
             {
                 db = (Database)_binaryFormat.Deserialize(fs);
             }
-            catch (System.Runtime.Serialization.SerializationException)
-            {
-                ui.ReportCorruptedDatabase();
-            }
-            catch (InvalidCastException)
-            {
-                ui.ReportCorruptedDatabase();
-            }
+            // Exceptions are handled by returning null so the caller
+            // can decide what to do.
+            catch (System.Runtime.Serialization.SerializationException) { }
+            catch (InvalidCastException) { }
 
             return db;
         }
