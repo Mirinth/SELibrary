@@ -112,6 +112,91 @@ namespace SELibrary
         #endregion
 
         #region Report methods
+        /// <summary>
+        /// Notifies the user that a null patron was encountered.
+        /// </summary>
+        public void ReportPatronWasNull()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Notifies the user that a null item was encountered.
+        /// </summary>
+        public void ReportItemWasNull()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Notifies the user that an item was already checked out.
+        /// </summary>
+        public void ReportItemAlreadyCheckedOut()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Updates the currently displayed date.
+        /// </summary>
+        /// <param name="newDate"></param>
+        public void ReportDateChanged(DateTime newDate)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Notifies the user that an item was already checked out.
+        /// </summary>
+        /// <param name="item">The item that was already checked out.</param>
+        public void ReportItemAlreadyCheckedOut(Media item)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Notifies the user that an adult's checkout limit was exceeded.
+        /// </summary>
+        /// <param name="item">The item that exceeded the limit.</param>
+        /// <param name="borrower">The patron whose limit was exceeded.</param>
+        public void ReportAdultCheckoutsExceeded(Media item, Patron borrower)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Notifies the user that a child's checkout limit was exceeded.
+        /// </summary>
+        /// <param name="item">The item that exceeded the limit.</param>
+        /// <param name="borrower">The patron whose limit was exceeded.</param>
+        public void ReportChildCheckoutsExceeded(Media item, Patron borrower)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Notifies the user that a bad file path was encountered.
+        /// </summary>
+        public void ReportBadFilePath()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Notifies the user that the selected database was corrupted.
+        /// </summary>
+        public void ReportCorruptedDatabase()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Notifies the user that a file faild to open.
+        /// </summary>
+        public void ReportFileOpenFail()
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion
     }
