@@ -51,7 +51,15 @@ namespace SELibrary
         /// Notifies the UI that the database file was corrupted.
         /// </summary>
         void ReportCorruptedDatabase();
+
+        /// <summary>
+        /// Notifies the UI that a file failed to open.
+        /// </summary>
         void ReportFileOpenFail();
+
+        /// <summary>
+        /// Notifies the UI that the database changed.
+        /// </summary>
         void ReportDatabaseChanged();
     }
 }
