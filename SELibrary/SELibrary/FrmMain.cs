@@ -71,10 +71,19 @@ namespace SELibrary
             }
         }
 
+        /// <summary>
+        /// Updates the form to display all overdue items in its list.
+        /// </summary>
+        /// <param name="sender">Unused</param>
+        /// <param name="e">Unused</param>
         private void RdoListOverdue_CheckedChanged(object sender, EventArgs e)
         {
             LstBookList.Items.Clear();
-            LstBookList.Items.Add("OverDue");
+            List<Media> overdueMedia = proControl.ListMedia();
+            foreach (Media item in overdueMedia)
+            {
+                LstBookList.Items.Add(item);
+            }
         }
 
         private void RdoListByPatron_CheckedChanged(object sender, EventArgs e)
