@@ -78,7 +78,9 @@ namespace SELibrary
         /// </summary>
         public bool IsDue(DateTime curDate)
         {
-            if (curDate >= DueDate)
+            if (!IsBorrowed)
+                return false;
+            else if (curDate >= DueDate)
                 return true;
             else
                 return false;
@@ -90,7 +92,9 @@ namespace SELibrary
         /// </summary>
         public bool IsOverdue(DateTime curDate)
         {
-            if (curDate > DueDate)
+            if (!IsBorrowed)
+                return false;
+            else if (curDate > DueDate)
                 return true;
             else
                 return false;
@@ -155,6 +159,7 @@ namespace SELibrary
             Author = mAuthor;
             Title = mTitle;
             ID = mID;
+            DueDate = DateTime.MaxValue;
         }
 
         /// <summary>
