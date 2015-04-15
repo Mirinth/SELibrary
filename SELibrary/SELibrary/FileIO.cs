@@ -21,7 +21,7 @@ namespace SELibrary
 
             try
             {
-                _fileStream = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
+                _fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             }
             
             // ArgumentNullException should continue since caller should have

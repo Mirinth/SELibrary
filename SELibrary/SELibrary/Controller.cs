@@ -46,7 +46,7 @@ namespace SELibrary
         {
             _ui.ClearErrors();
 
-            List<Media> startMedia = new List<Media>();
+            /*List<Media> startMedia = new List<Media>();
             List<Patron> startPatron = new List<Patron>();
             //Add 4 Media
             startMedia.Add(new Media(1, MediaType.Book, "Heber Allred", "The Great Book of Heber"));
@@ -62,6 +62,9 @@ namespace SELibrary
 
             libraryDatabase = new Database(startMedia, startPatron);
 
+            FileIO.SaveDatabase(FileIO.Open("Library_Database.bin"), libraryDatabase);*/
+
+           libraryDatabase = FileIO.LoadDatabase(FileIO.Open("../../../../Data/Library_Database.bin"));
             _ui.ReportDatabaseChanged();
         }
 
