@@ -64,6 +64,9 @@ namespace SELibrary
 
             FileIO.SaveDatabase(FileIO.Open("Library_Database.bin"), libraryDatabase);*/
 
+
+
+
            libraryDatabase = FileIO.LoadDatabase(FileIO.Open("../../../../Data/Library_Database.bin"));
             _ui.ReportDatabaseChanged();
         }
