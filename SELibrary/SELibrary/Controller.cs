@@ -74,7 +74,8 @@ namespace SELibrary
         /// the previous database is retained.
         /// </summary>
         /// <param name="filePath">The path to the database fie.</param>
-        public void LoadDatabase(string filePath)
+        /// <returns>Whether the database loaded successfully.</returns>
+        public bool LoadDatabase(string filePath)
         {
             _ui.ClearErrors();
 
@@ -83,7 +84,7 @@ namespace SELibrary
             if (fs == null)
             {
                 _ui.ReportFileOpenFail();
-                return;
+                return false;
             }
 
             Database db = FileIO.LoadDatabase(fs);
@@ -91,12 +92,13 @@ namespace SELibrary
             if (db == null)
             {
                 _ui.ReportCorruptedDatabase();
-                return;
+                return false;
             }
 
             libraryDatabase = db;
 
             _ui.ReportDatabaseChanged();
+            return true;
         }
 
         /// <summary>
