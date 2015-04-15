@@ -53,13 +53,21 @@ namespace SELibrary
         /// </summary>
         public void LoadDatabase()
         {
-            string databasePath = GetDatabasePath();
-            
-            while (databasePath != null &&
-                proControl.LoadDatabase(databasePath) == false)
+            bool loaded = false;
+            do
             {
-                databasePath = GetDatabasePath();
+                string databasePath = GetDatabasePath();
+
+                if (databasePath == null)
+                {
+                    Close();
+                    return;
+                }
+
+                loaded = proControl.LoadDatabase(databasePath);
+
             }
+            while (!loaded);
         }
 
         #region Event handlers
