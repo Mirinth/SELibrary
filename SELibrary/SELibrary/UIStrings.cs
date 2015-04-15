@@ -20,5 +20,7 @@ namespace SELibrary
         public const string FILE_OPEN_FAIL = "The database could not be loaded because the file failed to open. " +
             "Some possible reasons: The file doesn't exist, it is open in a different program, or you don't have " +
             "permission to access it.";
+        public const string LIBRARY_DATABASE_FILTER = "Library database files (*.ldb)|*.ldb";
+        public const string LIBRARY_DATABASE_DIALOG_TITLE = "Open the library database file";
     }
 }

@@ -26,6 +26,29 @@ namespace SELibrary
         }
 
         /// <summary>
+        /// Prompts the user for a database path and returns it.
+        /// </summary>
+        /// <returns>
+        /// The database path selected by the user,
+        /// or null if the user cancelled the operation.
+        /// </returns>
+        public string GetDatabasePath()
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = UIStrings.LIBRARY_DATABASE_FILTER;
+            ofd.Title = UIStrings.LIBRARY_DATABASE_DIALOG_TITLE;
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                return ofd.FileName;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Loads the library database from disk.
         /// </summary>
         public void LoadDatabase()
