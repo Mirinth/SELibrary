@@ -25,6 +25,20 @@ namespace SELibrary
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Loads the library database from disk.
+        /// </summary>
+        public void LoadDatabase()
+        {
+            string databasePath = GetDatabasePath();
+            
+            while (databasePath != null &&
+                proControl.LoadDatabase(databasePath) == false)
+            {
+                databasePath = GetDatabasePath();
+            }
+        }
+
         #region Event handlers
         /// <summary>
         /// Prepares the form for viewing by the user.
@@ -34,6 +48,7 @@ namespace SELibrary
         private void FrmMainLibrary_Load(object sender, EventArgs e)
         {
             proControl = new Controller(this);
+            LoadDatabase();
         }
 
         /// <summary>
