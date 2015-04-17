@@ -175,7 +175,7 @@ namespace SELibrary.Integration
         /// </summary>
         /// <param name="rng">The random number generator to use.</param>
         /// <returns>A list of randomly generated media items.</returns>
-        public List<Media> GenerateMediaList(Random rng)
+        public static List<Media> GenerateMediaList(Random rng)
         {
             const int LIST_LENGTH = 25;
 
@@ -201,7 +201,7 @@ namespace SELibrary.Integration
         /// </summary>
         /// <param name="rng">The random number generator to use.</param>
         /// <returns>A list of randomly generated media items.</returns>
-        public List<Patron> GeneratePatronList(Random rng)
+        public static List<Patron> GeneratePatronList(Random rng)
         {
             const int LIST_LENGTH = 25;
 
@@ -225,7 +225,7 @@ namespace SELibrary.Integration
         /// </summary>
         /// <param name="rng">The random number generator to use.</param>
         /// <returns>The generated database.</returns>
-        public Database GenerateDatabase(Random rng)
+        public static Database GenerateDatabase(Random rng)
         {
             List<Media> mediaList = GenerateMediaList(rng);
             List<Patron> patronList = GeneratePatronList(rng);
