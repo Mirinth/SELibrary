@@ -169,8 +169,16 @@ namespace SELibrary
         /// <returns>The string representation of the object.</returns>
         public override string ToString()
         {
-            const string TO_STRING_FORMAT = "{0}: {1}, by {2} | collection: {3}, {4})";
-            return string.Format(TO_STRING_FORMAT, ID, Title, Author, Rating, Type);
+            const string TO_STRING_FORMAT = "{0}: {1}, by {2} | collection: {3}, {4} | due {5}";
+            const string NOT_CHECKED_OUT = "never";
+            if (IsBorrowed)
+            {
+                return string.Format(TO_STRING_FORMAT, ID, Title, Author, Rating, Type, DueDate.ToShortDateString());
+            }
+            else
+            {
+                return string.Format(TO_STRING_FORMAT, ID, Title, Author, Rating, Type, NOT_CHECKED_OUT);
+            }
         }
     }
 
