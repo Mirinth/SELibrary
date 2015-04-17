@@ -150,11 +150,14 @@ namespace SELibrary
                 (Patron)CBoxPatron.SelectedItem);
         }
 
-        //Save DB
+        /// <summary>
+        /// Saves the database to disk.
+        /// </summary>
+        /// <param name="sender">Unused (but more than usual)</param>
+        /// <param name="e">Unused (but less than usual)</param>
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            proControl.SaveDatabase("Library_Database.bin");
-            this.Close();
+            proControl.SaveDatabase();
         }
         #endregion
 
