@@ -136,7 +136,7 @@ namespace SELibrary
                 _ui.ReportAdultCheckoutsExceeded(item, borrower);
                 error = true;
             }
-            else if (borrower.CheckoutCount >= CHILD_CHECKOUT_CAP)
+            else if (!IsAdult(borrower) && borrower.CheckoutCount >= CHILD_CHECKOUT_CAP)
             {
                 _ui.ReportChildCheckoutsExceeded(item, borrower);
                 error = true;
