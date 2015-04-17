@@ -203,5 +203,19 @@ namespace SELibrary.Integration
 
             return pList;
         }
+
+        /// <summary>
+        /// Creates and populates a database with randomly generated data.
+        /// </summary>
+        /// <param name="rng">The random number generator to use.</param>
+        /// <returns>The generated database.</returns>
+        public Database GenerateDatabase(Random rng)
+        {
+            List<Media> mediaList = GenerateMediaList(rng);
+            List<Patron> patronList = GeneratePatronList(rng);
+            Database db = new Database(mediaList, patronList);
+
+            return db;
+        }
     }
 }
