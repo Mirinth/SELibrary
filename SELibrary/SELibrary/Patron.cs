@@ -86,8 +86,9 @@ namespace SELibrary
         /// <returns>A string representation of the patron.</returns>
         public override string ToString()
         {
-            const string TO_STRING_FORMAT = "{0}: {1}";
-            return string.Format(TO_STRING_FORMAT, ID, Name);
+            const string TO_STRING_FORMAT = "{0}: {1} (born {2})";
+            
+            return string.Format(TO_STRING_FORMAT, ID, Name, Birthday.ToShortDateString());
         }
     }
 }
