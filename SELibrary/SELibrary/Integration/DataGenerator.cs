@@ -176,6 +176,8 @@ namespace SELibrary.Integration
 
                 mList.Add(item);
             }
+
+            return mList;
         }
     }
 }
