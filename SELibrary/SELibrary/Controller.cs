@@ -52,6 +52,11 @@ namespace SELibrary
             bool loaded = false;
             Database db = null;
 
+            if (_databaseFile != null)
+            {
+                FileIO.Close(_databaseFile);
+            }
+
             while (loaded == false)
             {
                 string filePath = _ui.PromptForFilePath();
@@ -62,15 +67,15 @@ namespace SELibrary
                     return;
                 }
 
-                FileStream fs = FileIO.Open(filePath);
+                _databaseFile = FileIO.Open(filePath);
 
-                if (fs == null)
+                if (_databaseFile == null)
                 {
                     _ui.ReportFileOpenFail();
                     continue; // try again
                 }
 
-                db = FileIO.LoadDatabase(fs);
+                db = FileIO.LoadDatabase(_databaseFile);
 
                 if (db == null)
                 {
