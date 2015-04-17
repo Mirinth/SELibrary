@@ -40,18 +40,6 @@ namespace SELibrary
         }
 
         /// <summary>
-        /// Loads a demo database with patrons and media.
-        /// </summary>
-        public void LoadDemoDatabase()
-        {
-            _ui.ClearErrors();
-
-            libraryDatabase = Integration.DataGenerator.GenerateDatabase(new Random());
-
-            _ui.ReportDatabaseChanged();
-        }
-
-        /// <summary>
         /// Loads the database at filePath and uses it.
         /// If an error occurs, it is reported to the UI and
         /// the previous database is retained.

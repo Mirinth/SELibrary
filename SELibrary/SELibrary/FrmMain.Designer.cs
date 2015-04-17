@@ -46,7 +46,6 @@
             this.BtnCheckIn = new System.Windows.Forms.Button();
             this.EProvReport = new System.Windows.Forms.ErrorProvider(this.components);
             this.BtnSaveClose = new System.Windows.Forms.Button();
-            this.BtnLoadDemo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.EProvReport)).BeginInit();
             this.SuspendLayout();
             // 
@@ -209,22 +208,11 @@
             this.BtnSaveClose.UseVisualStyleBackColor = true;
             this.BtnSaveClose.Click += new System.EventHandler(this.BtnSaveClose_Click);
             // 
-            // BtnLoadDemo
-            // 
-            this.BtnLoadDemo.Location = new System.Drawing.Point(464, 131);
-            this.BtnLoadDemo.Name = "BtnLoadDemo";
-            this.BtnLoadDemo.Size = new System.Drawing.Size(121, 23);
-            this.BtnLoadDemo.TabIndex = 16;
-            this.BtnLoadDemo.Text = "Load demo database";
-            this.BtnLoadDemo.UseVisualStyleBackColor = true;
-            this.BtnLoadDemo.Click += new System.EventHandler(this.BtnLoadDemo_Click);
-            // 
             // FrmMainLibrary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 445);
-            this.Controls.Add(this.BtnLoadDemo);
             this.Controls.Add(this.BtnSaveClose);
             this.Controls.Add(this.BtnCheckIn);
             this.Controls.Add(this.BtnCheckOut);
@@ -269,7 +257,6 @@
         private System.Windows.Forms.Button BtnCheckIn;
         private System.Windows.Forms.ErrorProvider EProvReport;
         private System.Windows.Forms.Button BtnSaveClose;
-        private System.Windows.Forms.Button BtnLoadDemo;
     }
 }
 
