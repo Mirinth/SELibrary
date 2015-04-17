@@ -48,7 +48,7 @@ namespace SELibrary
             List<Media> returnList = new List<Media>();
             foreach(Media item in items)
             {
-                if(item.Borrower == borrower.ID)
+                if(item.IsBorrowed && item.Borrower == borrower.ID)
                 {
                     returnList.Add(item);
                 }
