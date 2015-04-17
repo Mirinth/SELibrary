@@ -104,7 +104,7 @@ namespace SELibrary
             List<Media> allMedia = proControl.ListMedia();
             foreach(Media item in allMedia)
             {
-                LstBookList.Items.Add(item.Title.ToString());
+                LstBookList.Items.Add(item);
             }
         }
 
