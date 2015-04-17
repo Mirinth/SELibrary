@@ -46,28 +46,57 @@ namespace SELibrary
         {
             _ui.ClearErrors();
 
-            /*List<Media> startMedia = new List<Media>();
+            List<Media> startMedia = new List<Media>();
             List<Patron> startPatron = new List<Patron>();
-            //Add 4 Media
-            startMedia.Add(new Media(1, MediaType.Book, "Heber Allred", "The Great Book of Heber"));
-            startMedia.Add(new Media(2, MediaType.Book, "Jack Runner", "The Great Book of Jack"));
-            startMedia.Add(new Media(3, MediaType.Book, "Nick Smith", "The Great Book of Nick"));
-            startMedia.Add(new Media(4, MediaType.Book, "Louis Pike", "The Great Book of Louis"));
+            //Add 20 Media
+            /*startMedia.Add(new Media(1, MediaType.Book, "Suzanne Collins", "The Hunger Games"));
+            startMedia.Add(new Media(2, MediaType.Book, "J.K. Rowling", "Harry Potter and the Order of the Pheonix"));
+            startMedia.Add(new Media(3, MediaType.Book, "Harper Lee", "To Kill a Mockingbird"));
+            startMedia.Add(new Media(4, MediaType.Book, "Stephenie Meyer", "Twilight"));
+            startMedia.Add(new Media(5, MediaType.Book, "Jane Austen", "Pride and Prejudice"));
+            startMedia.Add(new Media(6, MediaType.Book, "C.S. Lewis", "Pride and Prejudice"));
+            startMedia.Add(new Media(7, MediaType.Book, "Margaret Mitchell", "Gone with the Wind"));
+            startMedia.Add(new Media(8, MediaType.Book, "George Orwell", "Animal Farm"));
+            startMedia.Add(new Media(9, MediaType.Book, "Shel Silberstein", "The Giving Tree"));
+            startMedia.Add(new Media(10, MediaType.Book, "Douglas Adams", "The Hitchhiker's Guide to the Galaxy"));
+            startMedia.Add(new Media(11, MediaType.Book, "Emily Bronte", "Wuthering Heights"));
+            startMedia.Add(new Media(12, MediaType.Book, "Markus Zusak", "The Book Thief"));
+            startMedia.Add(new Media(13, MediaType.DVD, "Cast Away", "Tom Hanks"));
+            startMedia.Add(new Media(14, MediaType.DVD, "Richard N. Gladstein", "The Bourne Identity"));
+            startMedia.Add(new Media(15, MediaType.DVD, "George Lucas", "Star Wars"));
+            startMedia.Add(new Media(16, MediaType.DVD, "Brian Grazer", "Apollo 13"));
+            startMedia.Add(new Media(17, MediaType.DVD, "Charles Gordon", "Die Hard"));
+            startMedia.Add(new Media(18, MediaType.DVD, "Harry Saltzman", "James Bond"));
+            startMedia.Add(new Media(19, MediaType.Video, "Frank Marshall", "Back to the Future"));
+            startMedia.Add(new Media(20, MediaType.Video, "Branko Lustig", "Gladiator"));
 
-            //Add 4 People
-            startPatron.Add(new Patron(1, "Yellow 24", new DateTime(), PatronType.Adult));
-            startPatron.Add(new Patron(2, "Blue 24", new DateTime(), PatronType.Adult));
-            startPatron.Add(new Patron(3, "Red 24", new DateTime(), PatronType.Adult));
-            startPatron.Add(new Patron(4, "Black 24", new DateTime(), PatronType.Adult));
+            //Add 20 People
+            startPatron.Add(new Patron(1, "Alex Smith", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(2, "Kim Johnson", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(3, "Harper Williams", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(4, "Kennedy Brown", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(5, "Paris Jones", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(6, "Skyler Miller", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(7, "Ryan Davis", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(8, "Remy Garcia", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(9, "Kelly Rodriguez", new DateTime(), PatronType.Child));
+            startPatron.Add(new Patron(10, "Dakota Wilson", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(11, "Cassidy Anderson", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(12, "River Taylor", new DateTime(), PatronType.Child));
+            startPatron.Add(new Patron(13, "Codi Hernandez", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(14, "Jayden Moore", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(15, "Darcy Jackson", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(16, "Terry Lewis", new DateTime(), PatronType.Child));
+            startPatron.Add(new Patron(17, "Courtney Clark", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(18, "Leslie Young", new DateTime(), PatronType.Adult));
+            startPatron.Add(new Patron(19, "Rory Hall", new DateTime(), PatronType.Child));
+            startPatron.Add(new Patron(20, "Brett King", new DateTime(), PatronType.Adult));
 
             libraryDatabase = new Database(startMedia, startPatron);
 
-            FileIO.SaveDatabase(FileIO.Open("Library_Database.bin"), libraryDatabase);*/
+            FileIO.SaveDatabase(FileIO.Open("Library_Database.bin"), libraryDatabase);
 
-
-
-
-           libraryDatabase = FileIO.LoadDatabase(FileIO.Open("../../../../Data/Library_Database.bin"));
+           libraryDatabase = FileIO.LoadDatabase(FileIO.Open("../../../../Data/Library_Database.bin"));*/
             _ui.ReportDatabaseChanged();
         }
 

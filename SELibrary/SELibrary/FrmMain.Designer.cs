@@ -217,6 +217,7 @@
             this.BtnLoadDemo.TabIndex = 16;
             this.BtnLoadDemo.Text = "Load demo database";
             this.BtnLoadDemo.UseVisualStyleBackColor = true;
+            this.BtnLoadDemo.Visible = false;
             this.BtnLoadDemo.Click += new System.EventHandler(this.BtnLoadDemo_Click);
             // 
             // FrmMainLibrary
