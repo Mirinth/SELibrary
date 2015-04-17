@@ -18,6 +18,7 @@ namespace SELibrary
         private const int CHILD_CHECKOUT_CAP = 3;
         private Database libraryDatabase;
         private ILibraryUI _ui;
+        private FileStream _databaseFile;
 
         /// <summary>
         /// Gets the current date, according to the BusinessRules
@@ -35,6 +36,7 @@ namespace SELibrary
             CurrentDate = new DateTime(2015, 1, 1);
             libraryDatabase = new Database(new List<Media>(), new List<Patron>());
             _ui = ui;
+            _databaseFile = null;
 
             _ui.ReportDateChanged(CurrentDate);
         }
@@ -44,32 +46,43 @@ namespace SELibrary
         /// If an error occurs, it is reported to the UI and
         /// the previous database is retained.
         /// </summary>
-        /// <param name="filePath">The path to the database fie.</param>
         /// <returns>Whether the database loaded successfully.</returns>
-        public bool LoadDatabase(string filePath)
+        public void LoadDatabase()
         {
-            _ui.ClearErrors();
+            bool loaded = false;
+            Database db = null;
 
-            FileStream fs = FileIO.Open(filePath);
-
-            if (fs == null)
+            while (loaded == false)
             {
-                _ui.ReportFileOpenFail();
-                return false;
-            }
+                string filePath = _ui.PromptForFilePath();
 
-            Database db = FileIO.LoadDatabase(fs);
+                if (filePath == null)
+                {
+                    _ui.Close();
+                    return;
+                }
 
-            if (db == null)
-            {
-                _ui.ReportCorruptedDatabase();
-                return false;
+                FileStream fs = FileIO.Open(filePath);
+
+                if (fs == null)
+                {
+                    _ui.ReportFileOpenFail();
+                    continue; // try again
+                }
+
+                db = FileIO.LoadDatabase(fs);
+
+                if (db == null)
+                {
+                    _ui.ReportCorruptedDatabase();
+                    continue; // try again
+                }
+
+                loaded = true;
             }
 
             libraryDatabase = db;
-
             _ui.ReportDatabaseChanged();
-            return true;
         }
 
         /// <summary>
