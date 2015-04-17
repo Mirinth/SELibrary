@@ -66,7 +66,7 @@ namespace SELibrary.Integration
         /// </summary>
         /// <param name="rng">The random number generator to use.</param>
         /// <returns>A randomly generated patron name.</returns>
-        public static string RandomName(Random rng)
+        public static string GenerateName(Random rng)
         {
             string first = FirstNames[rng.Next(FirstNames.Length)];
             string last = LastNames[rng.Next(LastNames.Length)];
@@ -79,7 +79,7 @@ namespace SELibrary.Integration
         /// </summary>
         /// <param name="rng">The random number generator to use.</param>
         /// <returns>A randomly generated title.</returns>
-        public static string RandomTitle(Random rng)
+        public static string GenerateTitle(Random rng)
         {
             string adjective = Adjectives[rng.Next(Adjectives.Length)];
             string noun = Nouns[rng.Next(Nouns.Length)];
@@ -92,7 +92,7 @@ namespace SELibrary.Integration
         /// </summary>
         /// <param name="rng">The random number generator to use.</param>
         /// <returns>A randomly generated birthday.</returns>
-        public static DateTime RandomBirthday(Random rng)
+        public static DateTime GenerateBirthday(Random rng)
         {
             const int MAX_OFFSET = 100 * 365; // 100 years
             DateTime birthday = DateTime.Now;
@@ -108,7 +108,7 @@ namespace SELibrary.Integration
         /// </summary>
         /// <param name="rng">The random number generator to use.</param>
         /// <returns>A randomly chosen media type.</returns>
-        public static MediaType RandomMediaType(Random rng)
+        public static MediaType GenerateMediaType(Random rng)
         {
             const int MAX = 3;
             const int BOOK = 0;
@@ -135,7 +135,7 @@ namespace SELibrary.Integration
         /// </summary>
         /// <param name="rng">The random numger generator to use.</param>
         /// <returns>A randomly chosen media rating.</returns>
-        public static MediaRating RandomMediaRating(Random rng)
+        public static MediaRating GenerateMediaRating(Random rng)
         {
             const int MAX = 2;
             const int EVERYONE = 0;
@@ -159,7 +159,7 @@ namespace SELibrary.Integration
         /// </summary>
         /// <param name="rng">The random number generator to use.</param>
         /// <returns>A list of randomly generated media items.</returns>
-        public List<Media> RandomMediaList(Random rng)
+        public List<Media> GenerateMediaList(Random rng)
         {
             const int LIST_LENGTH = 25;
 
@@ -169,10 +169,10 @@ namespace SELibrary.Integration
             {
                 Media item = new Media(
                     (uint)mList.Count,
-                    RandomMediaType(rng),
-                    RandomMediaRating(rng),
-                    RandomName(rng),
-                    RandomTitle(rng));
+                    GenerateMediaType(rng),
+                    GenerateMediaRating(rng),
+                    GenerateName(rng),
+                    GenerateTitle(rng));
 
                 mList.Add(item);
             }
