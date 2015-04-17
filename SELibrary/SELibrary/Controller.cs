@@ -80,6 +80,7 @@ namespace SELibrary
                 if (db == null)
                 {
                     _ui.ReportCorruptedDatabase();
+                    FileIO.Close(_databaseFile);
                     continue; // try again
                 }
 
