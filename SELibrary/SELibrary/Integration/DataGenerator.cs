@@ -16,7 +16,11 @@ namespace SELibrary.Integration
             "Jill",
             "Jan",
             "Jen",
-            "June"
+            "June",
+            "Heber",
+            "Jack",
+            "Nick",
+            "Louis"
         };
 
         private static string[] LastNames =
@@ -30,7 +34,11 @@ namespace SELibrary.Integration
             "Castle",
             "Cheswick",
             "Jameson",
-            "Lastname"
+            "Lastname",
+            "Allred",
+            "Runner",
+            "Smith",
+            "Pike"
         };
 
         private static string[] Adjectives =
@@ -44,7 +52,9 @@ namespace SELibrary.Integration
             "Bald",
             "Suspicious",
             "Friendly",
-            "Invisible"
+            "Invisible",
+            "Great",
+            "Small"
         };
 
         private static string[] Nouns =
@@ -53,12 +63,18 @@ namespace SELibrary.Integration
             "Cat",
             "Fish",
             "Book",
+            "Book of Heber",
+            "Book of Jack",
+            "Book of Nick",
+            "Book of Louis",
             "Car",
             "Train",
             "Soup",
             "Shoes",
             "Door",
-            "Sock"
+            "Sock",
+            "Table",
+            "Bowl"
         };
 
         /// <summary>
