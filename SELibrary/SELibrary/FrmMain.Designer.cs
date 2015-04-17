@@ -200,13 +200,13 @@
             // 
             // BtnSaveClose
             // 
-            this.BtnSaveClose.Location = new System.Drawing.Point(467, 23);
+            this.BtnSaveClose.Location = new System.Drawing.Point(511, 22);
             this.BtnSaveClose.Name = "BtnSaveClose";
-            this.BtnSaveClose.Size = new System.Drawing.Size(118, 23);
+            this.BtnSaveClose.Size = new System.Drawing.Size(75, 23);
             this.BtnSaveClose.TabIndex = 15;
-            this.BtnSaveClose.Text = "Save and Exit";
+            this.BtnSaveClose.Text = "Save";
             this.BtnSaveClose.UseVisualStyleBackColor = true;
-            this.BtnSaveClose.Click += new System.EventHandler(this.BtnSaveClose_Click);
+            this.BtnSaveClose.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // FrmMainLibrary
             // 
