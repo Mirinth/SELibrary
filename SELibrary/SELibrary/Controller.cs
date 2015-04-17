@@ -42,7 +42,7 @@ namespace SELibrary
         }
 
         /// <summary>
-        /// Loads the database at filePath and uses it.
+        /// Loads the database at from disk and uses it.
         /// If an error occurs, it is reported to the UI and
         /// the previous database is retained.
         /// </summary>
@@ -86,23 +86,16 @@ namespace SELibrary
         }
 
         /// <summary>
-        /// Saves the database to filePath.
+        /// Saves the database to disk.
         /// If an error occurs, it is reported to the UI.
         /// </summary>
-        /// <param name="filePath">The path to the database fie.</param>
-        public void SaveDatabase(string filePath)
+        public void SaveDatabase()
         {
             _ui.ClearErrors();
 
-            FileStream fs = FileIO.Open(filePath);
-
-            if (fs == null)
-            {
-                _ui.ReportFileOpenFail();
-                return;
-            }
-
-            FileIO.SaveDatabase(fs, libraryDatabase);
+            _databaseFile.SetLength(0);
+            
+            FileIO.SaveDatabase(_databaseFile, libraryDatabase);
         }
 
         /// <summary>
