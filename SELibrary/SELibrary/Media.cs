@@ -153,8 +153,9 @@ namespace SELibrary
         /// <param name="mType">The type of the media.</param>
         /// <param name="mAuthor">The author of the work.</param>
         /// <param name="mTitle">The title of the work.</param>
-        public Media(uint mID, MediaType mType, string mAuthor, string mTitle)
+        public Media(uint mID, MediaType mType, MediaRating mRating, string mAuthor, string mTitle)
         {
+            Rating = mRating;
             Type = mType;
             Author = mAuthor;
             Title = mTitle;
