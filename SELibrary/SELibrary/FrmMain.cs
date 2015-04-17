@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SELibrary
 {
     public partial class FrmMainLibrary : Form, ILibraryUI
     {
+        
+
         private Controller proControl;
 
         /// <summary>
@@ -185,7 +188,15 @@ namespace SELibrary
         //Save DB
         private void BtnSaveClose_Click(object sender, EventArgs e)
         {
-            proControl.SaveDatabase("Library_Database.bin");
+            string filePath = "";
+            SaveFileDialog saveDlg = new SaveFileDialog();
+            DialogResult result = saveDlg.ShowDialog();
+            filePath = saveDlg.FileName;
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+            proControl.SaveDatabase(filePath);
             this.Close();
         }
         #endregion
