@@ -66,9 +66,8 @@ namespace SELibrary.Integration
         /// </summary>
         /// <param name="rng">The random number generator to use.</param>
         /// <returns>A randomly generated patron name.</returns>
-        public static string RandomName()
+        public static string RandomName(Random rng)
         {
-            Random rng = new Random();
             string first = FirstNames[rng.Next(FirstNames.Length)];
             string last = LastNames[rng.Next(LastNames.Length)];
 
