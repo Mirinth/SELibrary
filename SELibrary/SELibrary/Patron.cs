@@ -8,14 +8,10 @@ namespace SELibrary
     [Serializable]
     public class Patron
     {
-        const uint MAX_ADULT_MEDIA = 6;
-        const uint MAX_CHILD_MEDIA = 3;
-
         private uint patronId;
         private string patronName;
-        private DateTime dataofBirth;
+        private DateTime dateOfBirth;
         private uint checkOutCount;
-        private PatronType patronType;
 
         /// <summary>
         /// Gets the patron's ID.
@@ -55,14 +51,12 @@ namespace SELibrary
         /// </summary>
         /// <param name="_patronName">The patron's name.</param>
         /// <param name="_patronBirthday">The patron's birthday.</param>
-        /// <param name="_ptype">The patron type</param> 
-        public Patron(uint _patronID, string _patronName, DateTime _patronBirthday, PatronType _ptype)
+        public Patron(uint _patronID, string _patronName, DateTime _patronBirthday)
         {
             patronId = _patronID;
             patronName = _patronName;
             dataofBirth = _patronBirthday;
             checkOutCount = 0;
-            patronType = _ptype;
         }
 
         /// <summary>
@@ -95,13 +89,5 @@ namespace SELibrary
             const string TO_STRING_FORMAT = "{0}: {1}";
             return string.Format(TO_STRING_FORMAT, ID, Name);
         }
-    }
-
-    /// <summary>
-    /// </summary>
-    public enum PatronType
-    {
-        Child,
-        Adult
     }
 }
