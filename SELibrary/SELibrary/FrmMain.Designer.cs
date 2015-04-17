@@ -206,22 +206,8 @@
             this.BtnSaveClose.TabIndex = 15;
             this.BtnSaveClose.Text = "Save";
             this.BtnSaveClose.UseVisualStyleBackColor = true;
-<<<<<<< HEAD
             this.BtnSaveClose.Click += new System.EventHandler(this.BtnSave_Click);
-=======
-            this.BtnSaveClose.Click += new System.EventHandler(this.BtnSaveClose_Click);
-            // 
-            // BtnLoadDemo
-            // 
-            this.BtnLoadDemo.Location = new System.Drawing.Point(464, 131);
-            this.BtnLoadDemo.Name = "BtnLoadDemo";
-            this.BtnLoadDemo.Size = new System.Drawing.Size(121, 23);
-            this.BtnLoadDemo.TabIndex = 16;
-            this.BtnLoadDemo.Text = "Load demo database";
-            this.BtnLoadDemo.UseVisualStyleBackColor = true;
-            this.BtnLoadDemo.Visible = false;
-            this.BtnLoadDemo.Click += new System.EventHandler(this.BtnLoadDemo_Click);
->>>>>>> origin/master
+            this.BtnSaveClose.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // FrmMainLibrary
             // 

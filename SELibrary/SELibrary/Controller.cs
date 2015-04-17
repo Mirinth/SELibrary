@@ -42,9 +42,7 @@ namespace SELibrary
         }
 
         /// <summary>
-<<<<<<< HEAD
         /// Loads the database at from disk and uses it.
-=======
         /// Loads a demo database with patrons and media.
         /// </summary>
         public void LoadDemoDatabase()
@@ -107,7 +105,6 @@ namespace SELibrary
 
         /// <summary>
         /// Loads the database at filePath and uses it.
->>>>>>> origin/master
         /// If an error occurs, it is reported to the UI and
         /// the previous database is retained.
         /// </summary>
