@@ -155,7 +155,7 @@ namespace SELibrary.Integration
         }
 
         /// <summary>
-        /// Generates a list of randomly generated media items.
+        /// Creates a list of randomly generated media items.
         /// </summary>
         /// <param name="rng">The random number generator to use.</param>
         /// <returns>A list of randomly generated media items.</returns>
@@ -178,6 +178,30 @@ namespace SELibrary.Integration
             }
 
             return mList;
+        }
+
+        /// <summary>
+        /// Creates a list of randomly generated media items.
+        /// </summary>
+        /// <param name="rng">The random number generator to use.</param>
+        /// <returns>A list of randomly generated media items.</returns>
+        public List<Patron> GeneratePatronList(Random rng)
+        {
+            const int LIST_LENGTH = 25;
+
+            List<Patron> pList = new List<Patron>();
+
+            while (pList.Count < LIST_LENGTH)
+            {
+                Patron pat = new Patron(
+                    (uint)pList.Count,
+                    GenerateName(rng),
+                    GenerateBirthday(rng));
+
+                pList.Add(pat);
+            }
+
+            return pList;
         }
     }
 }
