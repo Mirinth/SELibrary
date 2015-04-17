@@ -114,7 +114,7 @@ namespace SELibrary.Integration
             DateTime birthday = DateTime.Now;
             int offset = rng.Next(MAX_OFFSET);
 
-            birthday.AddDays(-offset);
+            birthday = birthday.AddDays(-offset);
 
             return birthday;
         }
