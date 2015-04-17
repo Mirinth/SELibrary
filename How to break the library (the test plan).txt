@@ -33,11 +33,9 @@ Requirements 14 and 15 will probably get most of their testing after the Databas
 
 Requirement 1:						PASSING RATE: 100%
 - The book data is stored in a file (poor man’s database). 			Pass
->>>>>>> origin/master
 Tests:
 - This is covered by the tests for requirements 2 and 3. 			Pass
 Non-tests:
-<<<<<<< HEAD
 - The specific format of the file will not be tested. As long the data can be accurately stored and retrieved, the format doesn't matter.
 
 Requirement 2:
@@ -55,7 +53,7 @@ Tests:
 - - Does the program display an error message? : Yes
 - - Does the program request a different database on failure? : Yes
 - Is the data loaded from the file the same as what was stored? : Yes
-=======
+Non-tests:
 - The specific format of the file will not be tested. As long the data can be accurately stored and retrieved, the format doesn't matter. Pass
 
 Requirement 2: 						PASSING RATE: 100%
@@ -73,7 +71,6 @@ Tests:
 - - Does the program display an error message? 			Pass
 - - Does the program request a different database on failure? 		Pass
 - Is the data loaded from the file the same as what was stored? 		Pass
->>>>>>> origin/master
 Not testing:
 - Changing file permissions while reading
 - Deleting the file while reading
@@ -82,17 +79,14 @@ Not testing:
 Requirement 3:						PASSING RATE: 90%
 - When the program exits, it writes the data back out to the file.
 Tests:
-<<<<<<< HEAD
 - Is the database file updated when the program exits? : Yes
 - Will the tests for requirement 2 pass for the written file? : Yes
 - Does the program fail gracefully if the database is deleted between loading and saving? : Not needed; file is locked
 - - Does it display an error message? : N/A
-=======
 - Is the database file updated when the program exits? 			Pass 50% - ONLY IF USER CLICK SAVE AND EXIT
 - Will the tests for requirement 2 pass for the written file? 			Pass
 - Does the program fail gracefully if the database is deleted between loading and saving? Pass
 - - Does it display an error message? 				Pass
->>>>>>> origin/master
 
 Requirement 4: 						PASSING RATE: 75%
 - Checkout times:
