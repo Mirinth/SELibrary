@@ -84,10 +84,10 @@ Tests:
 - Will the program check out up to 3 items to a child?			Pass
 - Will the program refuse to check out 4 or more items to a child?		Pass
 
-Requirement 6:
+Requirement 6:						PASSING RATE 100%
 - Adults and children may check books out and check them back in.
 Tests:
-- Tests covered by requirements 5 & 6.
+- Tests covered by requirements 5 & 6.				Pass
 
 Requirement 7:						PASSING RATE: 100%
 - The user is displayed a list of available patrons and media to choose from while checking items in and out. Pass
@@ -121,51 +121,51 @@ Tests:
 - Is it easy to find out how to generate the list?				Pass
 - Will the program work correctly if there are no overdue items?		Pass
 
-Requirement 11:
-- The user can view a list of all items checked out to a specific patron
+Requirement 11:						PASSING RATE: 100%
+- The user can view a list of all items checked out to a specific patron		Pass
 Tests:
-- Can the user view a list of all books loaned to a specific patron?
-- Is the list accurate (no items checked out to other patrons included)?
-- Is the list complete?
-- Is it easy to find out how to generate the list?
-- Will the program work correctly if a patron has no items?
+- Can the user view a list of all books loaned to a specific patron?		Pass
+- Is the list accurate (no items checked out to other patrons included)?		Pass
+- Is the list complete?						Pass
+- Is it easy to find out how to generate the list?				Pass
+- Will the program work correctly if a patron has no items?			Pass
 
-Requirement 12:
-- Allow the date to be advanced, one day at a time, to simulate time passing.
+Requirement 12:						PASSING RATE: 100%
+- Allow the date to be advanced, one day at a time, to simulate time passing.	Pass
 Tests:
-- Can the date be advanced?
-- Does the date advance exactly 1 day at a time?
-- Does the new date affect other time-sensitive features?
+- Can the date be advanced?					Pass
+- Does the date advance exactly 1 day at a time?			Pass
+- Does the new date affect other time-sensitive features?			Pass
 
-Requirement 13:
-- The user might appreciate if the interface was usable.
+Requirement 13:						PASSING RATE: 100%
+- The user might appreciate if the interface was usable.			Pass
 Tests:
-- Are error messages easy to understand, accurate, and descriptive?
-- Given an arbitrary patron at the counter or media item in hand, can the user easily locate the correct patron or media in the lists?
-- Is it clear what the various media lists are and how to generate them?
-- Is it clear what the various drop-down menus are for?
-- - e.g. is it clear that the list of patrons is a list of patrons?
-- Is it clear what the buttons do?
+- Are error messages easy to understand, accurate, and descriptive?		Pass
+- Given an arbitrary patron at the counter or media item in hand, can the user easily locate the correct patron or media in the lists?	Pass
+- Is it clear what the various media lists are and how to generate them?		Pass
+- Is it clear what the various drop-down menus are for?			Pass
+- - e.g. is it clear that the list of patrons is a list of patrons?			Pass
+- Is it clear what the buttons do?					Pass
 - Does the program say when lists are empty? The user might otherwise assume the program failed somehow when presented with an empty list.
-- Is it easy to figure out how to check items out and back in?
+- Is it easy to figure out how to check items out and back in?		Pass
 - Scenario: The user wants to check out item 10098_8_987332, and accidentally types 10098_9_987332. The program informs the user that the item is already checked out. The user assumes the item simply failed to check in, instructs the program to check it back in and then out to the new patron. The old patron now has a free book and the new one is stuck paying for it. Will the program assist the librarian in preventing this situation?
-
-Requirement 14:
+							Pass
+Requirement 14:						UNTESTED
 - The program should handle multiple patrons with the same name and age, because it's only a matter of time until two people like that show up.
 Tests:
-- Give it a database with duplicate patrons.
+- Give it a database with duplicate patrons.				
 
-Requirement 15:
+Requirement 15:						UNTESTED
 - If the library is going to have multiple copies of popular items, it will need to handle duplicates.
 Tests:
 - Give it a database with duplicate media items.
 
-Requirement 16:
-- Graceful shutdown. Requirement 3 needs this.
+Requirement 16:						PASSING RATE: 100%	
+- Graceful shutdown. Requirement 3 needs this.				Pass
 Tests:
-- Will the program close gracefully when the close button is clicked?
+- Will the program close gracefully when the close button is clicked?		Pass
 
-Requirement 17:
+Requirement 17:						UNTESTED
 - Rating restrictions:
 - - Adults can check out any item (subject to quantity rules)
 - - Children can only check out children's items (subject to quantity rules)
@@ -175,15 +175,38 @@ Tests:
 - Can children check out children's items?
 - Will the program refuse to check out adult items to children?
 
-Requirement 18:
-- Input validation
+Requirement 18:						PASSING RATE: 100%
+- Input validation						Pass
 Tests:
-- Will the program fail gracefully if given a patron or media item that doesn't exist?
-- Will the program work correctly if the user opens it up and immediately starts clicking buttons without entering any input?
-- Is an error message displayed?
+- Will the program fail gracefully if given a patron or media item that doesn't exist?	Pass
+- Will the program work correctly if the user opens it up and immediately starts clicking buttons without entering any input?	Pass
+- Is an error message displayed?					Pass
 
-Requirement 19:
+Requirement 19:						PASSING RATE: 50%
 - The program can distinguish between children and adults (needed by other requirements that differ between children/adults)
 Tests:
-- Will the program treat patrons below the child limit as children?
-- Will the program treat patrons above th child limit as adults?
+- Will the program treat patrons below the child limit as children?		Pass
+- Will the program treat patrons above th child limit as adults?		FAILED - ONLY CHILDRED
+
+TESTING SUMMARY
+Requirement 1: Passing Rate: 100%
+Requirement 2: Passing Rate: 100%
+Requirement 3: Passing Rate: 90%
+Requirement 4: Passing Rate: 75%
+Requirement 5: Passing Rate: 50%
+Requirement 6: Passing Rate: 100%
+Requirement 7: Passing Rate: 100%
+Requirement 8: Passing Rate: 100%
+Requirement 9: Passing Rate: 80%
+Requirement 10: Passing Rate: 100%
+Requirement 11: Passing Rate: 100%
+Requirement 12: Passing Rate: 100%
+Requirement 13: Passing Rate: 100%
+Requirement 14: Passing Rate: UNTESTED - NOT ADDED INTO CALCULATION
+Requirement 15: Passing Rate: UNTESTED - NOT ADDED INTO CALCULATION
+Requirement 16: Passing Rate: 100%
+Requirement 17: Passing Rate: UNTESTED - NOT ADDED INTO CALCULATION
+Requirement 18: Passing Rate: 100%
+Requirement 19: Passing Rate: 50%
+1445
+TOTAL PASS %: 90%
