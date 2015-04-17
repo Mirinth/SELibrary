@@ -9,6 +9,20 @@ namespace SELibrary
     interface ILibraryUI
     {
         /// <summary>
+        /// Prompts the user for a file path to load the database from.
+        /// </summary>
+        /// <returns>
+        /// The file path chosen by the user, or null if the
+        /// user cancelled the operation.
+        /// </returns>
+        string PromptForFilePath();
+
+        /// <summary>
+        /// Closes the program.
+        /// </summary>
+        void Close();
+
+        /// <summary>
         /// Clears any errors currently on display in the UI.
         /// </summary>
         void ClearErrors();
