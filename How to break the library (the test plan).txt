@@ -1,8 +1,43 @@
+<<<<<<< HEAD
 Requirement 1:
 - The book data is stored in a file (poor man’s database).
+=======
+Tools: 
+- Some test lists
+- Code unit tests
+- Some manual testing
+
+
+
+
+Timing:
+Requirements 2, 3 & 16 can be tested after FileIO reading/writing, Controller reading/writing, Patron, Media, and minimal UI are done. It isn't affected much by the presence or absence of other requirements.
+
+Requirements 4, 5, 6, & 17 can be tested after the UI and Controller support checkin/out.
+
+Requirements 7 & 8 can be tested as soon as Media, Patron, and minimal UI and Controller support is ready.
+
+Requirements 9, 10, 11 need support from the Database, UI, and Controller.
+
+Requirement 12 can be tested as time-sensitive features are implemented.
+
+Requirements 13 & 18 can be tested as the UI is developed.
+
+Requirements 14 and 15 will probably get most of their testing after the Database object is completed.
+
+
+
+
+
+
+
+Requirement 1:						PASSING RATE: 100%
+- The book data is stored in a file (poor man’s database). 			Pass
+>>>>>>> origin/master
 Tests:
-- This is covered by the tests for requirements 2 and 3.
+- This is covered by the tests for requirements 2 and 3. 			Pass
 Non-tests:
+<<<<<<< HEAD
 - The specific format of the file will not be tested. As long the data can be accurately stored and retrieved, the format doesn't matter.
 
 Requirement 2:
@@ -20,123 +55,149 @@ Tests:
 - - Does the program display an error message? : Yes
 - - Does the program request a different database on failure? : Yes
 - Is the data loaded from the file the same as what was stored? : Yes
+=======
+- The specific format of the file will not be tested. As long the data can be accurately stored and retrieved, the format doesn't matter. Pass
+
+Requirement 2: 						PASSING RATE: 100%
+- When the program starts, it reads the data from the file. 			Pass
+- - Allow the user to select the file name. 				Pass
+Tests:
+- Does the program ask for a file name when first started? 			Pass
+- Does the program accept the file name given by the user (not ignoring it)? 	Pass
+- - Does the program reject non-database files? 			Pass
+- - Does the program reject nonexistent files? 				Pass
+- - Does the program reject corrupted files? 				Pass
+- - Does the program reject inaccessible files? 				Pass
+- - Does the program reject illegal path names, like "Path<Contains|Bad}Chars"?	Pass
+- Does the program fail gracefully if the database is rejected? 		Pass
+- - Does the program display an error message? 			Pass
+- - Does the program request a different database on failure? 		Pass
+- Is the data loaded from the file the same as what was stored? 		Pass
+>>>>>>> origin/master
 Not testing:
 - Changing file permissions while reading
 - Deleting the file while reading
 - Modifying the file while reading
 
-Requirement 3:
+Requirement 3:						PASSING RATE: 90%
 - When the program exits, it writes the data back out to the file.
 Tests:
+<<<<<<< HEAD
 - Is the database file updated when the program exits? : Yes
 - Will the tests for requirement 2 pass for the written file? : Yes
 - Does the program fail gracefully if the database is deleted between loading and saving? : Not needed; file is locked
 - - Does it display an error message? : N/A
+=======
+- Is the database file updated when the program exits? 			Pass 50% - ONLY IF USER CLICK SAVE AND EXIT
+- Will the tests for requirement 2 pass for the written file? 			Pass
+- Does the program fail gracefully if the database is deleted between loading and saving? Pass
+- - Does it display an error message? 				Pass
+>>>>>>> origin/master
 
-Requirement 4:
+Requirement 4: 						PASSING RATE: 75%
 - Checkout times:
-- - Adult books can be checked out for 2 weeks
-- - Children's books can be checked out for 1 week
-- All DVDs can be checked out for 2 days
-- All videos can be checked out for 3 days
+- - Adult books can be checked out for 2 weeks - 			FAILED
+- - Children's books can be checked out for 1 week - 			Pass
+- All DVDs can be checked out for 2 days - 				Pass
+- All videos can be checked out for 3 days - 				Pass
 Tests:
-- Does the program check out adult books for exactly 2 weeks?
-- Does the program check out children's books for exactly 1 week?
-- Does the program check out DVDs for exactly 2 days?
-- Does the program check out videos for exactly 3 days?
+- Does the program check out adult books for exactly 2 weeks?	- 	FAILED
+- Does the program check out children's books for exactly 1 week?	- 	Pass
+- Does the program check out DVDs for exactly 2 days? - 			Pass
+- Does the program check out videos for exactly 3 days? - 			Pass
 
-Requirement 5:
+Requirement 5:						PASSING RATE: 50%
 - Checkout quantities:
-- - Adults can check out up to 6 books at a time
-- - Children can check out up to 3 books at a time
+- - Adults can check out up to 6 books at a time			FAILED
+- - Children can check out up to 3 books at a time			Pass
 Tests:
-- Will the program check out up to 6 items to an adult?
-- Will the program refuse to check out 7 or more items to an adult?
-- Will the program check out up to 3 items to a child?
-- Will the program refuse to check out 4 or more items to a child?
+- Will the program check out up to 6 items to an adult?			FAILED - TREATED AS CHILD
+- Will the program refuse to check out 7 or more items to an adult?		FAILED - TREATED AS CHILD
+- Will the program check out up to 3 items to a child?			Pass
+- Will the program refuse to check out 4 or more items to a child?		Pass
 
-Requirement 6:
+Requirement 6:						PASSING RATE 100%
 - Adults and children may check books out and check them back in.
 Tests:
-- Tests covered by requirements 5 & 6.
+- Tests covered by requirements 5 & 6.				Pass
 
-Requirement 7:
-- The user is displayed a list of available patrons and media to choose from while checking items in and out.
+Requirement 7:						PASSING RATE: 100%
+- The user is displayed a list of available patrons and media to choose from while checking items in and out. Pass
 Tests:
-- Is the list of media visible to the user?
-- Is the list of media accurate?
-- Is the list of patrons visible to the user?
-- Is the list of patrons accurate?
+- Is the list of media visible to the user?				Pass
+- Is the list of media accurate?					Pass
+- Is the list of patrons visible to the user?				Pass
+- Is the list of patrons accurate?					Pass
 
-Requirement 8:
-- Checked out items may not be checked out ("duh")
+Requirement 8:						PASSING RATE: 100%
+- Checked out items may not be checked out ("duh")			Pass
 Tests:
-- Will the program refuse to check out an item that is already checked out?
-- Will the program allow the item to be checked out again once it's checked in?
+- Will the program refuse to check out an item that is already checked out?	Pass
+- Will the program allow the item to be checked out again once it's checked in?	Pass
 
-Requirement 9:
-- The user can view a list of all items and their status.
+Requirement 9:						PASSING RATE: 80%
+- The user can view a list of all items and their status.			Pass
 Tests:
-- Can the user view a list of all items?
-- Does the list include the status of each items?
-- Is the list accurate?
-- Is the list complete?
-- Is it easy to find out how to generate the list?
+- Can the user view a list of all items?				Pass
+- Does the list include the status of each items?				FAILED - No Status
+- Is the list accurate?						Pass
+- Is the list complete?						Pass
+- Is it easy to find out how to generate the list?				Pass
 
-Requirement 10:
-- The user can view a list of all overdue items
+Requirement 10:						PASSING RATE: 100%
+- The user can view a list of all overdue items				Pass
 Tests:
-- Can the user view a list of all overdue items?
-- Is the list accurate (no non-overdue items)?
-- Is the list complete?
-- Is it easy to find out how to generate the list?
-- Will the program work correctly if there are no overdue items?
+- Can the user view a list of all overdue items?				Pass
+- Is the list accurate (no non-overdue items)?				Pass
+- Is the list complete?						Pass
+- Is it easy to find out how to generate the list?				Pass
+- Will the program work correctly if there are no overdue items?		Pass
 
-Requirement 11:
-- The user can view a list of all items checked out to a specific patron
+Requirement 11:						PASSING RATE: 100%
+- The user can view a list of all items checked out to a specific patron		Pass
 Tests:
-- Can the user view a list of all books loaned to a specific patron?
-- Is the list accurate (no items checked out to other patrons included)?
-- Is the list complete?
-- Is it easy to find out how to generate the list?
-- Will the program work correctly if a patron has no items?
+- Can the user view a list of all books loaned to a specific patron?		Pass
+- Is the list accurate (no items checked out to other patrons included)?		Pass
+- Is the list complete?						Pass
+- Is it easy to find out how to generate the list?				Pass
+- Will the program work correctly if a patron has no items?			Pass
 
-Requirement 12:
-- Allow the date to be advanced, one day at a time, to simulate time passing.
+Requirement 12:						PASSING RATE: 100%
+- Allow the date to be advanced, one day at a time, to simulate time passing.	Pass
 Tests:
-- Can the date be advanced?
-- Does the date advance exactly 1 day at a time?
-- Does the new date affect other time-sensitive features?
+- Can the date be advanced?					Pass
+- Does the date advance exactly 1 day at a time?			Pass
+- Does the new date affect other time-sensitive features?			Pass
 
-Requirement 13:
-- The user might appreciate if the interface was usable.
+Requirement 13:						PASSING RATE: 100%
+- The user might appreciate if the interface was usable.			Pass
 Tests:
-- Are error messages easy to understand, accurate, and descriptive?
-- Given an arbitrary patron at the counter or media item in hand, can the user easily locate the correct patron or media in the lists?
-- Is it clear what the various media lists are and how to generate them?
-- Is it clear what the various drop-down menus are for?
-- - e.g. is it clear that the list of patrons is a list of patrons?
-- Is it clear what the buttons do?
+- Are error messages easy to understand, accurate, and descriptive?		Pass
+- Given an arbitrary patron at the counter or media item in hand, can the user easily locate the correct patron or media in the lists?	Pass
+- Is it clear what the various media lists are and how to generate them?		Pass
+- Is it clear what the various drop-down menus are for?			Pass
+- - e.g. is it clear that the list of patrons is a list of patrons?			Pass
+- Is it clear what the buttons do?					Pass
 - Does the program say when lists are empty? The user might otherwise assume the program failed somehow when presented with an empty list.
-- Is it easy to figure out how to check items out and back in?
+- Is it easy to figure out how to check items out and back in?		Pass
 - Scenario: The user wants to check out item 10098_8_987332, and accidentally types 10098_9_987332. The program informs the user that the item is already checked out. The user assumes the item simply failed to check in, instructs the program to check it back in and then out to the new patron. The old patron now has a free book and the new one is stuck paying for it. Will the program assist the librarian in preventing this situation?
-
-Requirement 14:
+							Pass
+Requirement 14:						UNTESTED
 - The program should handle multiple patrons with the same name and age, because it's only a matter of time until two people like that show up.
 Tests:
-- Give it a database with duplicate patrons.
+- Give it a database with duplicate patrons.				
 
-Requirement 15:
+Requirement 15:						UNTESTED
 - If the library is going to have multiple copies of popular items, it will need to handle duplicates.
 Tests:
 - Give it a database with duplicate media items.
 
-Requirement 16:
-- Graceful shutdown. Requirement 3 needs this.
+Requirement 16:						PASSING RATE: 100%	
+- Graceful shutdown. Requirement 3 needs this.				Pass
 Tests:
-- Will the program close gracefully when the close button is clicked?
+- Will the program close gracefully when the close button is clicked?		Pass
 
-Requirement 17:
+Requirement 17:						UNTESTED
 - Rating restrictions:
 - - Adults can check out any item (subject to quantity rules)
 - - Children can only check out children's items (subject to quantity rules)
@@ -146,15 +207,38 @@ Tests:
 - Can children check out children's items?
 - Will the program refuse to check out adult items to children?
 
-Requirement 18:
-- Input validation
+Requirement 18:						PASSING RATE: 100%
+- Input validation						Pass
 Tests:
-- Will the program fail gracefully if given a patron or media item that doesn't exist?
-- Will the program work correctly if the user opens it up and immediately starts clicking buttons without entering any input?
-- Is an error message displayed?
+- Will the program fail gracefully if given a patron or media item that doesn't exist?	Pass
+- Will the program work correctly if the user opens it up and immediately starts clicking buttons without entering any input?	Pass
+- Is an error message displayed?					Pass
 
-Requirement 19:
+Requirement 19:						PASSING RATE: 50%
 - The program can distinguish between children and adults (needed by other requirements that differ between children/adults)
 Tests:
-- Will the program treat patrons below the child limit as children?
-- Will the program treat patrons above th child limit as adults?
+- Will the program treat patrons below the child limit as children?		Pass
+- Will the program treat patrons above th child limit as adults?		FAILED - ONLY CHILDRED
+
+TESTING SUMMARY
+Requirement 1: Passing Rate: 100%
+Requirement 2: Passing Rate: 100%
+Requirement 3: Passing Rate: 90%
+Requirement 4: Passing Rate: 75%
+Requirement 5: Passing Rate: 50%
+Requirement 6: Passing Rate: 100%
+Requirement 7: Passing Rate: 100%
+Requirement 8: Passing Rate: 100%
+Requirement 9: Passing Rate: 80%
+Requirement 10: Passing Rate: 100%
+Requirement 11: Passing Rate: 100%
+Requirement 12: Passing Rate: 100%
+Requirement 13: Passing Rate: 100%
+Requirement 14: Passing Rate: UNTESTED - NOT ADDED INTO CALCULATION
+Requirement 15: Passing Rate: UNTESTED - NOT ADDED INTO CALCULATION
+Requirement 16: Passing Rate: 100%
+Requirement 17: Passing Rate: UNTESTED - NOT ADDED INTO CALCULATION
+Requirement 18: Passing Rate: 100%
+Requirement 19: Passing Rate: 50%
+1445
+TOTAL PASS %: 90%
