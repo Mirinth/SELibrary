@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Requirement 1:
 - The book data is stored in a file (poor man’s database).
 =======
@@ -38,24 +37,6 @@ Tests:
 Non-tests:
 - The specific format of the file will not be tested. As long the data can be accurately stored and retrieved, the format doesn't matter.
 
-Requirement 2:
-- When the program starts, it reads the data from the file.
-- - Allow the user to select the file name.
-Tests:
-- Does the program ask for a file name when first started? : Yes
-- Does the program accept the file name given by the user (not ignoring it)? : Yes
-- - Does the program reject non-database files? : Yes
-- - Does the program reject nonexistent files? : Yes
-- - Does the program reject corrupted files? : Yes
-- - Does the program reject inaccessible files? : Yes
-- - Does the program reject illegal path names, like "Path<Contains|Bad}Chars"? : Yes
-- Does the program fail gracefully if the database is rejected? : Yes
-- - Does the program display an error message? : Yes
-- - Does the program request a different database on failure? : Yes
-- Is the data loaded from the file the same as what was stored? : Yes
-Non-tests:
-- The specific format of the file will not be tested. As long the data can be accurately stored and retrieved, the format doesn't matter. Pass
-
 Requirement 2: 						PASSING RATE: 100%
 - When the program starts, it reads the data from the file. 			Pass
 - - Allow the user to select the file name. 				Pass
@@ -76,39 +57,39 @@ Not testing:
 - Deleting the file while reading
 - Modifying the file while reading
 
-Requirement 3:						PASSING RATE: 90%
+Requirement 3:						PASSING RATE: 100%
 - When the program exits, it writes the data back out to the file.
 Tests:
 - Is the database file updated when the program exits? : Yes
 - Will the tests for requirement 2 pass for the written file? : Yes
 - Does the program fail gracefully if the database is deleted between loading and saving? : Not needed; file is locked
 - - Does it display an error message? : N/A
-- Is the database file updated when the program exits? 			Pass 50% - ONLY IF USER CLICK SAVE AND EXIT
+- Is the database file updated when the program exits? 			Pass
 - Will the tests for requirement 2 pass for the written file? 			Pass
 - Does the program fail gracefully if the database is deleted between loading and saving? Pass
 - - Does it display an error message? 				Pass
 
-Requirement 4: 						PASSING RATE: 75%
+Requirement 4: 						PASSING RATE: 100%
 - Checkout times:
-- - Adult books can be checked out for 2 weeks - 			FAILED
+- - Adult books can be checked out for 2 weeks - 			Pass
 - - Children's books can be checked out for 1 week - 			Pass
 - All DVDs can be checked out for 2 days - 				Pass
 - All videos can be checked out for 3 days - 				Pass
 Tests:
-- Does the program check out adult books for exactly 2 weeks?	- 	FAILED
-- Does the program check out children's books for exactly 1 week?	- 	Pass
-- Does the program check out DVDs for exactly 2 days? - 			Pass
-- Does the program check out videos for exactly 3 days? - 			Pass
+- Does the program check out adult books for exactly 2 weeks?	- 	Pass
+- Does the program check out children's books for exactly 1 week?	Pass
+- Does the program check out DVDs for exactly 2 days? - 		Pass
+- Does the program check out videos for exactly 3 days? - 		Pass
 
-Requirement 5:						PASSING RATE: 50%
+Requirement 5:						PASSING RATE: 100%
 - Checkout quantities:
-- - Adults can check out up to 6 books at a time			FAILED
+- - Adults can check out up to 6 books at a time			Pass
 - - Children can check out up to 3 books at a time			Pass
 Tests:
-- Will the program check out up to 6 items to an adult?			FAILED - TREATED AS CHILD
-- Will the program refuse to check out 7 or more items to an adult?		FAILED - TREATED AS CHILD
+- Will the program check out up to 6 items to an adult?			Pass
+- Will the program refuse to check out 7 or more items to an adult?	Pass
 - Will the program check out up to 3 items to a child?			Pass
-- Will the program refuse to check out 4 or more items to a child?		Pass
+- Will the program refuse to check out 4 or more items to a child?	Pass
 
 Requirement 6:						PASSING RATE 100%
 - Adults and children may check books out and check them back in.
@@ -129,11 +110,11 @@ Tests:
 - Will the program refuse to check out an item that is already checked out?	Pass
 - Will the program allow the item to be checked out again once it's checked in?	Pass
 
-Requirement 9:						PASSING RATE: 80%
+Requirement 9:						PASSING RATE: 100%
 - The user can view a list of all items and their status.			Pass
 Tests:
 - Can the user view a list of all items?				Pass
-- Does the list include the status of each items?				FAILED - No Status
+- Does the list include the status of each items?			Pass
 - Is the list accurate?						Pass
 - Is the list complete?						Pass
 - Is it easy to find out how to generate the list?				Pass
@@ -191,15 +172,15 @@ Requirement 16:						PASSING RATE: 100%
 Tests:
 - Will the program close gracefully when the close button is clicked?		Pass
 
-Requirement 17:						UNTESTED
+Requirement 17:						PASSING RATE: 100%
 - Rating restrictions:
-- - Adults can check out any item (subject to quantity rules)
-- - Children can only check out children's items (subject to quantity rules)
+- - Adults can check out any item (subject to quantity rules)			Pass
+- - Children can only check out children's items (subject to quantity rules)	Pass
 Tests:
-- Can adults check out adult items?
-- Can adults check out children's items?
-- Can children check out children's items?
-- Will the program refuse to check out adult items to children?
+- Can adults check out adult items?		Pass
+- Can adults check out children's items?	Pass
+- Can children check out children's items?	Pass
+- Will the program refuse to check out adult items to children? Pass
 
 Requirement 18:						PASSING RATE: 100%
 - Input validation						Pass
@@ -208,22 +189,22 @@ Tests:
 - Will the program work correctly if the user opens it up and immediately starts clicking buttons without entering any input?	Pass
 - Is an error message displayed?					Pass
 
-Requirement 19:						PASSING RATE: 50%
+Requirement 19:						PASSING RATE: 100%
 - The program can distinguish between children and adults (needed by other requirements that differ between children/adults)
 Tests:
 - Will the program treat patrons below the child limit as children?		Pass
-- Will the program treat patrons above th child limit as adults?		FAILED - ONLY CHILDRED
+- Will the program treat patrons above th child limit as adults?		Pass
 
 TESTING SUMMARY
 Requirement 1: Passing Rate: 100%
 Requirement 2: Passing Rate: 100%
-Requirement 3: Passing Rate: 90%
-Requirement 4: Passing Rate: 75%
-Requirement 5: Passing Rate: 50%
+Requirement 3: Passing Rate: 100%
+Requirement 4: Passing Rate: 100%
+Requirement 5: Passing Rate: 100%
 Requirement 6: Passing Rate: 100%
 Requirement 7: Passing Rate: 100%
 Requirement 8: Passing Rate: 100%
-Requirement 9: Passing Rate: 80%
+Requirement 9: Passing Rate: 100%
 Requirement 10: Passing Rate: 100%
 Requirement 11: Passing Rate: 100%
 Requirement 12: Passing Rate: 100%
@@ -231,8 +212,8 @@ Requirement 13: Passing Rate: 100%
 Requirement 14: Passing Rate: UNTESTED - NOT ADDED INTO CALCULATION
 Requirement 15: Passing Rate: UNTESTED - NOT ADDED INTO CALCULATION
 Requirement 16: Passing Rate: 100%
-Requirement 17: Passing Rate: UNTESTED - NOT ADDED INTO CALCULATION
+Requirement 17: Passing Rate: 100%
 Requirement 18: Passing Rate: 100%
-Requirement 19: Passing Rate: 50%
+Requirement 19: Passing Rate: 100%
 1445
-TOTAL PASS %: 90%
+TOTAL PASS %: 100%
