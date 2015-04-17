@@ -34,7 +34,7 @@ namespace SELibrary
         /// </summary>
         public DateTime Birthday
         {
-            get { return dataofBirth; }
+            get { return dateOfBirth; }
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace SELibrary
         {
             patronId = _patronID;
             patronName = _patronName;
-            dataofBirth = _patronBirthday;
+            dateOfBirth = _patronBirthday;
             checkOutCount = 0;
         }
 
