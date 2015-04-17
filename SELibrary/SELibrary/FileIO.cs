@@ -73,7 +73,6 @@ namespace SELibrary
             _binaryFormat.Serialize(fs, db);
             
             fs.Flush();
-            fs.Close();
         }
 
         /// <summary>
@@ -94,7 +93,7 @@ namespace SELibrary
             // can decide what to do.
             catch (System.Runtime.Serialization.SerializationException) { }
             catch (InvalidCastException) { }
-            fs.Close();
+
             return db;
         }
     }

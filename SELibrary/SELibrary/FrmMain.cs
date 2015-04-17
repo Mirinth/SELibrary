@@ -182,10 +182,8 @@ namespace SELibrary
         private void BtnSave_Click(object sender, EventArgs e)
         {
             proControl.SaveDatabase();
+            this.Close();
         }
-        #endregion
-
-        #region Report methods
         /// <summary>
         /// Clears any errors currently on display.
         /// </summary>
