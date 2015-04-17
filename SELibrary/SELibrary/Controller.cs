@@ -198,9 +198,16 @@ namespace SELibrary
                 _ui.ReportAdultCheckoutsExceeded(item, borrower);
                 error = true;
             }
-            else if (!IsAdult(borrower) && borrower.CheckoutCount >= CHILD_CHECKOUT_CAP)
+            else if (!IsAdult(borrower) && 
+                borrower.CheckoutCount >= CHILD_CHECKOUT_CAP)
             {
                 _ui.ReportChildCheckoutsExceeded(item, borrower);
+                error = true;
+            }
+            else if (!IsAdult(borrower) &&
+                item.Rating != MediaRating.Everyone)
+            {
+                _ui.ReportRatingRestrictionViolation();
                 error = true;
             }
 

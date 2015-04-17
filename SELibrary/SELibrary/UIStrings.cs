@@ -22,5 +22,7 @@ namespace SELibrary
             "permission to access it.";
         public const string LIBRARY_DATABASE_FILTER = "Library database files (*.ldb)|*.ldb";
         public const string LIBRARY_DATABASE_DIALOG_TITLE = "Open the library database file";
+        public const string RATING_RESTRICTION = "The selected patron is restricted from checking out items with " +
+            "the selected item's rating.";
     }
 }

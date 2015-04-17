@@ -85,5 +85,11 @@ namespace SELibrary
         /// Notifies the UI that the database changed.
         /// </summary>
         void ReportDatabaseChanged();
+
+        /// <summary>
+        /// Notifies the UI that a patron attempted to check out an
+        /// item that the patron doesn't have permission to check out.
+        /// </summary>
+        void ReportRatingRestrictionViolation();
     }
 }

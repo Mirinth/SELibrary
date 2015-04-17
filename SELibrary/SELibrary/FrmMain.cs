@@ -298,6 +298,15 @@ namespace SELibrary
 
             RdoListNone.Checked = true;
         }
+
+        /// <summary>
+        /// Notifies the user that a patron attempted to check out an
+        /// item that the patron doesn't have permission to check out.
+        /// </summary>
+        public void ReportRatingRestrictionViolation()
+        {
+            EProvReport.SetError(CBoxPatron, UIStrings.RATING_RESTRICTION);
+        }
         #endregion
     }
 }
