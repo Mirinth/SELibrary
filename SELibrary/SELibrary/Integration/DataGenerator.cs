@@ -154,5 +154,29 @@ namespace SELibrary.Integration
                     throw new InvalidOperationException();
             }
         }
+
+        /// <summary>
+        /// Generates a list of randomly generated media items.
+        /// </summary>
+        /// <param name="rng">The random number generator to use.</param>
+        /// <returns>A list of randomly generated media items.</returns>
+        public List<Media> RandomMediaList(Random rng)
+        {
+            const int LIST_LENGTH = 25;
+
+            List<Media> mList = new List<Media>();
+
+            while (mList.Count < LIST_LENGTH)
+            {
+                Media item = new Media(
+                    (uint)mList.Count,
+                    RandomMediaType(rng),
+                    RandomMediaRating(rng),
+                    RandomName(rng),
+                    RandomTitle(rng));
+
+                mList.Add(item);
+            }
+        }
     }
 }
