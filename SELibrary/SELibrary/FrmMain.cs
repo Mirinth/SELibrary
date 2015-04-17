@@ -32,7 +32,7 @@ namespace SELibrary
         /// The database path selected by the user,
         /// or null if the user cancelled the operation.
         /// </returns>
-        public string GetDatabasePath()
+        public string PromptForFilePath()
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = UIStrings.LIBRARY_DATABASE_FILTER;
@@ -151,7 +151,7 @@ namespace SELibrary
         }
 
         //Save DB
-        private void BtnSaveClose_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
             proControl.SaveDatabase("Library_Database.bin");
             this.Close();
