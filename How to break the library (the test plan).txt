@@ -1,32 +1,3 @@
-Tools: 
-- Some test lists
-- Code unit tests
-- Some manual testing
-
-
-
-
-Timing:
-Requirements 2, 3 & 16 can be tested after FileIO reading/writing, Controller reading/writing, Patron, Media, and minimal UI are done. It isn't affected much by the presence or absence of other requirements.
-
-Requirements 4, 5, 6, & 17 can be tested after the UI and Controller support checkin/out.
-
-Requirements 7 & 8 can be tested as soon as Media, Patron, and minimal UI and Controller support is ready.
-
-Requirements 9, 10, 11 need support from the Database, UI, and Controller.
-
-Requirement 12 can be tested as time-sensitive features are implemented.
-
-Requirements 13 & 18 can be tested as the UI is developed.
-
-Requirements 14 and 15 will probably get most of their testing after the Database object is completed.
-
-
-
-
-
-
-
 Requirement 1:
 - The book data is stored in a file (poor man’s database).
 Tests:
@@ -38,17 +9,17 @@ Requirement 2:
 - When the program starts, it reads the data from the file.
 - - Allow the user to select the file name.
 Tests:
-- Does the program ask for a file name when first started?
-- Does the program accept the file name given by the user (not ignoring it)?
-- - Does the program reject non-database files?
-- - Does the program reject nonexistent files?
-- - Does the program reject corrupted files?
-- - Does the program reject inaccessible files?
-- - Does the program reject illegal path names, like "Path<Contains|Bad}Chars"?
-- Does the program fail gracefully if the database is rejected?
-- - Does the program display an error message?
-- - Does the program request a different database on failure?
-- Is the data loaded from the file the same as what was stored?
+- Does the program ask for a file name when first started? : Yes
+- Does the program accept the file name given by the user (not ignoring it)? : Yes
+- - Does the program reject non-database files? : Yes
+- - Does the program reject nonexistent files? : Yes
+- - Does the program reject corrupted files? : Yes
+- - Does the program reject inaccessible files? : Yes
+- - Does the program reject illegal path names, like "Path<Contains|Bad}Chars"? : Yes
+- Does the program fail gracefully if the database is rejected? : Yes
+- - Does the program display an error message? : Yes
+- - Does the program request a different database on failure? : Yes
+- Is the data loaded from the file the same as what was stored? : Yes
 Not testing:
 - Changing file permissions while reading
 - Deleting the file while reading
@@ -57,10 +28,10 @@ Not testing:
 Requirement 3:
 - When the program exits, it writes the data back out to the file.
 Tests:
-- Is the database file updated when the program exits?
-- Will the tests for requirement 2 pass for the written file?
-- Does the program fail gracefully if the database is deleted between loading and saving?
-- - Does it display an error message?
+- Is the database file updated when the program exits? : Yes
+- Will the tests for requirement 2 pass for the written file? : Yes
+- Does the program fail gracefully if the database is deleted between loading and saving? : Not needed; file is locked
+- - Does it display an error message? : N/A
 
 Requirement 4:
 - Checkout times:
