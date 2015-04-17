@@ -169,8 +169,7 @@ namespace SELibrary
         /// <returns>The string representation of the object.</returns>
         public override string ToString()
         {
-            const string TO_STRING_FORMAT = "{0}: {1}, by {2}";
-            return string.Format(TO_STRING_FORMAT, ID, Title, Author);
+            return string.Format(TO_STRING_FORMAT, ID, Title, Author, Rating, Type);
         }
     }
 
