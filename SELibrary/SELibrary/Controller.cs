@@ -33,7 +33,7 @@ namespace SELibrary
         /// </exception>
         public Controller(ILibraryUI ui)
         {
-            CurrentDate = new DateTime(2015, 1, 1);
+            CurrentDate = DateTime.Today;
             libraryDatabase = new Database(new List<Media>(), new List<Patron>());
             _ui = ui;
             _databaseFile = null;
