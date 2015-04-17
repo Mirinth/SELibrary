@@ -77,6 +77,12 @@ namespace SELibrary
         /// <param name="e">Unused</param>
         private void RdoListNone_CheckedChanged(object sender, EventArgs e)
         {
+            if (((RadioButton)sender).Checked == false)
+            {
+                // don't generate lists for *un*check event
+                return;
+            }
+
             LstBookList.Items.Clear();
             LstBookList.Items.Add("None");
         }
@@ -88,6 +94,12 @@ namespace SELibrary
         /// <param name="e">Unused</param>
         private void RdoListAll_CheckedChanged(object sender, EventArgs e)
         {
+            if (((RadioButton)sender).Checked == false)
+            {
+                // don't generate lists for *un*check event
+                return;
+            }
+
             LstBookList.Items.Clear();
             List<Media> allMedia = proControl.ListMedia();
             foreach(Media item in allMedia)
@@ -103,6 +115,12 @@ namespace SELibrary
         /// <param name="e">Unused</param>
         private void RdoListOverdue_CheckedChanged(object sender, EventArgs e)
         {
+            if (((RadioButton)sender).Checked == false)
+            {
+                // don't generate lists for *un*check event
+                return;
+            }
+
             LstBookList.Items.Clear();
             List<Media> overdueMedia = proControl.ListOverdueMedia();
             foreach (Media item in overdueMedia)
@@ -119,6 +137,12 @@ namespace SELibrary
         /// <param name="e">Unused</param>
         private void RdoListByPatron_CheckedChanged(object sender, EventArgs e)
         {
+            if (((RadioButton)sender).Checked == false)
+            {
+                // don't generate lists for *un*check event
+                return;
+            }
+
             LstBookList.Items.Clear();
             List<Media> patronMedia = proControl.ListMediaByPatron((Patron)CBoxPatron.SelectedItem);
             foreach (Media item in patronMedia)
